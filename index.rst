@@ -22,52 +22,18 @@
    :caption: Swarm
 
    01.ref/index.rst
-   0_Introduction/advantages.rst
-   0_Introduction/sphinx-projects.rst
+
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: 第二章：Sphinx
-
-   1_sphinx/sphinx101.rst
-   1_sphinx/pdf-rendering.rst
-   1_sphinx/pdf-render-latex.rst
-
-.. toctree::
-   :maxdepth: 1
-   :caption: 第三章：reStructuredText
-
-   2_rst/rst101.rst
-   2_rst/rst-publish.rst
+   :caption: Sphinx
 
 
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 第四章：Sphinx主题
-
-    4_theming/rtd-theme
-    4_theming/jinja
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 第四章：Github
+   About_Sphinx.rst
 
 
-.. toctree::
-   :maxdepth: 2
-   :caption: 第五章：Read the Docs
-
-   4_readthedoc/
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 其他工具链
-
-   5_others/jekII.rst
-   5_others/jekyll-theme
-
+   
 
 
 索引和表格
