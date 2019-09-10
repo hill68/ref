@@ -61,7 +61,7 @@ master_doc = 'index'
 # General information about the project.
 project = 'Docs Hub'
 copyright = '2019, ISCAS'
-author = 'DS&AI Lab.'
+author = 'DSI Lab'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
