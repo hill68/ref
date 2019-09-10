@@ -119,14 +119,14 @@ Windows系统
 
 更多内容参见ReadtheDocs官方文档：https://docs.readthedocs.io/en/latest/getting_started.html
 
-**下次课内容**
+**后续内容**
 
 * reStructedText
 * 自定义主题
 * 制作主题
 * 发布为PDF等其他样式
 
-预习：
+相关技能：
 
 * HTML，CSS
 * Jinjia 模板语言
