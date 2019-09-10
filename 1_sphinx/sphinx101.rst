@@ -1,13 +1,12 @@
 =====================
 Sphinx快速入门
 =====================
-:date: 2018/04/12
-:author: 高志军
+
 
 Sphinx是一个静态网页发布工具，可将rST和md文件，发布为各类常见的用户帮助如联机帮助，用户手册等。
 
 
-安装Sphinx 
+安装Sphinx
 =====================
 
 Mac系统
@@ -72,8 +71,8 @@ Windows系统
         :height: 200px
         :width: 400 px
         :alt: 添加至首页目录
-        
-        
+
+
 #. 在Terminal中运行编译命令 ``sphinx-build -b html source build``
 
 #. 编译成功的话，在 *build* 文件夹中则有刚才发布的网站
@@ -122,7 +121,7 @@ Windows系统
 
 **下次课内容**
 
-* reStructedText 
+* reStructedText
 * 自定义主题
 * 制作主题
 * 发布为PDF等其他样式
