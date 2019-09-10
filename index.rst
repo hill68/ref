@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-基于Sphinx的技术文档开发教程
+参考论文
 ==========================================
 本书将介绍一种轻量级的文档解决方案，所用工具均为成熟的开源技术。阅读本书后，读者可以用本书的方法，轻松为公司的产品或服务提供所需的帮助文档。
 
@@ -26,9 +26,9 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: 第一章：快速上手
+   :caption: Swarm
 
-   0_Introduction/intro.rst
+   01.ref/index.rst
    0_Introduction/advantages.rst
    0_Introduction/sphinx-projects.rst
 
