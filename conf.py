@@ -59,9 +59,9 @@ source_parsers = {
 master_doc = 'index'
 
 # General information about the project.
-project = 'Docs like Code'
-copyright = '2018, Zhijun Gao'
-author = 'Zhijun Gao'
+project = 'Docs Hub'
+copyright = '2019, ISCAS'
+author = 'DS&AI Lab.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -125,7 +125,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DocslikeCodedoc'
+htmlhelp_basename = 'DocHubdoc'
 
 
 #
@@ -237,5 +237,3 @@ epub_exclude_files = ['search.html']
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
-
-
