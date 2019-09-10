@@ -2,7 +2,7 @@
 使用rinoh输出 PDF
 ==================
 
-Sphinx输出为PDF有多种方式，例如依赖LaTex技术，现将rst转为latex，在转为PDF。现在也有多种其他方案，如Rinoh或rst2pdf等。本节将主要介绍rinoh插件。。
+Sphinx输出为PDF有多种方式，例如依赖LaTex技术，现将rst转为latex，再转为PDF。现在也有多种其他方案，如Rinoh或rst2pdf等。本节将主要介绍rinoh插件。。
 
 
 rinoh插件安装
@@ -55,7 +55,7 @@ rinoh插件安装
     rinoh_documents = [('index',    # top-level file (index.rst)
                         'target', # output (target.pdf)
                         'Sphinx Quickstart', # document title
-                        'Zhijun Gao')] # document author
+                        'Flitsoft')] # document author
 
 
 配置后，运行：``sphinx-build -b rinoh source build2``
