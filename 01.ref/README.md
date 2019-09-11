@@ -11,7 +11,7 @@ M_{i}(x_{i})\ddot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}
 \end{equation}
 
 \begin{equation}
-C_{i}(x_{i} , \dot{x}_{i})\dot{x}_{i}
+C_{i}(x_{i}  \dot{x}_{i})\dot{x}_{i}
 \end{equation}
 
 \begin{equation}
