@@ -50,11 +50,11 @@ Board since 2007.
    </p>
 
 
-   .. raw:: html
+.. raw:: html
 
       <p>
 
-   .. raw:: html
+.. raw:: html
 
      <details>
      <summary>Saing Paul Hou</summary>
@@ -70,11 +70,11 @@ Ph.D. degree at Nanyang Technological University, Singapore since 2006.
 His research interests include formation control of multi-robot systems and
 adaptive control.
 
-   .. raw:: html
+.. raw:: html
 
       </details>
 
-   .. raw:: html
+.. raw:: html
 
       </p>
 
@@ -100,11 +100,11 @@ Nonlinear Systems Laboratory, Massachusetts Institute of Technology,
   Slotine was a member of the French National Science Council from 1997 to 2002,
   and is a member of Singapore’s A*STAR Sign Advisory Board.
 
-      .. raw:: html
+.. raw:: html
 
          </details>
 
-      .. raw:: html
+.. raw:: html
 
          </p>
 
