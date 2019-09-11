@@ -78,11 +78,11 @@ adaptive control.
 
       </p>
 
-      .. raw:: html
+.. raw:: html
 
          <p>
 
-      .. raw:: html
+.. raw:: html
 
         <details>
         <summary>Jean Jacques E. Slotine</summary>
