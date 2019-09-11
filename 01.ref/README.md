@@ -5,7 +5,7 @@
 \int\limits_{-\infty}^\infty f(x) \delta(x - x_0) dx = f(x_0)
 \end{equation}
 
-Click ** Generate PDF ** on the rightside ( $N$ ) panel to output pdf file $n$.
+Click **Generate PDF** on the rightside ( $N$ ) panel to output pdf file $n$.
 
 我们考虑一组 ( $N$ ) 个启动的移动机器人，其具有 $n$ 个自由度的第 \[ i \] 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
 
@@ -93,9 +93,9 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
 我们考虑一组``N``个启动的移动机器人，其具有``n``个自由度的第 \(i\) 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
 >We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be de- scribed as (Fossen, 1994; Slotine & Li, 1991):
 
-```math
+\begin{equation}
 M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{i}+D_{i}\left(x_{i}\right) \dot{x}_{i}+g_{i}\left(x_{i}\right)=u_{i}\tag{1}
-```
+\end{equation}
 
 
 其中$`x_{i}\in R^{n}`$是广义坐标。$`M_i(x_i)\in R^{n \times n}`$是惯性矩阵，所以是对称且正定的，$`C_i(x_i，\dot{x_i})\in R^{n \times n}`$是科里奥利矩阵，并且向心项中的$`\dot{M}_{i}\left(x_{i}\right)-2 C_{i}\left(x_{i}, \dot{x}_{i}\right)`$是偏斜对称的，$`D_{i}\left(x_{i}\right) \dot{x}_{i}`$表示阻尼力，其中$`D_{i}\left(x_{i}\right) \in R^{n \times n}`$是正定，$`g_{i}\left(x_{i}\right) \in R^{n}`$表示重力矢量，$`u_{i} \in R^{n}`$表示控制输入。
@@ -109,9 +109,9 @@ M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x
 >In this section, we present a region-based shape controller for multi-robot systems. First, a moving region of specific shape is de- fined for all the robots to stay inside. This can be viewed as a global objective of all robots. Second, a minimum distance is specified be- tween each robot and its neighboring robots. This can be viewed as a local objective of each robot. Thus, the group of robots will be able to move in a desired shape while maintaining a minimum distance among each other.
 Let us define a global objective function by the following inequality:
 
-```math
+\begin{equation}
 f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 2}\left(\Delta x_{i o 2}\right), \ldots, f_{\mathrm{GM}}\left(\Delta x_{i o M}\right)\right]^{\mathrm{T}} \leq 0 \tag{2}
-```
+\end{equation}
 
 其中$`\Delta x_{i o l}=x_{i}-x_{o l}, x_{o l}(t)`$是第$`l`$个所需区域内的参考点，$`l = 1,2，\dots，M `$，$`M`$是目标函数的总数， $`f_{G l}\left(\Delta x_{i o l}\right)`$是连续的标量函数，具有连续偏导数满足当 $`\left\|\Delta x_{i o l}\right\| \rightarrow \infty`$ 时 ，$`\left|f_{G l}\left(\Delta x_{i o l}\right)\right| \rightarrow \infty`$ 。$`f_{G l}\left(\Delta x_{i o l}\right)`$ 的选取标准是满足$`f_{G}\left(\Delta x_{i o l}\right)`$有界性，从而保证$`\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}`$ 和$`\frac{\partial^{2} f_{G l}\left(\Delta x_{\text { iol }}\right)}{\partial \Delta x_{\text {iol}}^{2}}`$的有界性。
 
@@ -120,9 +120,9 @@ f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 
 选择单个区域的每个参考点作为彼此的常数偏移，以满足$`\dot{x}_{ol}=\dot{x}_{o}`$，其中$`\dot{x}_{o}`$是所需区域的速度。通过选择合适的函数，可以形成圆形，椭圆形，月牙形，环形，三角形，正方形等各种阵型。例如，可以通过选择目标函数来形成环形阵型，如下所示：
 >Each reference point of the individual region is chosen to be a con- stant offset of one another so that $`\dot{x}_{o l}=\dot{x}_{o}`$, where $`\dot{x}_{o}`$ is the speed of the desired region. Various shapes such as circle, ellipse, crescent, ring, triangle, square etc. can be formed by choosing the appropri- ate functions. For example, a ring shape can be formed by choosing the objective functions as follows:
 
-```math
+\begin{equation}
 \begin{array}{l}{f_{1}\left(\Delta x_{i o1}\right)=r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0} \\ {f_{2}\left(\Delta x_{i o2}\right)=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0}\end{array}\tag{3}
-```
+\end{equation}
 其中$`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`$，$`r_1`$和$`r_2`$是两个圆的半径，其中半径为常数，且满足$`r_{1}<r_{2}`$，$`\left(x_{o11}(t), x_{o12}(t)\right)`$代表两个圆的共同中心。目标区域的一些示例如图1所示。
 >where $`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`$ , $`r_1`$ and $`r_2`$ are the constant radii of two circles such that $`r_{1}<r_{2}`$ , $`\left(x_{o11}(t), x_{o12}(t)\right)`$ represents the common center of the two circles. Some examples of the desired regions are shown in Fig. 1.
 
@@ -134,37 +134,37 @@ f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 
 涉及机器人$`i`$的全局目标函数的势能函数定义如下：
 >The potential energy function of the global objective functions involving robot i is defined as follows:
 
-```math
+\begin{equation}
 \begin{aligned} P_{G i}\left(\Delta x_{i o l}\right) &=\sum_{l=1}^{M} \frac{k_{l}}{2}\left[\max \left(0, f_{G l}\left(\Delta x_{i o l}\right)\right)\right]^{2} \\ &=\sum_{l=1}^{M} P_{G l}\left(\Delta x_{i o l}\right) \end{aligned}\tag{4}
-```
+\end{equation}
 
 其中
 >where
 
-```math
+\begin{equation}
 P_{G l}\left(\Delta x_{i o l}\right)=\left\{\begin{array}{ll}{0} & {f_{G l}\left(\Delta x_{i o l}\right) \leq 0} \\ {\frac{k_{l}}{2} f_{G l}^{2}\left(\Delta x_{i o l}\right)} & {f_{G l}\left(\Delta x_{i o l}\right)>0}\end{array}\right.\tag{5}
-```
+\end{equation}
 
 和$`k_l`$是正的常数。
 对势能函数（4）和（5）求关于$`\Delta x_{i o l}`$的偏导后，我们有：
 >and $`k_l`$ are positive constants.
 Partial differentiating the potential energy function described by Eqs. (4) and (5) with respect to $`\Delta x_{i o l}`$ we have:
 
-```math
+\begin{equation}
 \frac{\partial P_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}=\sum_{l=1}^{M} \frac{\partial P_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}\tag{6}
-```
+\end{equation}
 其中
 >where
 
-```math
+\begin{equation}
 \frac{\partial P_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}=\left\{\begin{array}{ll}{0} & {f_{G l}\left(\Delta x_{i o l}\right) \leq 0} \\ {k_l f_{G l}\left(\Delta x_{i o l}\right)\left(\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}\right)^{T}} & {f_{G l}\left(\Delta x_{i o l}\right)>0}\end{array}\right.
-```
+\end{equation}
 上述等式可写为：
 >The above equations can be written as:
 
-```math
+\begin{equation}
 \begin{aligned} \frac{\partial P_{G i}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}} &=\sum_{l=1}^{M} k_{l} \max \left(0, f_{G l}\left(\Delta x_{i o l}\right)\right)\left(\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}\right)^{T} \\ & \triangleq \Delta \xi_{i} \end{aligned}\tag{7}
-```
+\end{equation}
 
 从方程式（7）中可以看出，$`\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}`$是连续的，因为$`f_{G l}\left(\Delta x_{i o l}\right)`$是连续的，$`f_{G l}\left(\Delta x_{i o l}\right)`$接近零时，$`x_i`$接近目标区域的（即$`f_{G l}\left(\Delta x_{i o l}\right)`$）的边界，当$`x_i`$在区域内时，它保持为零。
 >As seen from Eq. (7), $`\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}`$ is continuous because $`f_{G l}\left(\Delta x_{i o l}\right)`$ is continuous and $`f_{G l}\left(\Delta x_{i o l}\right)`$ approaches zero as $`x_i`$ approaches the
@@ -176,9 +176,9 @@ boundary of the desired region (i.e. $`f_{G l}\left(\Delta x_{i o l}\right)`$) a
 接下来，我们通过以下不等式定义机器人之间的最小距离：
 >Next, we define a minimum distance between robots by the following inequality:
 
-```math
+\begin{equation}
 g_{L i j}\left(\Delta x_{i j}\right)=r^{2}-\left\|\Delta x_{i j}\right\|^{2} \leq 0 \tag{8}
-```
+\end{equation}
 
 其中$`\Delta x_{i j}=x_{i}-x_{j}`$是机器人$`i`$和机器人$`j`$之间的距离，$`r`$是两个机器人之间的最小距离，如图2所示。为简单起见，所有机器人之间的最小距离选择为相同的。 可以从上面的不等式看出，函数$`g_{L i j}\left(\Delta x_{i j}\right)`$是二次可偏导的。
 >where $`\Delta x_{i j}=x_{i}-x_{j}`$ is the distance between robot $`i`$ and robot $`j`$ and $`r`$ is a minimum distance between the two robots as illustrated in Fig. 2. For simplicity, the minimum distance between robots is chosen to be the same for all the robots. Note from the above inequality that the function $`g_{L i j}\left(\Delta x_{i j}\right)`$ is twice partially differentiable.
@@ -191,29 +191,29 @@ g_{L i j}\left(\Delta x_{i j}\right)=r^{2}-\left\|\Delta x_{i j}\right\|^{2} \le
 从等式8中可以很明显地看出
 >From Eq. (8), it is clear that
 
-```math
+\begin{equation}
 g_{L i j}\left(\Delta x_{i j}\right)=g_{L j i}\left(\Delta x_{j i}\right)\tag{9}
-```
+\end{equation}
 并且
 >and
 
-```math
+\begin{equation}
 \frac{\partial g_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}=-\frac{\partial g_{L j i}\left(\Delta x_{j i}\right)}{\partial \Delta x_{j i}}\tag{11}
-```
+\end{equation}
 
 局部目标函数（8）的势能定义为：
 >A potential energy for the local objective function (8) is defined as:
 
-```math
+\begin{equation}
 Q_{L i j}\left(\Delta x_{i j}\right)=\sum_{j \in N_{i}} \frac{k_{i j}}{2}\left[\max \left(0, g_{L i j}\left(\Delta x_{i j}\right)\right)\right]^{2}\tag{11}
-```
+\end{equation}
 
 其中$`k_{ij}`$是正常数，$`N_i`$是机器人$`i`$周围的邻近机器人集合。所有与机器人$`i`$的距离小于$`r_N`$的机器人都被称为机器人$`i`$的邻近机器人。$`r_N`$是一个正数，并且满足条件$`r_N>r`$。 对式（11）求关于$`x_{ij}`$的偏导，我们得到
 >where $`k_{ij}`$ are positive constants and $`N_i`$ is a set of neighbors around robot $`i`$. Any robot that is at a distance smaller than $`r_N`$ from robot $`i`$ is called neighbor of robot $`i`$.$`r_N`$ is a positive number satisfy the condition $`r_N>r`$ . Partial differentiating Eq. (11) with respect to $`x_{ij}`$ , we get
 
-```math
+\begin{equation}
 \begin{aligned} \frac{\partial Q_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}} &=\sum_{j \in N_{i}} k_{i j} \max \left(0, g_{L i j}\left(\Delta x_{i j}\right)\right)\left(\frac{\partial g_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}\right)^{\mathrm{T}} \\ & \triangleq \Delta \rho_{i j} \end{aligned}\tag{12}
-```
+\end{equation}
 
 从式（12）中可以看出$`\frac{\partial Q_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}`$是连续的。值得注意的是，$`\Delta \rho_{i j}`$是由其相邻机器人作用在机器人$`i`$上的控制合力。当机器人$`i`$与邻近机器人保持最小距离$`r`$时，则$`\Delta \rho_{i j}=0`$。当且仅当机器人$`i`$与其任何邻近机器人之间的距离小于最小距离$`r`$时，才激活控制力$`\Delta \rho_{i j}`$。我们考虑每对相邻机器人之间力的作用是相互的。也就是说，如果机器人$`i`$与机器人$`j`$远离一段距离，那么机器人$`j`$也与机器人$`i`$远离一段距离。
 >Similarly,$`\frac{\partial Q_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}`$ is continuous as seen from Eq. (12). Note that $`\Delta \rho_{i j}`$ is a resultant control force acting on robot $`i`$ by its neighboring robots. When robot $`i`$ maintains minimum distance $`r`$ from its neigh- boring robots, then $`\Delta \rho_{i j}=0`$. The control force $`\Delta \rho_{i j}`$ is activated only when the distance between robot $`i`$ and any of its neighboring robots is smaller than the minimum distance $`r`$ . We consider a bidirectional interactive force between each pair of neighbors. That is, if robot $`i`$ keeps a distance from robot $`j`$ then robot $`j`$ also keeps a distance from robot $`i`$.
@@ -221,9 +221,9 @@ Q_{L i j}\left(\Delta x_{i j}\right)=\sum_{j \in N_{i}} \frac{k_{i j}}{2}\left[\
 接下来，我们将向量$`\dot{x}_{r i}`$定义为
 >Next, we define a vector $`\dot{x}_{r i}`$ as
 
-```math
+\begin{equation}
 \dot{x}_{r i}=\dot{x}_{0}-\alpha_{i} \Delta \xi_{i}-\gamma \Delta \rho_{i j}(13)
-```
+\end{equation}
 
 其中$`\Delta \xi_{i}`$为方程式（7）中的定义，$`\Delta \rho_{i j}`$为方程式（12）中定义，$`\alpha_{i}`$和$`\gamma`$是正常数。
 >where $`\Delta \xi_{i}`$ is defined in Eq. (7), $`\Delta \rho_{i j}`$ is defined in (12), $`\alpha_{i}`$ and $`\gamma`$ are positive constants.
@@ -231,17 +231,17 @@ Q_{L i j}\left(\Delta x_{i j}\right)=\sum_{j \in N_{i}} \frac{k_{i j}}{2}\left[\
 令$`\Delta \epsilon_{i}=\alpha_{i} \Delta \xi_{i}+\gamma \Delta \rho_{i j}`$成立，我们有
 >Let$`\Delta \epsilon_{i}=\alpha_{i} \Delta \xi_{i}+\gamma \Delta \rho_{i j}`$, we have
 
-```math
+\begin{equation}
 \dot{x}_{r i}=\dot{x}_{o}-\Delta \epsilon_{i}\tag{14}
-```
+\end{equation}
 
 当机器人与其所有邻居保持最小距离时，机器人在所需区域内（如图3所示），然后$`\Delta \epsilon_{i}=0`$。对式（14）求关于时间的微分，我们得到：
 >When robot i keeps a minimum distance from all its neighboring
 robots inside the desired region (as illustrated in Fig. 3), then $`\Delta \epsilon_{i}=0`$. Differentiating Eq. (14) with respect to time we get`
 
-```math
+\begin{equation}
 \ddot{x}_{r i}=\ddot{x}_{0}-\Delta \dot{\epsilon}_{i}(15)
-```
+\end{equation}
 ![alt text](img/figure3.png)
 
 `图3`:机器人$`i`$看到的理想区域
@@ -250,44 +250,44 @@ robots inside the desired region (as illustrated in Fig. 3), then $`\Delta \epsi
 然后将机器人$`i`$的滑动矢量定义为：
 >A sliding vector for robot i is then defined as:
 
-```math
+\begin{equation}
 s_{i}=\dot{x}_{i}-\dot{x}_{r i}=\Delta \dot{x}_{i}+\Delta \epsilon_{i}\tag{16}
-```
+\end{equation}
 
 其中$`\Delta \ddot{x}_{i}=\ddot{x}_{i}-\ddot{x}_{o}`$。 对方程（16）求时域微分
 >where $`\Delta \ddot{x}_{i}=\ddot{x}_{i}-\ddot{x}_{o}`$. Differentiating Eq. (16) with respect to time yields
 
-```math
+\begin{equation}
 \dot{s}_{i}=\ddot{x}_{i}-\ddot{x}_{r i}=\Delta \ddot{x}_{i}+\Delta \dot{\epsilon}_{i}\tag{17}
-```
+\end{equation}
 其中$`\Delta \ddot{x}_{i}=\ddot{x}_{i}-\ddot{x}_{O}`$。将等式（16）和等式（17）代入等式（1）
 >where $`\Delta \ddot{x}_{i}=\ddot{x}_{i}-\ddot{x}_{o}`$. Substituting Eqs. (16) and (17) into Eq. (1) we have
 
-```math
+\begin{equation}
 \begin{array}{l}{M_{i}\left(x_{i}\right) \dot{s}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) s_{i}+D_{i}\left(x_{i}\right) s_{i}+M_{i}\left(x_{i}\right) \ddot{x}_{r i}} \\ {\quad+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{r i}+D_{i}\left(x_{i}\right) \dot{x}_{r i}+g_{i}\left(x_{i}\right)=u_{i}}\end{array}\tag{18}
-```
+\end{equation}
 
 我们在方程（18）等号左侧后四个量在动态参数$`\theta_{i}`$的集合中是线性的，因此可以被表示为（Slotine＆Li，1991）
 >The last four terms on the left hand side of Eq. (18) are linear in a set of dynamic parameters $`\theta_{i}`$ and hence can be represented as (Slotine & Li, 1991)
 
-```math
+\begin{equation}
 \begin{array}{l}{M_{i}\left(x_{i}\right) \ddot{x}_{r i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{r i}+D_{i}\left(x_{i}\right) \dot{x}_{r i}+g_{i}\left(x_{i}\right)} \\ {\quad=Y_{i}\left(x_{i}, \dot{x}_{i}, \dot{x}_{r}, \ddot{x}_{r i}\right) \theta_{i}}\end{array}\tag{19}
-```
+\end{equation}
 
 其中$`Y_{i}\left(x_{i}, \dot{x}_{i}, \dot{x}_{n}, \ddot{x}_{r i}\right)`$是已知的回归矩阵。因此可以得出用于机器人群的，基于区域的阵型控制器
 >where $`Y_{i}\left(x_{i}, \dot{x}_{i}, \dot{x}_{n}, \ddot{x}_{r i}\right)`$ is a known regressor matrix.
 The region-based shape controller for a swarm of robots is proposed as
 
-```math
+\begin{equation}
 u_{i}=-K_{s i} s_{i}-K_{p} \Delta \epsilon_{i}+Y_{i}\left(x_{i}, \dot{x}_{i}, \dot{x}_{r i}, \ddot{x}_{r i}\right) \hat{\theta}_{i}\tag{20}
-```
+\end{equation}
 
 $`K_{si}`$是正定矩阵，$`K_{p}=k_{p}`$，$`k_p`$是整的常数，$`I`$是一个单位矩阵。 估计参数 $`\hat{\theta}_{i}`$由下式更新
 >where $`K_{si}`$ are positive definite matrices, $`K_{p}=k_{p}`$ $`k_p`$,  is a positive constant and $`I`$ is an identity matrix. The estimated parameters $`\hat{\theta}_{i}`$ are updated by
 
-```math
+\begin{equation}
 \dot{\hat{\theta}}_{i}=-L_{i} Y_{i}^{\mathrm{T}}\left(x_{i}, \dot{x}_{i}, \dot{x}_{r i}, \ddot{x}_{r i}\right) s_{i}\tag{21}
-```
+\end{equation}
 
 其中$`L_i`$是正定矩阵
 >where $`L_i`$ are positive definite matrices.
@@ -295,59 +295,59 @@ $`K_{si}`$是正定矩阵，$`K_{p}=k_{p}`$，$`k_p`$是整的常数，$`I`$是�
 将方程（20）代入方程（18），得到闭环动力学方程。
 >The closed-loop dynamic equation is obtained by substituting Eq. (20) into Eq. (18):
 
-```math
+\begin{equation}
 \begin{array}{l}{M_{i}\left(x_{i}\right) \dot{s}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) s_{i}+D_{i}\left(x_{i}\right) s_{i}+K_{s i} s_{i}} \\ {\quad+Y_{i}\left(x_{i}, \dot{x}_{i}, \dot{x}_{r i}, \ddot{x}_{r i}\right) \Delta \theta_{i}+K_{p} \Delta \epsilon_{i}=0}\end{array}\tag{22}
-```
+\end{equation}
 其中$`\Delta \theta_{i}=\theta_{i}-\hat{\theta}_{i}`$。让我们为多机器人系统定义类Lyapunov的函数
 >where $`\Delta \theta_{i}=\theta_{i}-\hat{\theta}_{i}`$. Let us define a Lyapunov-like function for the multi-robot system as
 
-```math
+\begin{equation}
 \begin{aligned} V=& \sum_{i=1}^{N} \frac{1}{2} s_{i}^{\mathrm{T}} M_{i}\left(x_{i}\right) s_{i}+\sum_{i=1}^{N} \frac{1}{2} \Delta \theta_{i}^{\mathrm{T}} L_{i}^{-1} \Delta \theta_{i} \\ &+\sum_{i=1}^{N} \frac{1}{2} \alpha_{i} k_{p} \sum_{l=1}^{M} k_{l}\left[\max \left(0, f_{G l}\left(\Delta x_{i 0 l}\right)\right)\right]^{2} \\ &+\frac{1}{2} \sum_{i=1}^{N} \frac{1}{2} \gamma k_{p} \sum_{j \in N_{i}} k_{i j}\left[\max \left(0, g_{L i j}\left(\Delta x_{i j}\right)\right)\right]^{2} \end{aligned}\tag{23}
-```
+\end{equation}
 
 接下来，我们将继续表明类Lyapunov函数的导数是负半定的，然后使用Barbalat的引理来证明群系统的收敛性。根据时间对V求导数，并且使用等式7，21和22的结果。我们得到下式
 >In the following development, we shall proceed to show that the derivative of the Lyapunov-like function is negative semi-definite and then use Barbalat’s lemma to prove the convergence of the swarm system. Differentiating V with respect to time and using Eq. (7), (21) and (22) we get
 
-```math
+\begin{equation}
 \begin{aligned} \dot{V}=&-\sum_{i=1}^{N} s_{i}^{\mathrm{T}} K_{s i} s_{i}-\sum_{i=1}^{N} s_{i}^{\mathrm{T}} D_{i}\left(x_{i}\right) s_{i} \\ &-\sum_{i=1}^{N} s_{i}^{\mathrm{T}} k_{p} \Delta \epsilon_{i}+\sum_{i=1}^{N} \alpha_{i} k_{p} \Delta \dot{x}_{i}^{\mathrm{T}} \Delta \xi_{i} \\ &+\frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} \sum_{j \in N_{i}} k_{i j} \Delta \dot{x}_{i j}^{\mathrm{T}} \max \left(0, g_{\text {lij}}\left(\Delta x_{i j}\right)\right)\left(\frac{\partial g_{\text {lij}}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}\right)^{\mathrm{T}} \end{aligned}\tag{24}
-```
+\end{equation}
 
 接下来，因为$`\Delta \dot{x}_{i j}=\dot{x}_{i}-\dot{x}_{j}=\left(\dot{x}_{i}-\dot{x}_{o}\right)-\left(\dot{x}_{j}-\dot{x}_{o}\right)=\Delta \dot{x}_{i}-\Delta \dot{x}_{j}`$，通过使用等式（12）的结果，等式24的最后一个参数可以写成
 >Next,since $`\Delta \dot{x}_{i j}=\dot{x}_{i}-\dot{x}_{j}=\left(\dot{x}_{i}-\dot{x}_{o}\right)-\left(\dot{x}_{j}-\dot{x}_{o}\right)=\Delta \dot{x}_{i}-\Delta \dot{x}_{j}`$,by using Eq. (12), the last term of Eq. (24) can be written as
 
-```math
+\begin{equation}
 \begin{aligned} \frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} & \sum_{j \in N_{i}} k_{i j} \Delta \dot{x}_{i j}^{\mathrm{T}} \max \left(0, g_{L i j}\left(\Delta x_{i j}\right)\right)\left(\frac{\partial g_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}\right)^{\mathrm{T}} \\=& \frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} \Delta \dot{x}_{i}^{\mathrm{T}} \Delta \rho_{i j} \\ &-\frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} \sum_{j \in N_{i}} k_{i j} \Delta \dot{x}_{j}^{\mathrm{T}} \max \left(0, g_{\text {Lij}}\left(\Delta x_{i j}\right)\right)\left(\frac{\partial g_{\text {Lij}}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}\right)^{\mathrm{T}} \end{aligned}\tag{25}
-```
+\end{equation}
 
 通过等式（9）和（10），我们注意到$`g_{L i j}\left(\Delta x_{i j}\right)=g_{L j i}\left(\Delta x_{j i}\right)`$和$`\frac{\partial g_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}=-\frac{\partial g_{L j i}\left(\Delta x_{j i}\right)}{\partial \Delta x_{j i}}`$。因此将这些特性应用于方程（25）的最后一项。我们有
 >From Eq. (9) and (10), we note that $`g_{L i j}\left(\Delta x_{i j}\right)=g_{L j i}\left(\Delta x_{j i}\right)`$ and $`\frac{\partial g_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}=-\frac{\partial g_{L j i}\left(\Delta x_{j i}\right)}{\partial \Delta x_{j i}}`$.Therefore applying these properties to the last term of Eq.(25). We have
 
-```math
+\begin{equation}
 \begin{aligned} \frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} & \sum_{j \in N_{i}} k_{i j} \Delta \dot{x}_{i j}^{\mathrm{T}} \max \left(0, g_{L i j}\left(\Delta x_{i j}\right)\right)\left(\frac{\partial g_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}\right)^{\mathrm{T}} \\=& \frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} \Delta \dot{x}_{i}^{\mathrm{T}} \Delta \rho_{i j} \\ &+\frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} \sum_{j \in N_{i}} k_{i j} \Delta \dot{x}_{j}^{\mathrm{T}} \max \left(0, g_{L j i}\left(\Delta x_{j i}\right)\right)\left(\frac{\partial g_{L i j}\left(\Delta x_{j i}\right)}{\partial \Delta x_{j i}}\right)^{\mathrm{T}} \end{aligned}(26)
-```
+\end{equation}
 
 由于每对邻居之间存在双向相互作用力，通过让$`k_{i j}=k_{j i}`$，上述等式的最后一项可写为
 >Since there is a bidirectional interaction force between each pair of neighbors, by letting # , the last term of the above equation can be written as
 
-```math
+\begin{equation}
 \frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} \sum_{j \in N_{i}} k_{i j} \Delta \dot{x}_{j}^{\mathrm{T}} \max \left(0, g_{L j i}\left(\Delta x_{j i}\right)\right)\left(\frac{\partial g_{L j j}\left(\Delta x_{j j}\right)}{\partial \Delta x_{j i}}\right)^{\mathrm{T}}
-```
-```math
+\end{equation}
+\begin{equation}
 \begin{array}{l}{=\frac{1}{2} \sum_{j=1}^{N} \gamma k_{p} \sum_{i \in N_{j}} k_{j i} \Delta \dot{x}_{j}^{\mathrm{T}} \max \left(0, g_{L j}\left(\Delta x_{j i}\right)\right)\left(\frac{\partial g_{L j i}\left(\Delta x_{j i}\right)}{\partial \Delta x_{j i}}\right)^{\mathrm{T}}} \\ {=\frac{1}{2} \sum_{j=1}^{N} \gamma k_{p} \Delta \dot{x}_{j}^{\mathrm{T}} \Delta \rho_{j i}} \\ {=\frac{1}{2} \sum_{i=1}^{N} \gamma k_{p} \Delta \dot{x}_{i}^{\mathrm{T}} \Delta \rho_{i j}}\end{array}\tag{27}
-```
+\end{equation}
 
 其中$`N_j`$是机器人$`j`$的邻近机器人集合。因此，将方程（26）和（27）代入方程（24）类Lyapunov函数的时间导数，我们得到
 >Where $`N_j`$ is the set of neighbors around robot $`j`$. Therefore, substituting Eq.(26) and (27) into the time derivative of the Lyapunov function in (24), we have
 
-```math
+\begin{equation}
 \begin{aligned} \dot{V}=-& \sum_{i=1}^{N} s_{i}^{\mathrm{T}} K_{s ; S_{i}}-\sum_{i=1}^{N} s_{i}^{\mathrm{T}} D_{i}\left(x_{i}\right) S_{i}-\sum_{i=1}^{N} s_{i}^{\mathrm{T}} k_{p} \Delta \epsilon_{i} \\ &+\sum_{i=1}^{N} \alpha_{i} k_{p} \Delta \dot{x}_{i}^{\mathrm{T}} \Delta \xi_{i}+\sum_{i=1}^{N} \gamma k_{p} \Delta \dot{x}_{i}^{\mathrm{T}} \Delta \rho_{i j} \end{aligned}\tag{28}
-```
+\end{equation}
 最后，将方程（16）代入方程（28），我们得到了
 >Finnally, substituting Eq.(16) into Eq.(28) we get
 
-```math
+\begin{equation}
 \begin{aligned} \dot{V}=&-\sum_{i=1}^{N} s_{i}^{\mathrm{T}} K_{s i} s_{i}-\sum_{i=1}^{N} s_{i}^{\mathrm{T}} D_{i}\left(x_{i}\right) s_{i} \\ &-\sum_{i=1}^{N} k_{p} \Delta \epsilon_{i}^{\mathrm{T}} \Delta \epsilon_{i} \leq 0 \end{aligned}\tag{29}
-```
+\end{equation}
 
 我们准备陈述以下理论：
 >We are ready to state the following theroem:
@@ -362,32 +362,32 @@ $`\Delta \dot{\xi}_{i}`$ and $`\Delta \dot{\rho}_{i j}`$ are bounded and hence $
 因为
 >Since
 
-```math
+\begin{equation}
 \Delta \epsilon_{i}=\alpha_{i} \Delta \xi_{i}+\gamma \Delta \rho_{i j}=0\tag{30}
-```
+\end{equation}
 由于$`t \rightarrow \infty`$时，因此对所有的误差项取和
 >as $`t \rightarrow \infty`$, therefore summing all the error terms yields
 
-```math
+\begin{equation}
 \sum_{i=1}^{N} \alpha_{i} \Delta \xi_{i}+\sum_{i=1}^{N} \gamma \Delta \rho_{i j}=0\tag{31}
-```
+\end{equation}
 
 注意，机器人之间的力是相互的，这些力相互抵消，且多机器人系统中所有相互作用力的总和为零（即$`\sum_{i=1}^{N} \Delta \rho_{i j}=0`$）。通过等式（31），我们可以得出
 >Note that the interactive forces between robots are bi-directional
 and these forces cancel each other out and the summation of all the interactive forces in the multi-robot systems is zero (i.e. 􏰄$`\sum_{i=1}^{N} \Delta \rho_{i j}=0`$). From Eq. (31), we have
 
-```math
+\begin{equation}
 \sum_{i=1}^{N} \alpha_{i} \Delta \xi_{i}=0\tag{32}
-```
+\end{equation}
 
 上述等式的一个简单解决方案是对于所有$`i`$，$`\Delta \xi_{i}=0`$。如果
 所有机器人最初都在目标区域内，则它们将一直保持在目标区域，因为从式（29）可以看出$`\dot{V} \leq 0`$。因此通过等式（30），我们有$`\Delta \rho_{i j}=0`$.这意味着每个机器人都在目标的区域内，同时它们之间保持最小距离。接下来，假设$`\Delta \xi_{i} \neq 0`$是（32）的解。如果$`\Delta \xi_{i} \neq 0`$，则机器人在目标区域之外。如果机器人位于目标区域的一侧，则$`\Delta \xi_{i}`$沿某个轴具有相同的符号，因此它们不能相互抵消。这与􏰄$`\sum_{i=1}^{N} \alpha_{i} \Delta \xi_{i}=0`$的事实相矛盾。因此，$`\sum_{i=1}^{N} \alpha_{i} \Delta \xi_{i}=0`$的唯一可能性是当每个项$`\Delta \xi_{i}=0`$时。 通过式（30），我们有$`\Delta \rho_{i j}=0`$.因此，当且仅当所有的力$`\Delta \xi_{i}`$为零或相互抵消时，􏰄$`\sum_{i=1}^{N} \alpha_{i} \Delta \xi_{i}=0`$。这意味着一些机器人必须位于目标区域的相对侧。由于目标区域很大，当机器人的子小组位于该区域的相对侧时，子小组之间通常没有相互作用。因此，可以应用类似的论证来推断$`\Delta \xi_{i}=0`$.当在期望区域的不同侧的机器人之间存在相互作用或耦合时，通过调整$`\alpha_{i}`$可以获得$`\Delta \xi_{i}`$的合理权重。最后，由于$`s_{i} \rightarrow 0`$和$`\Delta \epsilon_{i} \rightarrow 0`$，我们可以从方程（16）得出结论$`\Delta \dot{x}_{i} \rightarrow0`$。因此，所有机器人都以相同的速度同步并且在稳定状态下保持它们之间的恒定距离。
 >One trivial solution of the above equation is that $`\Delta \xi_{i}=0`$ for all i. If all the robots are initially inside the desired region, then they will remain in the desired region for all time because $`\dot{V} \leq 0`$ as seen from (29). Hence from Eq. (30), we have $`\Delta \rho_{i j}=0`$. This means that each robot is inside the desired region and at the same time they maintain minimum distance among themselves. Next, assume to the contrary that $`\Delta \xi_{i} \neq 0`$ is the solution of (32). If $`\Delta \xi_{i} \neq 0`$, then the robots are outside the desired region. If the robots are on one side of the desired region then ∆ξi have the same sign along one axis and hence they cannot cancel out each other. This contradicts with the fact that􏰄 Ni=1αi∆ξi =0.Therefore,the only possibility that$`\sum_{i=1}^{N} \alpha_{i} \Delta \xi_{i}=0`$ is when each term $`\Delta \xi_{i}=0`$. From Eq. (30), we have $`\Delta \rho_{i j}=0`$. Hence 􏰄$`\sum_{i=1}^{N} \alpha_{i} \Delta \xi_{i}=0`$ if and only if all the forces ∆ξi are zero or cancel out each other. This means that some robots must be on the opposite sides of the desired region. Since the desired region is large, when the subgroups of robots are on opposite sides of the region, there is usually no interaction between the subgroups. Hence, similar argument can be applied to conclude that $`\Delta \xi_{i}=0`$. When there are interactions or coupling among the robots from different side of the desired region, a reasonable weightage can be obtained for $`\Delta \xi_{i}`$ by adjusting $`\alpha_{i}`$. Finally, since $`s_{i} \rightarrow 0`$ and $`\Delta \epsilon_{i} \rightarrow 0`$,we can conclude from Eq.(16) that $`\Delta \dot{x}_{i} \rightarrow0`$. Hence, all the robots are synchronized to the same speed and maintain constant distances among themselves at steady state.
 
 <b>备注</b>。本文所提出的基于区域的阵型控制概念可以扩展到有旋转和缩放的动态区域的情况。在这种情况下，全局目标函数可以定义如下：
-```math
+\begin{equation}
 f_{G}\left(\Delta x_{R i}\right)=\left[f_{G 1}\left(\Delta x_{R i}\right), f_{G 2}\left(\Delta x_{R i}\right), \ldots, f_{G M}\left(\Delta x_{R i}\right)\right]^{\mathrm{T}} \leq(33)
-```
+\end{equation}
 
 >Remark. The proposed region-based shape control concept can be extended to the case of dynamic region with rotation and scaling. In this case, the global objective functions can be defined as follows:
 
@@ -399,16 +399,16 @@ f_{G}\left(\Delta x_{R i}\right)=\left[f_{G 1}\left(\Delta x_{R i}\right), f_{G 
 本节介绍了一些仿真结果，以说明所提出的基于区域的形状控制器的性能。我们考虑一组100个机器人在沿着由$`x_{o11}=t`$和$`x_{o12}=2 \sin (t)`$指定的路径移动时形成不同的形状，其中t表示以秒为单位的时间。每个机器人的动力学方程被建模为
 >This section presents some simulation results to illustrate the performance of the proposed region-based shape controller. We consider a group of 100 robots forming different shapes while moving along a path specified by $`x_{o11}=t`$ and $`x_{o12}=2 \sin (t)`$ where $`t`$ represents time in second. The dynamic equation of each robot is modelled as
 
-```math
+\begin{equation}
 M_{i} \ddot{x}_{i}+\beta_{i} \dot{x}_{i}=u_{i}(34)
-```
+\end{equation}
 
 其中$`M_{i}`$和$`\beta_{i}`$分别代表质量和阻尼常数。将（16）和（17）代入（34）我们得到
 >where $`M_{i}`$ and $`\beta_{i}`$ represent mass and damping constants respectively. Substituting (16) and (17) into (34) we get
 
-```math
+\begin{equation}
 M_{i} \dot{s}_{i}+\beta_{i} s_{i}+Y_{i} \theta_{i}=u_{i}\tag{35}
-```
+\end{equation}
 其中$`Y_{i}=\left[\ddot{x}_{r i}, \dot{x}_{r}\right]`$ 并且$`\theta_{i}=\left[M_{i}, \beta_{i}\right]^{\mathrm{T}}`$。在仿真中，每个机器人的实际质量设置为1 kg，$`\beta_{i}`$的实际值设置为0.5。对于每个机器人，更新定律的$`M_{i}`$和$`\beta_{i}`$的​​初始估计分别设定为0.5kg和0。所需的最小距离设定为0.3米。
 >where $`Y_{i}=\left[\ddot{x}_{r i}, \dot{x}_{r i}\right]`$ and $`\theta_{i}=\left[M_{i}, \beta_{i}\right]^{\mathrm{T}}`$. In the simulations, the actual mass of each robot is set as 1 kg and the actual value of βi is set to 0.5. The initial estimations of Mi and βi for the update law are set to 0.5 kg and 0 respectively for each robot. The desired minimum distance is set to 0.3 m.
 
@@ -417,9 +417,9 @@ M_{i} \dot{s}_{i}+\beta_{i} s_{i}+Y_{i} \theta_{i}=u_{i}\tag{35}
 首先，将所需形状指定为具有半径$`r =1.5m`$的圆，如下：
 >First,the desired shape is specified as a circle with radius r = 1.5m:
 
-```math
+\begin{equation}
 f\left(\Delta x_{i o1}\right)=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r^{2} \leq 0 \tag{36}
-```
+\end{equation}
 控制增益设定为$`K_{s i}=\operatorname{diag}\{30,30\},k_p=1,k_{ij}=1,k_1=1,\gamma=150,\alpha_{i}=70`$，且$`L_{i}=\operatorname{diag}\{0.05,0.05\}`$。图4显示了所有机器人在不同时间点的位置。在这种情况下，机器人最初被放置在期望的区域内，然后沿着期望的轨迹以组群的形式移动，如图4所示。然后，机器人最初被放置在目标区域之外，如图5所示。从图5中可以看出，机器人能够移动到目标区域，并且沿着指定的路径作以组群的形式一起移动。
 >The control gains are set as $`K_{s i}=\operatorname{diag}\{30,30\},k_p=1,k_{ij}=1,k_1=1,\gamma=150,\alpha_{i}=70`$ and $`L_{i}=\operatorname{diag}\{0.05,0.05\}`$. Fig. 4 shows the positions of all the robots at various time instances. The robots in this case are placed inside the desired region initially and then move as a group along a desired trajectory, as can be seen in Fig. 4. The robots are then placed outside the desired region initially, as shown in Fig. 5. It can be observed from Fig. 5 that the robots are able to move into the desired region and move together as a group along a specified path.
 
@@ -438,9 +438,9 @@ f\left(\Delta x_{i o1}\right)=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{
 接下来将所需的形状设置为$`r_1 = 1.75m`$，$`r_2 = 1.1m`$环形，形状由以下的不等式决定：
 >Next, the desired shape is set as a ring with r1 and r2 = 1.7 m, as specified by the following inequalities:
 
-```math
+\begin{equation}
 \begin{array}{l}{f_{1}\left(\Delta x_{i o1}\right)=r_{1}^{2}-\left(x_{i 1}-x_{o11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0} \\ {f_{2}\left(\Delta x_{i o2}\right)=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0}\end{array}
-```
+\end{equation}
 
 在这种情况下的控制增益设定$`K_{s i}=\operatorname{diag}\{30,30\},k_p=1,k_{ij}=1,k_1=k_2=0.1,\gamma=150,\alpha_{i}=70`$且$`L_i = \operatorname{diag}\{0.05,0.05\}`$一起使用。仿真结果如图6所示。
 >The control gains in this case are set as $`K_{s i}=\operatorname{diag}\{30,30\},k_p=1,k_{ij}=1,k_1=k_2=0.1,\gamma=150,\alpha_{i}=70`$ and $`L_i = \operatorname{diag}\{0.05,0.05\}`$. The simulation result is shown in Fig. 6.
@@ -462,9 +462,9 @@ f\left(\Delta x_{i o1}\right)=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{
 ### C.Desired region as a crescent
 接下来将所需的形状设置为新月形，如下面的不等式所述：
 The desired shape is next set as a crescent as described by the following inequalities:
-```math
+\begin{equation}
 \begin{array}{l}{f_{1}\left(\Delta x_{i 01}\right)=\left(x_{i 1}-x_{011}\right)^{2}+\left(x_{i 2}-x_{012}\right)^{2}-r_{1}^{2} \leq 0} \\ {f_{2}\left(\Delta x_{i 02}\right)=r_{2}^{2}-\left(x_{i 1}-x_{021}\right)^{2}-\left(x_{i 2}-x_{022}\right)^{2} \leq 0}\end{array}
-```
+\end{equation}
 其中$`r_1 = 1.75m，r_2 = 1.1m，x_{o21} = x_{o11} -0.8，x_{o22} = x_{o12}-0.8`$。控制器设定为$`K_{s i}=\operatorname{diag}\{30,30\},k_{p}=1, k_{i j}=1, k_{1}=k_{2}=0.1, \gamma=150, \alpha_{i}=70`$，和$`L_{i}=\operatorname{diag}\{0.05,0.05\}`$。机器人在不同时间点的位置如图8所示。
 >where $`r_1 = 1.75m，r_2 = 1.1m，x_{o21} = x_{o11} -0.8，x_{o22} = x_{o12}-0.8`$ . The proposed controller is used with $`K_{s i}=\operatorname{diag}\{30,30\},k_{p}=1, k_{i j}=1, k_{1}=k_{2}=0.1, \gamma=150, \alpha_{i}=70`$，和$`L_{i}=\operatorname{diag}\{0.05,0.05\}`$ and  $`L_{i}=\operatorname{diag}\{0.05,0.05\}`$. The positions of robots at various time instances are shown in Fig. 8.
 
