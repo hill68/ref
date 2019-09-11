@@ -7,7 +7,19 @@
 
 
 \begin{equation}
-M_{i}(x_{i})\ddot{x}_{i} + C_{i}(x_{i} , \dot{x}_{i})
+M_{i}(x_{i})\ddot{x}_{i}
+\end{equation}
+
+\begin{equation}
+C_{i}(x_{i} , \dot{x}_{i})\dot{x}_{i}
+\end{equation}
+
+\begin{equation}
+D_{i}(x_{i}) \dot{x}_{i}
+\end{equation}
+
+\begin{equation}
+g_{i}(x_{i})=u_{i}
 \end{equation}
 
 \begin{equation}
