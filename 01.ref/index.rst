@@ -15,8 +15,7 @@ Region-based shape control for a swarm of robots
 
 .. raw:: html
 
-   <Chien Chern Cheah>
-
+Chien Chern Cheah<details>
 
 
 School of Electrical and Electronic Engineering, Nanyang Technological
