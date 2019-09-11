@@ -6,19 +6,6 @@ Region-based shape control for a swarm of robots
 ------------------------------------------------
 
 
-.. ::math
-
-   f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 2}\left(\Delta x_{i o 2}\right), \ldots, f_{\mathrm{GM}}\left(\Delta x_{i o M}\right)\right]^{\mathrm{T}} \leq 0 \tag{2}
-
-其中\ :math:`\Delta x_{i o l}=x_{i}-x_{o l}, x_{o l}(t)`\ 是第\ :math:`l`\ 个所需区域内的参考点，\ :math:`l = 1,2，\dots，M `\ ，\ :math:`M`\ 是目标函数的总数，
-:math:`f_{G l}\left(\Delta x_{i o l}\right)`\ 是连续的标量函数，具有连续偏导数满足当
-:math:`\left\|\Delta x_{i o l}\right\| \rightarrow \infty` 时
-，\ :math:`\left|f_{G l}\left(\Delta x_{i o l}\right)\right| \rightarrow \infty`
-。\ :math:`f_{G l}\left(\Delta x_{i o l}\right)`
-的选取标准是满足\ :math:`f_{G}\left(\Delta x_{i o l}\right)`\ 有界性，从而保证\ :math:`\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}`
-和\ :math:`\frac{\partial^{2} f_{G l}\left(\Delta x_{\text { iol }}\right)}{\partial \Delta x_{\text {iol}}^{2}}`\ 的有界性。
-
-
 
 `Chien Chern Cheah`, `Saing Paul Hou`, and `Jean Jacques E. Slotine`
 
