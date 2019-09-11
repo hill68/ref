@@ -60,8 +60,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Docs Hub'
-copyright = '2019, ISCAS'
-author = 'DSI Lab'
+copyright = "2017-{}, SAS".format(datetime.datetime.now().year)
+author = 'SAS Lab'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
