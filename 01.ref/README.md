@@ -75,23 +75,23 @@ Shape control; Co-operative control; Region following; Trajectory tracking; Adap
 
 
  在虚拟结构方法中（Egerstedt＆Hu，2001; Lewis＆Tan，1997; Ren＆Beard，2004），整个阵型被认为是单个实体，并且阵型期望的运动被分配给结构。这种阵型组织方法非常严格，因为系统中机器人之间在运动过程中必须严格保持一定的几何关系，因此，阵型通常不可能随时间变化。除此之外，避障也是一个问题。很显然，虚拟结构方法不适合控制大量机器人，因为随着机器人数量的增加，机器人之间的约束关系变得更加复杂。
- >In the virtual structure method (Egerstedt & Hu, 2001; Lewis & Tan, 1997; Ren & Beard, 2004), the entire formation is considered as a single entity and desired motion is assigned to the structure. The formation in this approach is very rigid as the geometric re- lationship among the robots in the system must be rigidly main- tained during the movement. Therefore, it is generally not possible for the formation to change with time, and obstacle avoidance is also a problem. The virtual structure approaches are not suitable for controlling a large group of robots because the constraint re- lationships among robots become more complicated as the num- ber of robots in the group increases.
+ >In the virtual structure method (Egerstedt & Hu, 2001; Lewis & Tan, 1997; Ren & Beard, 2004), the entire formation is considered as a single entity and desired motion is assigned to the structure. The formation in this approach is very rigid as the geometric relationship among the robots in the system must be rigidly maintained during the movement. Therefore, it is generally not possible for the formation to change with time, and obstacle avoidance is also a problem. The virtual structure approaches are not suitable for controlling a large group of robots because the constraint relationships among robots become more complicated as the number of robots in the group increases.
 
 控制一组机器人以形成阵型的另一种方法是使用约束函数（Ihle，Jouffroy，＆Fossen，2006; Zhang＆Hu，2008; Zou，Pagilla，＆Misawa，2007）。这种方法与虚拟结构方法具有类似的问题。由于机器人相互间的约束关系的复杂程度随着机器人数量的增加而增加，因此这种方法也不适合控制大量机器人。
->Another method to control a group of robots to establish a formation is by using constraint func- tions (Ihle, Jouffroy, & Fossen, 2006; Zhang & Hu, 2008; Zou, Pagilla, & Misawa, 2007). This approach has a similar problem as the virtual structure method because the complexity of the constraint rela- tionships increases as the number of robots increases and hence is also not suitable for controlling a large group of robots.
+>Another method to control a group of robots to establish a formation is by using constraint functions (Ihle, Jouffroy, & Fossen, 2006; Zhang & Hu, 2008; Zou, Pagilla, & Misawa, 2007). This approach has a similar problem as the virtual structure method because the complexity of the constraint relationships increases as the number of robots increases and hence is also not suitable for controlling a large group of robots.
 
 为了控制大量机器人，通常使用潜在场方法（Gazi，2005; Leonard＆Fiorelli，2001; Olfati-Saber，2006; Pereira＆Hsu，2008）。然而，这种方法难以形成整体的阵型，因为机器人仅被命令以组为单位呆在一起，以及避免它们之间的碰撞。
 >To control a large group of robots, the potential field approach (Gazi, 2005; Leonard & Fiorelli, 2001; Olfati-Saber, 2006; Pereira & Hsu, 2008) is normally used. However, it is difficult to form a desired shape for the swarm system as the robots are only commanded to stay close together as a group and avoid collision among themselves.
 
 Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿着指定路径移动。然而，由于整个组的阵型取决于组中机器人的数量，因此该控制策略也无法控制所需阵型。对于大量机器人，阵型固定为椭圆形，而对于少数机器人，阵型固定为矩形。
- >Belta and Kumar (2004) propose a control method for a large group of robots to move along a specified path. However, this proposed con- trol strategy also has no control over the desired formation since the shape of the whole group is dependent on the number of the robots in the group. For large numbers of robots, the formation is fixed as an elliptical shape, whereas for a small number of robots the formation is fixed as a rectangular shape.
+ >Belta and Kumar (2004) propose a control method for a large group of robots to move along a specified path. However, this proposed control strategy also has no control over the desired formation since the shape of the whole group is dependent on the number of the robots in the group. For large numbers of robots, the formation is fixed as an elliptical shape, whereas for a small number of robots the formation is fixed as a rectangular shape.
 
  在本文中，我们为机器人群设计了一个基于区域的控制器。在我们提出的控制方法中，组中的每个机器人作为一组（全局目标）在移动区域内运动，并且同时保持彼此的最小距离（局部目标）。期望的区域可以被指定为各种形状，因此可以形成不同的形状和阵型。该组中的机器人只需要与邻近的机器人沟通，而不是和整个组群沟通。机器人在组内没有特定的身份或角色。因此，我们所提出的方法不需要限定机器人在区域内有特定次序或位置，从而由给定的一组机器人可以形成不同的阵型。在阵型控制系统的稳定性分析中，本文也考虑了机器人的动力学模型。此外，倘若任何机器人都可以进入或离开阵型、且不影响其他机器人，说明该系统是可扩展的。Lyapunov理论用于证明多机器人系统的稳定性。其仿真结果用于说明所提出的阵型控制器的性能。
- >In this paper, we propose a region-based controller for a swarm of robots. In our proposed control method, each robot in the group stays within a moving region as a group (global objective) and, at the same time, maintains a minimum distance from each other (local objective). The desired region can be specified as various shapes, hence different shapes and formations can be formed. The robots in the group only need to communicate with their neigh- bors and not the entire community. The robots do not have spe- cific identities or roles within the group. Therefore, the proposed method does not require specific orders or positions of the robots inside the region and hence different shapes can be formed by a given swarm of robots. The dynamics of the robots are also consid- ered in the stability analysis of the formation control system. The system is scalable in the sense that any robot can move into the for- mation or leave the formation without affecting the other robots. Lyapunov theory is used to show the stability of the multi-robot systems. Simulation results are presented to illustrate the perfor- mance of the proposed shape controller.
+ >In this paper, we propose a region-based controller for a swarm of robots. In our proposed control method, each robot in the group stays within a moving region as a group (global objective) and, at the same time, maintains a minimum distance from each other (local objective). The desired region can be specified as various shapes, hence different shapes and formations can be formed. The robots in the group only need to communicate with their neighbors and not the entire community. The robots do not have specific identities or roles within the group. Therefore, the proposed method does not require specific orders or positions of the robots inside the region and hence different shapes can be formed by a given swarm of robots. The dynamics of the robots are also considered in the stability analysis of the formation control system. The system is scalable in the sense that any robot can move into the formation or leave the formation without affecting the other robots. Lyapunov theory is used to show the stability of the multi-robot systems. Simulation results are presented to illustrate the performance of the proposed shape controller.
 
 ## II. Region-based shape controls
 我们考虑一组``N``个启动的移动机器人，其具有``n``个自由度的第 \(i\) 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
->We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be de- scribed as (Fossen, 1994; Slotine & Li, 1991):
+>We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be described as (Fossen, 1994; Slotine & Li, 1991):
 
 \begin{equation}
 M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{i}+D_{i}\left(x_{i}\right) \dot{x}_{i}+g_{i}\left(x_{i}\right)=u_{i}\tag{1}
@@ -106,7 +106,7 @@ M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x
 
 在本节中，我们将介绍一种基于区域的多机器人系统的阵型控制器。首先，应当确定一个特定阵型的移动区域，以便所有机器人都留在里面。这可以被视为所有机器人的全局目标。其次，指定每个机器人与其相邻机器人之间的最小距离。这可以被视为每个机器人的局部目标。因此，该组机器人能够以期望的阵型移动，同时保持彼此之间的最小距离。
 让我们通过以下不等式来定义全局目标函数：
->In this section, we present a region-based shape controller for multi-robot systems. First, a moving region of specific shape is de- fined for all the robots to stay inside. This can be viewed as a global objective of all robots. Second, a minimum distance is specified be- tween each robot and its neighboring robots. This can be viewed as a local objective of each robot. Thus, the group of robots will be able to move in a desired shape while maintaining a minimum distance among each other.
+>In this section, we present a region-based shape controller for multi-robot systems. First, a moving region of specific shape is defined for all the robots to stay inside. This can be viewed as a global objective of all robots. Second, a minimum distance is specified between each robot and its neighboring robots. This can be viewed as a local objective of each robot. Thus, the group of robots will be able to move in a desired shape while maintaining a minimum distance among each other.
 Let us define a global objective function by the following inequality:
 
 \begin{equation}
@@ -118,7 +118,7 @@ f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 
 >where$`\Delta x_{i o l}=x_{i}-x_{o l}, x_{o l}(t)`$ is a reference point within the lth desired region, $`l=1,2, \dots, M`$, $`M`$ is the total number of objective functions, $`f_{G l}\left(\Delta x_{i o l}\right)`$ are continuous scalar functions with continuous partial derivatives that satisfy $`\left|f_{G l}\left(\Delta x_{i o l}\right)\right| \rightarrow \infty`$ as $`\left\|\Delta x_{i o l}\right\| \rightarrow \infty`$. $`f_{G l}\left(\Delta x_{i o l}\right)`$ is chosen in such a way that the boundedness of $`f_{G}\left(\Delta x_{i o l}\right)`$ ensures the boundedness of $`\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}`$ ,$`\frac{\partial^{2} f_{G l}\left(\Delta x_{\text { iol }}\right)}{\partial \Delta x_{\text {iol}}^{2}}`$.
 
 选择单个区域的每个参考点作为彼此的常数偏移，以满足$`\dot{x}_{ol}=\dot{x}_{o}`$，其中$`\dot{x}_{o}`$是所需区域的速度。通过选择合适的函数，可以形成圆形，椭圆形，月牙形，环形，三角形，正方形等各种阵型。例如，可以通过选择目标函数来形成环形阵型，如下所示：
->Each reference point of the individual region is chosen to be a con- stant offset of one another so that $`\dot{x}_{o l}=\dot{x}_{o}`$, where $`\dot{x}_{o}`$ is the speed of the desired region. Various shapes such as circle, ellipse, crescent, ring, triangle, square etc. can be formed by choosing the appropri- ate functions. For example, a ring shape can be formed by choosing the objective functions as follows:
+>Each reference point of the individual region is chosen to be a constant offset of one another so that $`\dot{x}_{o l}=\dot{x}_{o}`$, where $`\dot{x}_{o}`$ is the speed of the desired region. Various shapes such as circle, ellipse, crescent, ring, triangle, square etc. can be formed by choosing the appropriate functions. For example, a ring shape can be formed by choosing the objective functions as follows:
 
 \begin{equation}
 \begin{array}{l}{f_{1}\left(\Delta x_{i o1}\right)=r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0} \\ {f_{2}\left(\Delta x_{i o2}\right)=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0}\end{array}\tag{3}
@@ -216,7 +216,7 @@ Q_{L i j}\left(\Delta x_{i j}\right)=\sum_{j \in N_{i}} \frac{k_{i j}}{2}\left[\
 \end{equation}
 
 从式（12）中可以看出$`\frac{\partial Q_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}`$是连续的。值得注意的是，$`\Delta \rho_{i j}`$是由其相邻机器人作用在机器人$`i`$上的控制合力。当机器人$`i`$与邻近机器人保持最小距离$`r`$时，则$`\Delta \rho_{i j}=0`$。当且仅当机器人$`i`$与其任何邻近机器人之间的距离小于最小距离$`r`$时，才激活控制力$`\Delta \rho_{i j}`$。我们考虑每对相邻机器人之间力的作用是相互的。也就是说，如果机器人$`i`$与机器人$`j`$远离一段距离，那么机器人$`j`$也与机器人$`i`$远离一段距离。
->Similarly,$`\frac{\partial Q_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}`$ is continuous as seen from Eq. (12). Note that $`\Delta \rho_{i j}`$ is a resultant control force acting on robot $`i`$ by its neighboring robots. When robot $`i`$ maintains minimum distance $`r`$ from its neigh- boring robots, then $`\Delta \rho_{i j}=0`$. The control force $`\Delta \rho_{i j}`$ is activated only when the distance between robot $`i`$ and any of its neighboring robots is smaller than the minimum distance $`r`$ . We consider a bidirectional interactive force between each pair of neighbors. That is, if robot $`i`$ keeps a distance from robot $`j`$ then robot $`j`$ also keeps a distance from robot $`i`$.
+>Similarly,$`\frac{\partial Q_{L i j}\left(\Delta x_{i j}\right)}{\partial \Delta x_{i j}}`$ is continuous as seen from Eq. (12). Note that $`\Delta \rho_{i j}`$ is a resultant control force acting on robot $`i`$ by its neighboring robots. When robot $`i`$ maintains minimum distance $`r`$ from its neighboring robots, then $`\Delta \rho_{i j}=0`$. The control force $`\Delta \rho_{i j}`$ is activated only when the distance between robot $`i`$ and any of its neighboring robots is smaller than the minimum distance $`r`$ . We consider a bidirectional interactive force between each pair of neighbors. That is, if robot $`i`$ keeps a distance from robot $`j`$ then robot $`j`$ also keeps a distance from robot $`i`$.
 
 接下来，我们将向量$`\dot{x}_{r i}`$定义为
 >Next, we define a vector $`\dot{x}_{r i}`$ as
@@ -476,7 +476,7 @@ The desired shape is next set as a crescent as described by the following inequa
 ## III. Conclusion
 
 在本文中，我们为机器人群提出了一种基于区域的阵型控制器。已证明，所有机器人都能够在目标区域内以组群形式移动，同时保持彼此之间的最小距离。本文提出了类似Lyapunov的函数，对多机器人系统记性稳定性分析。仿真结果用于说明所提出的控制器的性能。
->In this paper, we have proposed a region-based shape controller for a swarm of robots. It has been shown that all the robots are able to move as a group inside the desired region while maintain- ing minimum distance from each other. A Lyapunov-like function has been proposed for the stability analysis of the multi-robot sys- tems. Simulation results have been presented to illustrate the per- formance of the proposed controller.
+>In this paper, we have proposed a region-based shape controller for a swarm of robots. It has been shown that all the robots are able to move as a group inside the desired region while maintaining minimum distance from each other. A Lyapunov-like function has been proposed for the stability analysis of the multi-robot systems. Simulation results have been presented to illustrate the performance of the proposed controller.
 
 ## IV. References
 
@@ -506,7 +506,7 @@ Gazi, V. (2005). Swarms aggregation using artificial potentials and sliding mode
 
 Ihle, I.-A. F., Jouffroy, J., & Fossen, T. I. (2006). Formation control of marine surface craft. IEEE Journal of Oceanic Engineering, 31(4), 922–934.
 
-Ji, M., Ferrari-Trecate, G., Egerstedt, M., & Buffa, A. (2008). Containment control in mobile networks. IEEE Transactions on Automatic Control, 53(8), 1972–1975. Lawton, J. R., Beard, R. W., & Young, B. J. (2003). A decentralized approach to formation maneuvers. IEEE Transactions on Robotic and Automation, 19(6), 933–941. Leonard, N. E., & Fiorelli, E. (2001). Virtual leaders, artificial potentials and co- ordinated control of groups. In Proc. of decision and control conference (pp.
+Ji, M., Ferrari-Trecate, G., Egerstedt, M., & Buffa, A. (2008). Containment control in mobile networks. IEEE Transactions on Automatic Control, 53(8), 1972–1975. Lawton, J. R., Beard, R. W., & Young, B. J. (2003). A decentralized approach to formation maneuvers. IEEE Transactions on Robotic and Automation, 19(6), 933–941. Leonard, N. E., & Fiorelli, E. (2001). Virtual leaders, artificial potentials and coordinated control of groups. In Proc. of decision and control conference (pp.
 2968-2973).
 
 Lewis, M. A., & Tan, K. H. (1997). High precision formation control of mobile robots using virtual structures. Autonomous Robots, 4(4), 387–403.
@@ -516,7 +516,7 @@ Murray, R. M. (2007). Recent research in cooperative control of multi-vehicle sy
 
 Olfati-Saber, R. (2006). Flocking for multi-agent dynamic systems: Algorithms and theory. IEEE Transactions on Automatic Control, 51(3), 401–420.
 
-Pereira, A. R., & Hsu, L. (2008). Adaptive formation control using artificial poten- tials for Euler–Lagrange agents. In Proc. of the 17th IFAC world congress (pp.10788–10793).
+Pereira, A. R., & Hsu, L. (2008). Adaptive formation control using artificial potentials for Euler–Lagrange agents. In Proc. of the 17th IFAC world congress (pp.10788–10793).
 
 Reif, J. H., & Wang, H. (1999). Social potential fields: A distributed behavioral control for autonomous robots. Robotics and Autonomous Systems, 27, 171–194. Ren, W., & Beard, R. W. (2004). Formation feedback control for multiple spacecraft via virtual structures. IEE Proceedings—Control Theory and Applications, 151(3),
 357–368.
