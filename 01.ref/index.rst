@@ -18,25 +18,25 @@ Region-based shape control for a swarm of robots
   <details>
   <summary>Chien Chern Cheah</summary>
 
-School of Electrical and Electronic Engineering, Nanyang Technological
-University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
+    School of Electrical and Electronic Engineering, Nanyang Technological
+    University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
 
-Chien Chern Cheah was born in Singapore. He received B.Eng. degree in
-Electrical Engineering from National University of Singapore in 1990,
-M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang
-Technological University, Singapore, in 1993 and 1996, respectively.
+    Chien Chern Cheah was born in Singapore. He received B.Eng. degree in
+    Electrical Engineering from National University of Singapore in 1990,
+    M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang
+    Technological University, Singapore, in 1993 and 1996, respectively.
 
-From 1990 to 1991, he worked as a design engineer in Chartered
-Electronics Industries, Singapore. He was a research fellow in the
-Department of Robotics, Ritsumeikan University, Japan from 1996 to 1998.
-He joined the School of Electrical and Electronic Engineering, Nanyang
-Technological University as an assistant professor in 1998. Since 2003,
-he has been an associate professor in Nanyang Technological University.
-In November 2002, he received the oversea attachment fellowship from the
-Agency for Science, Technology and Research (A*STAR), Singapore to visit
+    From 1990 to 1991, he worked as a design engineer in Chartered
+    Electronics Industries, Singapore. He was a research fellow in the
+    Department of Robotics, Ritsumeikan University, Japan from 1996 to 1998.
+    He joined the School of Electrical and Electronic Engineering, Nanyang
+    Technological University as an assistant professor in 1998. Since 2003,
+    he has been an associate professor in Nanyang Technological University.
+    In November 2002, he received the oversea attachment fellowship from the
+    Agency for Science, Technology and Research (A*STAR), Singapore to visit
 the Nonlinear Systems laboratory, Massachusetts Institute of Technology.
 
-He was the program chair of the International Conference on Control,
+    He was the program chair of the International Conference on Control,
 Automation, Robotics and Vision 2006. He has served as an associate
 editor of the IEEE Robotics and Automation Society Conference Editorial
 Board since 2007.
@@ -59,16 +59,16 @@ Board since 2007.
      <details>
      <summary>Saing Paul Hou</summary>
 
-School of Electrical and Electronic Engineering, Nanyang Technological University,
-Block S1, Nanyang Avenue, S(639798), Republic of Singapore
+   School of Electrical and Electronic Engineering, Nanyang Technological University,
+   Block S1, Nanyang Avenue, S(639798), Republic of Singapore
 
-Saing Paul Hou was born in Kandal, Cambodia in 1982. He received B.Eng. degree
-with first class honor in Electrical and Electronic Engineering from Nanyang
-Technological University, Singapore in 2006. He was the recipient of Control
-Chapter Book Prize and Motorola Book Prize in 2006. He has been pursuing his
-Ph.D. degree at Nanyang Technological University, Singapore since 2006.
-His research interests include formation control of multi-robot systems and
-adaptive control.
+   Saing Paul Hou was born in Kandal, Cambodia in 1982. He received B.Eng. degree
+   with first class honor in Electrical and Electronic Engineering from Nanyang
+   Technological University, Singapore in 2006. He was the recipient of Control
+   Chapter Book Prize and Motorola Book Prize in 2006. He has been pursuing his
+   Ph.D. degree at Nanyang Technological University, Singapore since 2006.
+   His research interests include formation control of multi-robot systems and
+   adaptive control.
 
 .. raw:: html
 
@@ -87,8 +87,8 @@ adaptive control.
         <details>
         <summary>Jean Jacques E. Slotine</summary>
 
-Nonlinear Systems Laboratory, Massachusetts Institute of Technology,
-77 Massachusetts Avenue, Cambridge, MA 02139, USA
+  Nonlinear Systems Laboratory, Massachusetts Institute of Technology,
+  77 Massachusetts Avenue, Cambridge, MA 02139, USA
 
   Jean-Jacques E. Slotine was born in Paris in 1959, and received his Ph.D.
   from the Massachusetts Institute of Technology in 1983. After working at Bell
