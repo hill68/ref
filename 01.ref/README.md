@@ -7,7 +7,7 @@
 
 
 \begin{equation}
-M_{i}(x_{i})\ddot{x}_{i}
+M_{i}(x_{i})\ddot{x}_{i}\ddot{x}_{i}
 \end{equation}
 
 \begin{equation}
