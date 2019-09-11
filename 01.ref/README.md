@@ -7,7 +7,7 @@
 
 
 \begin{equation}
-M_{i}(x_{i})\ddot{x}_{i} + D_{i}(x_{i}) \dot{x}_{i} + g_{i}(x_{i}) = u_{i}
+M_{i}(x_{i})\ddot{x}_{i} D_{i}(x_{i}) \dot{x}_{i}  g_{i}(x_{i}) = u_{i}
 \end{equation}
 
 \begin{equation}
