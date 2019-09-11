@@ -6,7 +6,7 @@ Region-based shape control for a swarm of robots
 ------------------------------------------------
 
 
-.. code:: math
+.. ::math
 
    f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 2}\left(\Delta x_{i o 2}\right), \ldots, f_{\mathrm{GM}}\left(\Delta x_{i o M}\right)\right]^{\mathrm{T}} \leq 0 \tag{2}
 
