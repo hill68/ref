@@ -22,7 +22,7 @@
    :caption: Swarm
 
    01.ref/index.rst
-   README.md
+   01.ref/README.md
 
 
 .. toctree::
