@@ -5,7 +5,7 @@
 \int\limits_{-\infty}^\infty f(x) \delta(x - x_0) dx = f(x_0)
 \end{equation}
 
-Click **Generate PDF** on the rightside ( `$N$` ) panel to output pdf file $n$.
+Click **Generate PDF** on the rightside ( $ N $ ) panel to output pdf file $n$.
 
 我们考虑一组 ( `$N$` ) 个启动的移动机器人，其具有 $n$ 个自由度的第 \[ i \] 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
 
