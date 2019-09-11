@@ -29,7 +29,7 @@ Shape control; Co-operative control; Region following; Trajectory tracking; Adap
 
 近几十年来，多机器人系统的协同控制（Murray，2007）一直是广泛研究的论题。在基于行为的多机器人控制（Balch＆Arkin，1998; Lawton，Beard，＆Young，2003; Reif＆Wang，1999; Reynolds，1987）一文中，学者成功控制机器人个体作出了一整套期望的动作。文章通过定义所有行为的相对重要性，从而形成了多机器人系统的一些整体行为。然而，这种方法的主要问题是难以在数学上分析整个系统，从而透彻理解机器人蜂群的控制问题。与此同时，此方法也不可能得知系统是否收敛到了理想的状态。
 
-..
+.. epigraph::
 
       Cooperative control of multi-robot systems (Murray, 2007) has been the subject of extensive research in recent decades. In behavior-based control of multiple robots (Balch & Arkin, 1998; Lawton, Beard, & Young, 2003; Reif & Wang, 1999; Reynolds, 1987), a desired set of behaviors is implemented onto individual robots. By defining the relative importance of all the behaviors, the overall behavior of the multi-robot system is formed. The main problem of this approach is that it is difficult to analyze the overall system mathematically to gain insights into the control problems. It is also not possible to show that the system converges to a desired formation.
 
