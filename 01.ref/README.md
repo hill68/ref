@@ -1,6 +1,9 @@
 # 基于区域的机器人群阵型控制
 >Region-based shape control for a swarm of robots
 
+\begin{equation}
+\int\limits_{-\infty}^\infty f(x) \delta(x - x_0) dx = f(x_0)
+\end{equation}
 
 
 `Chien Chern Cheah`, `Saing Paul Hou`, and `Jean Jacques E. Slotine`
