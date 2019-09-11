@@ -9,6 +9,48 @@ Region-based shape control for a swarm of robots
 
 `Chien Chern Cheah`, `Saing Paul Hou`, and `Jean Jacques E. Slotine`
 
+.. raw:: html
+
+   <p>
+
+.. raw:: html
+
+   <details>
+
+Chien Chern Cheah
+
+School of Electrical and Electronic Engineering, Nanyang Technological
+University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
+
+Chien Chern Cheah was born in Singapore. He received B.Eng. degree in
+Electrical Engineering from National University of Singapore in 1990,
+M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang
+Technological University, Singapore, in 1993 and 1996, respectively.
+
+From 1990 to 1991, he worked as a design engineer in Chartered
+Electronics Industries, Singapore. He was a research fellow in the
+Department of Robotics, Ritsumeikan University, Japan from 1996 to 1998.
+He joined the School of Electrical and Electronic Engineering, Nanyang
+Technological University as an assistant professor in 1998. Since 2003,
+he has been an associate professor in Nanyang Technological University.
+In November 2002, he received the oversea attachment fellowship from the
+Agency for Science, Technology and Research (A*STAR), Singapore to visit
+the Nonlinear Systems laboratory, Massachusetts Institute of Technology.
+
+He was the program chair of the International Conference on Control,
+Automation, Robotics and Vision 2006. He has served as an associate
+editor of the IEEE Robotics and Automation Society Conference Editorial
+Board since 2007.
+
+.. raw:: html
+
+   </details>
+
+.. raw:: html
+
+   </p>
+
+
 https://www.sciencedirect.com/science/article/pii/S0005109809003215
 
 Abstract
