@@ -18,13 +18,9 @@ Region-based shape control for a swarm of robots
   <details>
   <summary>Chien Chern Cheah</summary>
 
-    School of Electrical and Electronic Engineering, Nanyang Technological
-    University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
+    School of Electrical and Electronic Engineering, Nanyang Technological University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
 
-    Chien Chern Cheah was born in Singapore. He received B.Eng. degree in
-    Electrical Engineering from National University of Singapore in 1990,
-    M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang
-    Technological University, Singapore, in 1993 and 1996, respectively.
+    Chien Chern Cheah was born in Singapore. He received B.Eng. degree in Electrical Engineering from National University of Singapore in 1990, M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang Technological University, Singapore, in 1993 and 1996, respectively.
 
     From 1990 to 1991, he worked as a design engineer in Chartered
     Electronics Industries, Singapore. He was a research fellow in the
