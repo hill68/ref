@@ -5,6 +5,11 @@
 \int\limits_{-\infty}^\infty f(x) \delta(x - x_0) dx = f(x_0)
 \end{equation}
 
+
+\begin{equation}
+M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i}, \dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}
+\end{equation}
+
 Click **Generate PDF** on the rightside ( $ N $ ) panel to output pdf file $n$.
 
 我们考虑一组 ( `$N$` ) 个启动的移动机器人，其具有 $n$ 个自由度的第 \[ i \] 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
@@ -93,13 +98,6 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
 我们考虑一组``N``个启动的移动机器人，其具有``n``个自由度的第 \(i\) 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）
 >We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be described as (Fossen, 1994; Slotine & Li, 1991)
 
-```math
-M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i}, \dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}
-```
-
-\begin{equation}
-M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i}, \dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}
-\end{equation}
 
 
 其中$`x_{i}\in R^{n}`$是广义坐标。$`M_i(x_i)\in R^{n \times n}`$是惯性矩阵，所以是对称且正定的，$`C_i(x_i，\dot{x_i})\in R^{n \times n}`$是科里奥利矩阵，并且向心项中的$`\dot{M}_{i}\left(x_{i}\right)-2 C_{i}\left(x_{i}, \dot{x}_{i}\right)`$是偏斜对称的，$`D_{i}\left(x_{i}\right) \dot{x}_{i}`$表示阻尼力，其中$`D_{i}\left(x_{i}\right) \in R^{n \times n}`$是正定，$`g_{i}\left(x_{i}\right) \in R^{n}`$表示重力矢量，$`u_{i} \in R^{n}`$表示控制输入。
