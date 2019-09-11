@@ -9,70 +9,7 @@ Region-based shape control for a swarm of robots
 
 `Chien Chern Cheah`, `Saing Paul Hou`, and `Jean Jacques E. Slotine`
 
-.. raw:: html
 
-  <p>
-
-  <details>
-  <summary>Chien Chern Cheah</summary>
-
-School of Electrical and Electronic Engineering, Nanyang Technological University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
-
-Chien Chern Cheah was born in Singapore. He received B.Eng. degree in Electrical Engineering from National University of Singapore in 1990, M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang Technological University, Singapore, in 1993 and 1996, respectively.
-
-From 1990 to 1991, he worked as a design engineer in Chartered Electronics Industries, Singapore. He was a research fellow in the Department of Robotics, Ritsumeikan University, Japan from 1996 to 1998. He joined the School of Electrical and Electronic Engineering, Nanyang Technological University as an assistant professor in 1998. Since 2003, he has been an associate professor in Nanyang Technological University. In November 2002, he received the oversea attachment fellowship from the Agency for Science, Technology and Research (A*STAR), Singapore to visit the Nonlinear Systems laboratory, Massachusetts Institute of Technology.
-
-He was the program chair of the International Conference on Control, Automation, Robotics and Vision 2006. He has served as an associate editor of the IEEE Robotics and Automation Society Conference Editorial Board since 2007.
-
-
-
-
-   </details>
-
-   </p>
-
-
-.. raw:: html
-
-      <p>
-
-
-     <details>
-     <summary>Saing Paul Hou</summary>
-
-School of Electrical and Electronic Engineering, Nanyang Technological University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
-
-
-Saing Paul Hou was born in Kandal, Cambodia in 1982. He received B.Eng. degree with first class honor in Electrical and Electronic Engineering from Nanyang Technological University, Singapore in 2006. He was the recipient of Control Chapter Book Prize and Motorola Book Prize in 2006. He has been pursuing his Ph.D. degree at Nanyang Technological University, Singapore since 2006. His research interests include formation control of multi-robot systems and adaptive control.
-
-
-
-
-      </details>
-
-
-      </p>
-
-
-.. raw:: html
-
-         <p>
-
-        <details>
-        <summary>Jean Jacques E. Slotine</summary>
-
-Nonlinear Systems Laboratory, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA
-
-
-Jean-Jacques E. Slotine was born in Paris in 1959, and received his Ph.D. from the Massachusetts Institute of Technology in 1983. After working at Bell Labs in the computer research department, in 1984 he joined the faculty at MIT, where he is now Professor of Mechanical Engineering and Information Sciences, Professor of Brain and Cognitive Sciences, and Director of the Nonlinear Systems Laboratory. He is the co-author of the textbooks “Robot Analysis and Control” (Wiley, 1986) and “Applied Nonlinear Control” (Prentice-Hall, 1991). Prof. Slotine was a member of the French National Science Council from 1997 to 2002, and is a member of Singapore’s A*STAR Sign Advisory Board.
-
-
-
-
-         </details>
-
-
-         </p>
 
 https://www.sciencedirect.com/science/article/pii/S0005109809003215
 
@@ -221,7 +158,7 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
 
 
 
-.. image:: img1/figure1.png
+.. image:: img/figure1.png
            :width: 300
 
 ``图 1`` :目标区域示例(Examples of desired regions.)
@@ -311,7 +248,7 @@ boundary of the desired region (i.e.  :math:`f_{G l}\left(\Delta x_{i o l}\right
 
           where  :math:`\Delta x_{i j}=x_{i}-x_{j}`  is the distance between robot  :math:`i`  and robot  :math:`j`  and  :math:`r`  is a minimum distance between the two robots as illustrated in Fig. 2. For simplicity, the minimum distance between robots is chosen to be the same for all the robots. Note from the above inequality that the function  :math:`g_{L i j}\left(\Delta x_{i j}\right)`  is twice partially differentiable.
 
-.. image:: img1/figure2.png
+.. image:: img/figure2.png
            :width: 300
 
 ``图2``:机器人间的最小距离(Minimum distance between robots)
@@ -401,7 +338,7 @@ robots inside the desired region (as illustrated in Fig. 3), then  :math:`\Delta
 
     \ddot{x}_{r i}=\ddot{x}_{0}-\Delta \dot{\epsilon}_{i}\tag{15}
 
-.. image:: img1/figure3.png
+.. image:: img/figure3.png
            :width: 300
 
 ``图3``:机器人 :math:`i` 看到的理想区域(Desired region seen by robot  :math:`i`)
@@ -695,7 +632,7 @@ and these forces cancel each other out and the summation of all the interactive 
 
       The control gains are set as  :math:`K_{s i}=\operatorname{diag}\{30,30\},k_p=1,k_{ij}=1,k_1=1,\gamma=150,\alpha_{i}=70`  and  :math:`L_{i}=\operatorname{diag}\{0.05,0.05\}` . Fig. 4 shows the positions of all the robots at various time instances. The robots in this case are placed inside the desired region initially and then move as a group along a desired trajectory, as can be seen in Fig. 4. The robots are then placed outside the desired region initially, as shown in Fig. 5. It can be observed from Fig. 5 that the robots are able to move into the desired region and move together as a group along a specified path.
 
-.. image:: img1/figure4.png
+.. image:: img/figure4.png
            :width: 300
 
 ``图4``:一组机器人沿着正弦波路径呈圆形阵型移动。所有机器人最初都在目标区域内。
@@ -703,7 +640,7 @@ and these forces cancel each other out and the summation of all the interactive 
 
 
 
-.. image:: img1/figure5.png
+.. image:: img/figure5.png
            :width: 300
 
 ``图5``:一组机器人沿着正弦波路径呈圆形阵型移动(A group of robots moving together along a sine wave path in a circular shape)
@@ -730,7 +667,7 @@ and these forces cancel each other out and the summation of all the interactive 
 
       The control gains in this case are set as  :math:`K_{s i}=\operatorname{diag}\{30,30\},k_p=1,k_{ij}=1,k_1=k_2=0.1,\gamma=150,\alpha_{i}=70`  and  :math:`L_i = \operatorname{diag}\{0.05,0.05\}` . The simulation result is shown in Fig. 6.
 
-.. image:: img1/figure6.png
+.. image:: img/figure6.png
            :width: 300
 
 ``图6``:一组机器人沿着正弦波路径呈环形阵型移动(A group of robots moving together in a ring shape.)
@@ -744,7 +681,7 @@ and these forces cancel each other out and the summation of all the interactive 
 
       By choosing the radii of the two circles to be approximately the same, the desired shape becomes a very fine ring. Fig. 7 shows the simulation results with  :math:`r_1 = 4.77m` ,  :math:`r_2 = 4.78m` .
 
-.. image:: img1/figure7.png
+.. image:: img/figure7.png
            :width: 300
 
 ``图7``:一组机器人沿着正弦波路径呈细环形阵型移动(A group of robots moving together in a ring shape.)
@@ -766,7 +703,7 @@ The desired shape is next set as a crescent as described by the following inequa
 
       where  :math:`r_1 = 1.75m，r_2 = 1.1m，x_{o21} = x_{o11} -0.8，x_{o22} = x_{o12}-0.8`  . The proposed controller is used with  :math:`K_{s i}=\operatorname{diag}\{30,30\},k_{p}=1, k_{i j}=1, k_{1}=k_{2}=0.1, \gamma=150, \alpha_{i}=70` ，和 :math:`L_{i}=\operatorname{diag}\{0.05,0.05\}`  and   :math:`L_{i}=\operatorname{diag}\{0.05,0.05\}` . The positions of robots at various time instances are shown in Fig. 8.
 
-.. image:: img1/figure8.png
+.. image:: img/figure8.png
            :width: 300
 
 ``图8``:一组机器人沿着正弦波路径呈新月型移动
