@@ -94,7 +94,9 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
 >We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be described as (Fossen, 1994; Slotine & Li, 1991)
 
 \begin{equation}
+
 M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{i}+D_{i}\left(x_{i}\right) \dot{x}_{i}+g_{i}\left(x_{i}\right)=u_{i}
+
 \end{equation}
 
 
