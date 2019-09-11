@@ -93,10 +93,12 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
 我们考虑一组``N``个启动的移动机器人，其具有``n``个自由度的第 \(i\) 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）
 >We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be described as (Fossen, 1994; Slotine & Li, 1991)
 
+```math
+M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i}, \dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}
+```
+
 \begin{equation}
-
-M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{i}+D_{i}\left(x_{i}\right) \dot{x}_{i}+g_{i}\left(x_{i}\right)=u_{i}
-
+M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i}, \dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}
 \end{equation}
 
 
