@@ -7,7 +7,7 @@
 
 
 \begin{equation}
-M_i(x_i)\ddot{x_i} D_i(x_i) \dot{x_i}  g_i(x_i) = u_i
+M_i(x_i)\ddot{x_i} + D_i(x_i) \dot{x_i} + g_i(x_i) = u_i
 \end{equation}
 
 \begin{equation}
