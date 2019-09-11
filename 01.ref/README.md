@@ -90,11 +90,11 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
  >In this paper, we propose a region-based controller for a swarm of robots. In our proposed control method, each robot in the group stays within a moving region as a group (global objective) and, at the same time, maintains a minimum distance from each other (local objective). The desired region can be specified as various shapes, hence different shapes and formations can be formed. The robots in the group only need to communicate with their neighbors and not the entire community. The robots do not have specific identities or roles within the group. Therefore, the proposed method does not require specific orders or positions of the robots inside the region and hence different shapes can be formed by a given swarm of robots. The dynamics of the robots are also considered in the stability analysis of the formation control system. The system is scalable in the sense that any robot can move into the formation or leave the formation without affecting the other robots. Lyapunov theory is used to show the stability of the multi-robot systems. Simulation results are presented to illustrate the performance of the proposed shape controller.
 
 ## II. Region-based shape controls
-我们考虑一组``N``个启动的移动机器人，其具有``n``个自由度的第 \(i\) 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
->We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be described as (Fossen, 1994; Slotine & Li, 1991):
+我们考虑一组``N``个启动的移动机器人，其具有``n``个自由度的第 \(i\) 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）
+>We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be described as (Fossen, 1994; Slotine & Li, 1991)
 
 \begin{equation}
-M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{i}+D_{i}\left(x_{i}\right) \dot{x}_{i}+g_{i}\left(x_{i}\right)=u_{i}\tag{1}
+M_{i}\left(x_{i}\right) \ddot{x}_{i}+C_{i}\left(x_{i}, \dot{x}_{i}\right) \dot{x}_{i}+D_{i}\left(x_{i}\right) \dot{x}_{i}+g_{i}\left(x_{i}\right)=u_{i}
 \end{equation}
 
 
@@ -121,8 +121,9 @@ f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 
 >Each reference point of the individual region is chosen to be a constant offset of one another so that $`\dot{x}_{o l}=\dot{x}_{o}`$, where $`\dot{x}_{o}`$ is the speed of the desired region. Various shapes such as circle, ellipse, crescent, ring, triangle, square etc. can be formed by choosing the appropriate functions. For example, a ring shape can be formed by choosing the objective functions as follows:
 
 \begin{equation}
-\begin{array}{l}{f_{1}\left(\Delta x_{i o1}\right)=r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0} \\ {f_{2}\left(\Delta x_{i o2}\right)=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0}\end{array}\tag{3}
+f_{1}\left(\Delta x_{i o1}\right) &=r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0} \\ f_{2}\left(\Delta x_{i o2}\right) &=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0 \tag{3}
 \end{equation}
+
 其中$`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`$，$`r_1`$和$`r_2`$是两个圆的半径，其中半径为常数，且满足$`r_{1}<r_{2}`$，$`\left(x_{o11}(t), x_{o12}(t)\right)`$代表两个圆的共同中心。目标区域的一些示例如图1所示。
 >where $`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`$ , $`r_1`$ and $`r_2`$ are the constant radii of two circles such that $`r_{1}<r_{2}`$ , $`\left(x_{o11}(t), x_{o12}(t)\right)`$ represents the common center of the two circles. Some examples of the desired regions are shown in Fig. 1.
 
