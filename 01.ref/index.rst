@@ -10,7 +10,7 @@ Region-based shape control for a swarm of robots
 
    f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 2}\left(\Delta x_{i o 2}\right), \ldots, f_{\mathrm{GM}}\left(\Delta x_{i o M}\right)\right]^{\mathrm{T}} \leq 0 \tag{2}
 
-其中\ :math:``\Delta x_{i o l}=x_{i}-x_{o l}, x_{o l}(t)`\ 是第\ :math:`l`\ 个所需区域内的参考点，\ :math:`l = 1,2，\dots，M `\ ，\ :math:`M`\ 是目标函数的总数，
+其中\ :math:`\Delta x_{i o l}=x_{i}-x_{o l}, x_{o l}(t)`\ 是第\ :math:`l`\ 个所需区域内的参考点，\ :math:`l = 1,2，\dots，M `\ ，\ :math:`M`\ 是目标函数的总数，
 :math:`f_{G l}\left(\Delta x_{i o l}\right)`\ 是连续的标量函数，具有连续偏导数满足当
 :math:`\left\|\Delta x_{i o l}\right\| \rightarrow \infty` 时
 ，\ :math:`\left|f_{G l}\left(\Delta x_{i o l}\right)\right| \rightarrow \infty`
@@ -31,11 +31,11 @@ Region-based shape control for a swarm of robots
   <details>
   <summary>Chien Chern Cheah</summary>
 
-    School of Electrical and Electronic Engineering, Nanyang Technological University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
+School of Electrical and Electronic Engineering, Nanyang Technological University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
 
-    Chien Chern Cheah was born in Singapore. He received B.Eng. degree in Electrical Engineering from National University of Singapore in 1990, M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang Technological University, Singapore, in 1993 and 1996, respectively.
+Chien Chern Cheah was born in Singapore. He received B.Eng. degree in Electrical Engineering from National University of Singapore in 1990, M.Eng. and Ph.D. degrees in Electrical Engineering, both from Nanyang Technological University, Singapore, in 1993 and 1996, respectively.
 
-    From 1990 to 1991, he worked as a design engineer in Chartered
+From 1990 to 1991, he worked as a design engineer in Chartered
     Electronics Industries, Singapore. He was a research fellow in the
     Department of Robotics, Ritsumeikan University, Japan from 1996 to 1998.
     He joined the School of Electrical and Electronic Engineering, Nanyang
@@ -68,10 +68,10 @@ Board since 2007.
      <details>
      <summary>Saing Paul Hou</summary>
 
-   School of Electrical and Electronic Engineering, Nanyang Technological University,
+School of Electrical and Electronic Engineering, Nanyang Technological University,
    Block S1, Nanyang Avenue, S(639798), Republic of Singapore
 
-   Saing Paul Hou was born in Kandal, Cambodia in 1982. He received B.Eng. degree
+Saing Paul Hou was born in Kandal, Cambodia in 1982. He received B.Eng. degree
    with first class honor in Electrical and Electronic Engineering from Nanyang
    Technological University, Singapore in 2006. He was the recipient of Control
    Chapter Book Prize and Motorola Book Prize in 2006. He has been pursuing his
@@ -96,10 +96,10 @@ Board since 2007.
         <details>
         <summary>Jean Jacques E. Slotine</summary>
 
-  Nonlinear Systems Laboratory, Massachusetts Institute of Technology,
+Nonlinear Systems Laboratory, Massachusetts Institute of Technology,
   77 Massachusetts Avenue, Cambridge, MA 02139, USA
 
-  Jean-Jacques E. Slotine was born in Paris in 1959, and received his Ph.D.
+Jean-Jacques E. Slotine was born in Paris in 1959, and received his Ph.D.
   from the Massachusetts Institute of Technology in 1983. After working at Bell
   Labs in the computer research department, in 1984 he joined the faculty at MIT,
   where he is now Professor of Mechanical Engineering and Information Sciences,
