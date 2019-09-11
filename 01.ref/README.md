@@ -7,11 +7,11 @@
 
 
 \begin{equation}
-M_i(x_i)\ddot{x_i} + D_i(x_i) \dot{x_i} + g_i(x_i) = u_i
+M_i(x_i)\ddot{x_i} + C_i(x_i , \dot{x_i})\dot{x_i} + D_i(x_i) \dot{x_i} + g_i(x_i) = u_i
 \end{equation}
 
 \begin{equation}
-C_{i}(x_{i}  \dot{x}_{i})\dot{x}_{i}
+C_i(x_i , \dot{x_i})\dot{x_i}
 \end{equation}
 
 \begin{equation}
