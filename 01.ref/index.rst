@@ -50,6 +50,63 @@ Board since 2007.
    </p>
 
 
+   .. raw:: html
+
+      <p>
+
+   .. raw:: html
+
+     <details>
+     <summary>Saing Paul Hou</summary>
+
+School of Electrical and Electronic Engineering, Nanyang Technological University,
+Block S1, Nanyang Avenue, S(639798), Republic of Singapore
+
+Saing Paul Hou was born in Kandal, Cambodia in 1982. He received B.Eng. degree
+with first class honor in Electrical and Electronic Engineering from Nanyang
+Technological University, Singapore in 2006. He was the recipient of Control
+Chapter Book Prize and Motorola Book Prize in 2006. He has been pursuing his
+Ph.D. degree at Nanyang Technological University, Singapore since 2006.
+His research interests include formation control of multi-robot systems and
+adaptive control.
+
+   .. raw:: html
+
+      </details>
+
+   .. raw:: html
+
+      </p>
+
+      .. raw:: html
+
+         <p>
+
+      .. raw:: html
+
+        <details>
+        <summary>Jean Jacques E. Slotine</summary>
+
+Nonlinear Systems Laboratory, Massachusetts Institute of Technology,
+77 Massachusetts Avenue, Cambridge, MA 02139, USA
+
+  Jean-Jacques E. Slotine was born in Paris in 1959, and received his Ph.D.
+  from the Massachusetts Institute of Technology in 1983. After working at Bell
+  Labs in the computer research department, in 1984 he joined the faculty at MIT,
+  where he is now Professor of Mechanical Engineering and Information Sciences,
+  Professor of Brain and Cognitive Sciences, and Director of the Nonlinear Systems
+  Laboratory. He is the co-author of the textbooks “Robot Analysis and Control”
+  (Wiley, 1986) and “Applied Nonlinear Control” (Prentice-Hall, 1991). Prof.
+  Slotine was a member of the French National Science Council from 1997 to 2002,
+  and is a member of Singapore’s A*STAR Sign Advisory Board.
+
+      .. raw:: html
+
+         </details>
+
+      .. raw:: html
+
+         </p>
 
 https://www.sciencedirect.com/science/article/pii/S0005109809003215
 
