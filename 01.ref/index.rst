@@ -15,8 +15,8 @@ Region-based shape control for a swarm of robots
 
 .. raw:: html
 
-Chien Chern Cheah <details>
-
+  <details>
+  <summary>Chien Chern Cheah</summary>
 
 School of Electrical and Electronic Engineering, Nanyang Technological
 University, Block S1, Nanyang Avenue, S(639798), Republic of Singapore
@@ -48,6 +48,7 @@ Board since 2007.
 .. raw:: html
 
    </p>
+
 
 
 https://www.sciencedirect.com/science/article/pii/S0005109809003215
