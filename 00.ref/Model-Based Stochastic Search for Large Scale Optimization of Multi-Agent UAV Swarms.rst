@@ -12,7 +12,7 @@ https://arxiv.org/abs/1803.01106
 
 .. _header-n6:
 
-Abstract 
+Abstract
 ---------
 
 强化学习社区在近期的工作中体现了演化策略是一个速度快、可扩展的强化学习方案。本文将说明演化策略实际上是一个特殊的基于模型的随机搜索算法。这类算法有很好的渐进收敛性和可知的收敛率。
@@ -158,8 +158,12 @@ Strategies的收敛更有信心，我们展示了如何使用ES来有效地解�
    the same. We make our code freely available for use
    (https://github.com/ddfan/swarm_evolve).
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.fig1.png
-   :alt: 
+.. figure:: img/01.fig1.png
+   :alt:
+
+.. image:: img/figure1.png
+              :width: 300
+
 
 ``Fig. 1`` : The SCRIMMAGE multi-agent simulation environment. In this
 scenario, blue team fixed-wing agents attack red team quadcopter
@@ -278,8 +282,8 @@ II. PROBLEM FORMULATION
    standard deviation corresponding to the distribution of each
    parameter, respectively.
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.algorithm1.png
-   :alt: 
+.. figure:: img/01.algorithm1.png
+   :alt:
 
 我们为这组特定的概率模型提出了GASS算法（算法1），尽管收敛分析适用于更一般的指数分布族。对于每次迭代\ :math:`k`\ ，GASS算法涉及绘制\ :math:`N_k`\ 参数样本\ :math:`\theta_k^i\stackrel{iid}{\sim}f(\theta;\omega_k),i=1,2,\cdots,N_k`\ 。
 然后使用这些参数对返回函数\ :math:`J(\theta_k^i)`\ 进行采样。
@@ -313,7 +317,7 @@ GASS的原始分析假定\ :math:`S_k{(\cdot)}`\ 的更一般形式，其中\ :m
    change at each iteration. For simplicity we assume here it is
    deterministic and unchanging per iteration.
 
-.. code:: 
+.. code::
 
    注：
    一个Agent必须在exploitation(充分利用信息)以最大化回报（反映在其当前的效用估计上）
@@ -415,8 +419,8 @@ Salimans等人使用\ :math:`S(\cdot)`\ 的等级变换函数，他们认为减�
    function for :math:`S(\cdot)` which they argue reduced the influence
    of outliers at each iteration and helped to avoid local optima.
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.algorithm2.png
-   :alt: 
+.. figure:: img/01.algorithm2.png
+   :alt:
 
 很明显，当采样分布是点分布时，ES算法是GASS算法的子情况。
 我们还可以通过忽略算法1中第\ :math:`7`\ 行的方差项来恢复ES算法。代替归一化项\ :math:`\eta`\ ，ES使用样本数\ :math:`N_k`\ 。
@@ -610,8 +614,8 @@ A. Base Attack Task
 
    A. 基地攻击任务
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.fig3.png
-   :alt: 
+.. figure:: img/01.fig3.png
+   :alt:
 
 ``图 3``\ ：基本攻击任务的快照。
 蓝色固定翼组（左下方）的目标是攻击红色基地（红点，右上方），同时避开或攻击红色旋翼飞行器的防守。
@@ -660,13 +664,13 @@ CEM的表现明显差于ES（图4）。
    parameters in the neural network and the prohibitive computational
    difficulties with computing the covariances of those parameters.
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.train_scores.png
-   :alt: 
+.. figure:: img/01.train_scores.png
+   :alt:
 
 ``(a) Training``
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.test_scores.png
-   :alt: 
+.. figure:: img/01.test_scores.png
+   :alt:
 
 ``(b) Testing``
 
@@ -679,8 +683,8 @@ B. Two Team Competitive Match
 
 ``(a) 初始状态``
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.versus2.png
-   :alt: 
+.. figure:: img/01.versus2.png
+   :alt:
 
 ``(b) 对抗过程截图``
 
@@ -706,13 +710,13 @@ B. Two Team Competitive Match
    select from, as frequently discussed by the evolutionary computation
    community [47]_.
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.train_vs_scores.png
-   :alt: 
+.. figure:: img/01.train_vs_scores.png
+   :alt:
 
 ``(a) Training``
 
-.. figure:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.test_vs_scores.png
-   :alt: 
+.. figure:: img/01.test_vs_scores.png
+   :alt:
 
 ``(b) Testing``
 
@@ -1002,5 +1006,5 @@ Learning,” ArXiv e-prints, Dec. 2017.
    F. Petroski Such, V. Madhavan, E. Conti, J. Lehman, K. O. Stanley,
    and
 
-.. |image0| image:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.fig2.png
-.. |image1| image:: /Users/Zhiyu/Documents/GitLab/pub/00.Sample/Typora/img/01.versus.png
+.. |image0| image:: img/01.fig2.png
+.. |image1| image:: img/01.versus.png
