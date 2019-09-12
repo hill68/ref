@@ -1,9 +1,9 @@
 .. _header-n3597:
 
-基于区域的机器人蜂群阵型控制
+1 基于区域的机器人蜂群阵型控制
 ===============================
 
-1
+
 
    Region-based shape control for a swarm of robots
 
