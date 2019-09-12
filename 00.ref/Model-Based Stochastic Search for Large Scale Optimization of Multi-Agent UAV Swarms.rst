@@ -379,7 +379,7 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
 
 :math:`{Assumption 1}`
 
-*i) The learning rate :math:`\alpha_k>0, \alpha_k\rightarrow 0\text{ as }k\rightarrow\infty, \text{ and }\sum_{k=0}^\infty \alpha_k=\infty`.*
+i) The learning rate :math:`\alpha_k>0, \alpha_k\rightarrow 0` as :math:`k\rightarrow\infty`, and :math:`\sum_{k=0}^\infty \alpha_k=\infty`.
 
 :math:`\text{ii) The sample size }N_k=N_0k^\xi, \text{ where }\xi>0; \text{ also }\alpha_k\text{ and }N_k\text{ jointly satisfy }\alpha/\sqrt{N_k}=\mathcal{O}(k^{-\beta})`.
 
