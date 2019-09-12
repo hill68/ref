@@ -1,6 +1,6 @@
 .. _header-n3597:
 
-3 基于区域的机器人蜂群阵型控制
+4 基于区域的机器人蜂群阵型控制
 ===============================
 
 
@@ -265,7 +265,7 @@ Takegaki＆Arimoto，1981）或轨迹（Slotine＆Li，1987）。随着控制问
    appropriate functions. For example, a ring shape can be formed by
    choosing the objective functions as follows:
 
-:math:`f_{1}\left(\Delta x_{i o1}\right) =r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0 \\ f_{2}\left(\Delta x_{i o2}\right) =\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0 \tag{3} `
+:math:`f_{1}\left(\Delta x_{i o1}\right) &=r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0 \\ f_{2}\left(\Delta x_{i o2}\right) &=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0 \tag{3} `
 
 其中\ :math:`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`\ ，\ :math:`r_1`\ 和\ :math:`r_2`\ 是两个圆的半径，其中半径为常数，且满足\ :math:`r_{1}<r_{2}`\ ，\ :math:`\left(x_{o11}(t), x_{o12}(t)\right)`\ 代表两个圆的共同中心。目标区域的一些示例如图1所示。
 
