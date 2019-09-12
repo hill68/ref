@@ -52,7 +52,7 @@ Computation社区开发了一套黑盒优化和启发式搜索方法 [2]_。
    and heuristic search  [5]_. Such methods have been used to optimize
    the structure of neural networks for vision tasks, for instance [6]_.
 
-最近，Salimans等人提出了进化计算方法的一种特殊变体，称为\ ``进化策略(ES)``\ ，是其他强化学习方法的快速和可扩展的替代方案，可在10分钟内解决困难的类人的MuJoCo任务 [7]_。
+最近，Salimans等人提出了进化计算方法的一种特殊变体，称为**进化策略(ES)**，是其他强化学习方法的快速和可扩展的替代方案，可在10分钟内解决困难的类人的MuJoCo任务 [7]_。
 
    Recently, Salimans et al. have shown that a particular variant of
    evolutionary computation methods, termed Evolution Strategies (ES)
@@ -139,7 +139,7 @@ Strategies的收敛更有信心，我们展示了如何使用ES来有效地解�
    [14].
 
 在这项工作中，我们展示了我们的方法在两个复杂的多智能体无人机蜂群对抗场景中的有效性：一个是固定翼飞机团队攻击一个防守良好的基地，另一个是两队智能体面对面来攻击击败对方。之前已经在具有较低逼真度和复杂性的模拟环境中进行了研究 [25]_、 [26]_。
-我们利用最近开发的SCRIMMAGE多智能体模拟器的计算效率和灵活性的优势进行实验（\ ``图1``\ ） [27]_。
+我们利用最近开发的SCRIMMAGE多智能体模拟器的计算效率和灵活性的优势进行实验（**图1**） [27]_。
 我们将ES的性能与交叉熵方法进行比较。我们还针对竞争情景展示了策略如何随着时间的推移而学习如何调整协调战略来响应敌人学习如何做同样的事情。我们开源了我们的\ `代码 <https://github.com/ddfan/swarm_evolve>`__\ 。
 
    In this work we demonstrate the effectiveness of our approach on two
@@ -185,9 +185,9 @@ II. PROBLEM FORMULATION
 其中
 :math:`\Theta\subset\mathbb{R}^n`,是一个作为解空间的非空的紧凑集，而\ :math:`J(\theta)`\ 是一个不可微的非凸实值目标函数\ :math:`J:\Theta\to\mathbb{R}`\ 。
 :math:`\theta`
-可以是我们问题的\ ``决策变量``\ 的任意组合，包括影响返回结果\ :math:`J`\ 的神经网络权重、PID增益、硬件设计参数等。对于强化学习问题，\ :math:`\theta`
+可以是我们问题的**决策变量**的任意组合，包括影响返回结果\ :math:`J`\ 的神经网络权重、PID增益、硬件设计参数等。对于强化学习问题，\ :math:`\theta`
 通常表示策略的参数，\ :math:`J`
-是将策略顺序应用于环境的\ ``隐式函数``\ 。我们首先回顾如何使用基于梯度的自适应随机搜索方法解决此问题，然后展示ES算法是如何成为这些方法的特例。
+是将策略顺序应用于环境的**隐式函数**。我们首先回顾如何使用基于梯度的自适应随机搜索方法解决此问题，然后展示ES算法是如何成为这些方法的特例。
 
    where\ :math:`\Theta\subset\mathbb{R}^n`, a nonempty compact set, is
    the space of solutions, and :math:`J(\theta)` is a
@@ -249,7 +249,7 @@ II. PROBLEM FORMULATION
    With some assumptions on the form of the distribution, the gradient
    with respect to :math:`\omega` can be pushed inside the expectation.
 
-由 [33]_提出的GASS算法适用于\ ``概率密度的指数族``\ ：
+由 [33]_提出的GASS算法适用于**概率密度的指数族**：
 
    The GASS algorithm presented by  [34]_ is applicable to the
    ``exponential family of probability densities`` :
@@ -300,9 +300,9 @@ II. PROBLEM FORMULATION
    :math:`S(\cdot):\mathbb{R}\rightarrow\mathbb{R}^+` and then used to
    calculate an update on the model parameters :math:`\omega_{k+1}`.
 
-对于有界输入，\ ``整形函数``
+对于有界输入，**整形函数``
 :math:`S(\cdot)`\ 必须是非减少和从上到下的界限，其下限远离0。此外，集合\ :math:`\{\arg\max_{\theta\in\Theta}S(J(\theta))\}`\ 必须是原始问题\ :math:`\{\arg\max_{\theta\in\Theta}J(\theta)\}`\ 的解集的非空子集。
-整形函数可用于调整\ ``探索/充分利用信息``\ 之间的权衡，或在采样时帮助处理异常值。
+整形函数可用于调整**探索/充分利用信息**之间的权衡，或在采样时帮助处理异常值。
 GASS的原始分析假定\ :math:`S_k{(\cdot)}`\ 的更一般形式，其中\ :math:`S`\ 可以在每次迭代时改变。为简单起见，我们假设它在每次迭代时都是确定性的和不变的。
 
    The ``shaping function`` :math:`S(\cdot)` is required to be
@@ -480,7 +480,7 @@ GASS
 
 
 
-现在我们对ES/GASS方法的融合更有信心，我们展示了如何在大规模多代理环境中使用ES来优化复杂的策略。我们使用SCRIMMAGE多代理仿真环境 [45]_，因为它允许我们快速并行地模拟复杂的多代理方案。我们使用6DoF固定翼飞机和四旋翼飞行器进行模拟，动力学模型分别具有10和12个状态。这些动力学模型允许在实际操作状态下进行全范围的运动。风和控制噪声形式的随机扰动被建模为\ ``加性高斯噪声``\ 。可能发生地面和空中的碰撞，从而导致飞机被摧毁。我们还采用了一个武器模块，可以在从飞机机头突出的固定锥体内射击敌人。击中的概率取决于到目标的距离以及目标朝向攻击者的投影总面积。该区域基于飞机的\ ``线框模型``\ 及其相对姿态。有关更多详细信息，请参阅我们的代码和SCRIMMAGE模拟器文档。
+现在我们对ES/GASS方法的融合更有信心，我们展示了如何在大规模多代理环境中使用ES来优化复杂的策略。我们使用SCRIMMAGE多代理仿真环境 [45]_，因为它允许我们快速并行地模拟复杂的多代理方案。我们使用6DoF固定翼飞机和四旋翼飞行器进行模拟，动力学模型分别具有10和12个状态。这些动力学模型允许在实际操作状态下进行全范围的运动。风和控制噪声形式的随机扰动被建模为**加性高斯噪声**。可能发生地面和空中的碰撞，从而导致飞机被摧毁。我们还采用了一个武器模块，可以在从飞机机头突出的固定锥体内射击敌人。击中的概率取决于到目标的距离以及目标朝向攻击者的投影总面积。该区域基于飞机的**线框模型**及其相对姿态。有关更多详细信息，请参阅我们的代码和SCRIMMAGE模拟器文档。
 
    Now that we are more confident about the convergence of the ES/GASS
    method, we show how ES can be used to optimize a complex policy in a
@@ -534,7 +534,7 @@ GASS
    in turn provides low-level controls for the agent (thrust, aileron,
    elevator, rudder).
 
-此外，每个代理都配备了传感器来检测敌方代理。这里没有全状态可观测性，相反我们假设传感器能够感知敌人的相对位置和速度。在我们的实验中，我们假设每个探测器能够感知最近的5个敌人，总共\ :math:`5*7=35`\ 敌人数据维度（\ :math:`7`\ 个状态\ :math:`=`\ [相对xyz位置，距离和相对xyz速度]）。传感器还提供有关乙方和敌方基地相对指向和距离（另外\ :math:`8`\ 个状态）的信息。通过添加代理自己的状态（\ :math:`9`\ 个状态），策略的观察输入\ :math:`\vec{o}(t)`\ 的维度为\ :math:`102`\ 。这些输入状态被馈送到代理的策略中：具有3个完全连接的层神经网络\ :math:`f(\vec{o}(t);\theta)`\ ，规模分别为200,200和50，输出3个值表示`期望的`相对航向\ :math:`[x_{ref},y_{ref},z_{ref}]`\ 。每个代理的神经网络都有超过70,000个参数。每个代理使用与其队友相同的神经网络参数，但由于每个代理在每个时间步都遇到不同的观察，因此每个代理的神经网络策略的输出将是唯一的。也可以为每个代理学习独自的策略，我们将此留待为将来的工作。
+此外，每个代理都配备了传感器来检测敌方代理。这里没有全状态可观测性，相反我们假设传感器能够感知敌人的相对位置和速度。在我们的实验中，我们假设每个探测器能够感知最近的5个敌人，总共\ :math:`5*7=35`\ 敌人数据维度（\ :math:`7`\ 个状态\ :math:`=`\ [相对xyz位置，距离和相对xyz速度]）。传感器还提供有关乙方和敌方基地相对指向和距离（另外\ :math:`8`\ 个状态）的信息。通过添加代理自己的状态（\ :math:`9`\ 个状态），策略的观察输入\ :math:`\vec{o}(t)`\ 的维度为\ :math:`102`\ 。这些输入状态被馈送到代理的策略中：具有3个完全连接的层神经网络\ :math:`f(\vec{o}(t);\theta)`\ ，规模分别为200,200和50，输出3个值表示**期望的**相对航向\ :math:`[x_{ref},y_{ref},z_{ref}]`\ 。每个代理的神经网络都有超过70,000个参数。每个代理使用与其队友相同的神经网络参数，但由于每个代理在每个时间步都遇到不同的观察，因此每个代理的神经网络策略的输出将是唯一的。也可以为每个代理学习独自的策略，我们将此留待为将来的工作。
 
    Additionally, each agent is equipped with sensors to detect enemy
    agents. Full state observability is not available here, instead we
@@ -581,6 +581,147 @@ PID控制器向飞机（推力，副翼，升降舵，方向舵）提供低级�
    real-world applications.
 
 .. _header-n145:
+
+III. Experiments
+----------------
+
+我们考虑两种场景：一种是基地攻击场景，其中一支由50架固定翼飞机组成的团队必须攻击由20个四旋翼无人机防守的敌方基地；以及一个团队对抗任务，上述两个团队同时学习击败对方。在这两项任务中，我们使用以下奖励：
+
+   We consider two scenarios: a base attack scenario where a team of 50
+   fixed wing aircraft must attack an enemy base defended by 20
+   quadcopters, and a team competitive task where two teams concurrently
+   learn to defeat each other. In both tasks we use the following reward
+
+.. math::
+
+   J=10\times (\text{\#kills}) + 50\times(\text{\#collisions with enemy base})
+     - 1e-5\times(\text{distance from enemy base at end of episode})
+   \quad\quad\quad\quad\quad\quad\quad\quad (7)
+
+奖励函数鼓励空对空作战，以及对敌基地的自杀式袭击（例如一群携带有效载荷的廉价一次性无人机）。
+最后一部分是鼓励飞机在学习的初始阶段向敌人基地方向移动。
+
+   The reward function encourages air-to-air combat, as well as suicide
+   attacks against the enemy base (e.g. a swarm of cheap, disposable
+   drones carrying payloads). The last term encourages the aircraft to
+   move towards the enemy during the initial phases of learning.
+
+.. _header-n153:
+
+A. 基地攻击任务(Base Attack Task)
+~~~~~~~~~~~~~~~~~~~
+
+
+
+.. image:: img/01.fig3.png
+           :width: 300
+
+``图 3`` ：基本攻击任务的快照。
+蓝色固定翼组（左下方）的目标是攻击红色基地（红点，右上方），同时避开或攻击红色旋翼飞行器的防守。
+
+   ``Fig. 3``: Snapshot of base attack task. The goal of the blue fixed
+   wing team (lower left) is to attack the red base (red dot, upper
+   right) while avoiding or attacking red quadcopter guards.
+
+在这种场景下，由50架固定翼飞机组成的团队必须攻击由20个四旋翼飞行器防守的敌方基地（图3）。
+四旋翼飞行器使用手工制定的策略，在没有敌机的情况下，它们均匀地展开而覆盖基地。
+面临敌机时，他们瞄准最近的敌机，匹配敌人的高度，并反复射击。
+我们使用\ :math:`N_k=300, \gamma=0.02`\ ，\ :math:`0.1`\ 秒的时间步长，以及\ :math:`200`\ 秒的时长。
+两队的初始位置随机分布在竞技场对面两端的固定区域。 在配备Xeon Phi
+CPU（244线程）的计算机上进行两天完全并行化的训练。
+
+   In this scenario a team of 50 fixed-wing aircraft must attack an
+   enemy base defended by 20 quadcopters (Figure 3). The quadcopters use
+   a hand-crafted policy where in the absence of an enemy, they spread
+   themselves out evenly to cover the base. In the presence of an enemy
+   they target the closest enemy, match that enemy's altitude, and fire
+   repeatedly. We used :math:`N_k=300, \gamma=0.02`, a time step of
+   :math:`0.1` seconds, and total episode length of :math:`200` seconds.
+   Initial positions of both teams were randomized in a fixed area at
+   opposide ends of the arena. Training took two days with full
+   parallelization on a machine equipped with a Xeon Phi CPU (244
+   threads).
+
+我们发现，在整个训练过程中，固定翼团队学会了一种策略，在这种策略下，他们很快形成了一个V字阵型并接近基地。
+一些飞机自杀式袭击敌人基地，而其他飞机则开始和敌机**火拼**（见补充视频https://goo.gl/dWvQi7）。
+我们还将ES方法的实现与众所周知的交叉熵方法（CEM）进行了比较。
+CEM的表现明显差于ES（图4）。
+我们假设这是因为CEM抛出了很大一部分采样参数，因此获得了式（3）梯度的更差估计。
+与其他完整的二阶方法（例如CMA-ES或完整的二阶GASS算法）的比较是不现实的，这是由于神经网络中的大量参数以及计算这些参数的协方差的过高的令人望而却步的计算难度。
+
+   We found that over the course of training the fixed-wing team learned
+   a policy where they quickly form a V-formation and approach the base.
+   Some aircraft suicide-attack the enemy base while others begin
+   ``dog-fighting`` (see supplementary video https://goo.gl/dWvQi7). We
+   also compared our implementation of the ES method against the
+   well-known cross-entropy method (CEM). CEM performs significantly
+   worse than ES (Figure 4). We hypothesize this is because CEM throws
+   out a significant fraction of sampled parameters and therefore
+   obtains a worse estimate of the gradient of (3). Comparison against
+   other full second-order methods such as CMA-ES or the full
+   second-order GASS algorithm is unrealistic due to the large number of
+   parameters in the neural network and the prohibitive computational
+   difficulties with computing the covariances of those parameters.
+
+
+.. image:: img/01.train_scores.png
+           :width: 300
+
+``(a) Training``
+
+.. image:: img/01.test_scores.png
+           :width: 300
+
+``(b) Testing``
+
+.. _header-n171:
+
+B. 两队对抗(Two Team Competitive Match)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: img/01.versus.png
+           :width: 300
+
+``(a) 初始状态``
+
+.. image:: img/01.versus2.png
+           :width: 300
+
+``(b) 对抗过程截图``
+
+我们考虑的第二种场景是两个团队各自为他们的代理配备他们自己的独特策略，同时学习打败他们的对手（图5）。在每次迭代中，产生\ :math:`N_k=300`\ 仿真，每此仿真具有不同的随机扰动，并且每个团队具有不同的扰动。每个策略的更新是根据从玩对手的扰动策略中获得的分数计算的。结果是每个团队都学会在每次迭代中击败各种各样的对手行为。我们观察到两队的行为很快接近纳什均衡，双方试图击败最大数量的对手飞机以防止更高得分的自杀式攻击（见补充视频）。最终的结果是两支球队相互消灭的僵局，以并列得分结束（图6）。我们假设通过让每个团队与一些过去的敌人团队行为竞争或通过构建可供选择的策略库来学习更多样化的行为，正如进化计算社区经常讨论的那样[19]_。
+
+   The second scenario we consider is where two teams each equipped with
+   their own unique policies for their agents learn concurrently to
+   defeat their opponent (Figure 5). At each iteration, :math:`N_k=300`
+   simulations are spawned, each with a different random perturbation,
+   and with each team having a different perturbation. The updates for
+   each policy are calculated based on the scores received from playing
+   the opponent's perturbed policies. The result is that each team
+   learns to defeat a wide range of opponent behaviors at each
+   iteration. We observed that the behavior of the two teams quickly
+   approached a Nash equilibrium where both sides try to defeat the
+   maximum number of opponent aircraft in order to prevent
+   higher-scoring suicide attacks (see supplementary video). The end
+   result is a stalemate with both teams annihilating each other, ending
+   with tied scores (Figure 6). We hypothesize that more varied behavior
+   could be learned by having each team compete against some past enemy
+   team behaviors or by building a library of policies from which to
+   select from, as frequently discussed by the evolutionary computation
+   community [47]_.
+
+
+.. image:: img/01.train_vs_scores.png
+              :width: 300
+
+``(a) Training``
+
+.. image:: img/01.test_vs_scores.png
+              :width: 300
+
+``(b) Testing``
+
+.. _header-n184:
 
 
 
