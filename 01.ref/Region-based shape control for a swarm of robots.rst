@@ -1,6 +1,6 @@
 .. _header-n3597:
 
-1 基于区域的机器人蜂群阵型控制
+2 基于区域的机器人蜂群阵型控制
 ===============================
 
 
@@ -171,3 +171,19 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
    the stability of the multi-robot systems. Simulation results are
    presented to illustrate the performance of the proposed shape
    controller.
+
+
+.. _header-n3638:
+
+2. Region-based shape controls
+------------------------------
+
+我们考虑一\ :math:`N`\ 个启动的移动机器人，其具有\ :math:`n`\ 个自由度的第
+:math:`i` 个机器人的动力学模型可以描述为（Fossen，1994;
+Slotine＆Li，1991）
+
+   We consider a group of N fully actuated mobile robots whose dynamics
+   of the ith robot with n degrees of freedom can be described as
+   (Fossen, 1994; Slotine & Li, 1991)
+
+.. math:: M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i},\dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}\tag{1}
