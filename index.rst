@@ -21,8 +21,9 @@
    :maxdepth: 2
    :caption: Swarm
 
-   01.ref/index.rst
+   00.ref/Model-Based Stochastic Search for Large Scale Optimization of Multi-Agent UAV Swarms.rst
    01.ref/Region-based shape control for a swarm of robots.rst
+
 
 
 .. toctree::
