@@ -381,11 +381,11 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
 
 *i) The learning rate* :math:`\alpha_k>0, \alpha_k\rightarrow 0` *as* :math:`k\rightarrow\infty`, *and* :math:`\sum_{k=0}^\infty \alpha_k=\infty`.
 
-:math:`\text{ii) The sample size }N_k=N_0k^\xi, \text{ where }\xi>0; \text{ also }\alpha_k\text{ and }N_k\text{ jointly satisfy }\alpha/\sqrt{N_k}=\mathcal{O}(k^{-\beta})`.
+*ii) The sample size* :math:`N_k=N_0k^\xi`, where :math:`\xi>0`; *also* :math:`\alpha_k` *and* :math:`N_k\` *jointly satisfy* :math:`\alpha/\sqrt{N_k}=\mathcal{O}(k^{-\beta})`.
 
-:math:`\text{iii) } T(\theta)\text{ is bounded on }\Theta`
+*iii)*  :math:`T(\theta)` *is bounded on* :math:`\Theta`
 
-:math:`\text{iv)} If \omega^*\text{ is a local maximum of (3), the Hessian of  }\int_{\Theta}J(\theta)f(\theta;\omega)d\theta` is continuous and symmetric negative definite in a neighborhood of \omega^*`.
+*iv) If* :math:`\omega^*` *is a local maximum of (3), the Hessian of*  :math:`\int_{\Theta}J(\theta)f(\theta;\omega)d\theta` *is continuous and symmetric negative definite in a neighborhood of* :math:`\omega^*`.
 
 :math:`{Theorem 1}`
 
