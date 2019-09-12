@@ -642,7 +642,7 @@ CPU（244线程）的计算机上进行两天完全并行化的训练。
    threads).
 
 我们发现，在整个训练过程中，固定翼团队学会了一种策略，在这种策略下，他们很快形成了一个V字阵型并接近基地。
-一些飞机自杀式袭击敌人基地，而其他飞机则开始和敌机\ **火拼**\（见补充视频https://goo.gl/dWvQi7）。
+一些飞机自杀式袭击敌人基地，而其他飞机则开始和敌机\ **火拼**\（见补充视频 https://goo.gl/dWvQi7 ）。
 我们还将ES方法的实现与众所周知的交叉熵方法（CEM）进行了比较。
 CEM的表现明显差于ES（图4）。
 我们假设这是因为CEM抛出了很大一部分采样参数，因此获得了式（3）梯度的更差估计。
@@ -650,8 +650,7 @@ CEM的表现明显差于ES（图4）。
 
    We found that over the course of training the fixed-wing team learned
    a policy where they quickly form a V-formation and approach the base.
-   Some aircraft suicide-attack the enemy base while others begin
-   ``dog-fighting`` (see supplementary video https://goo.gl/dWvQi7). We
+   Some aircraft suicide-attack the enemy base while others begin *dog-fighting* (see supplementary video https://goo.gl/dWvQi7). We
    also compared our implementation of the ES method against the
    well-known cross-entropy method (CEM). CEM performs significantly
    worse than ES (Figure 4). We hypothesize this is because CEM throws
