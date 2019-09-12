@@ -50,16 +50,14 @@ Computation社区开发了一套黑盒优化和启发式搜索方法 [2]_。
    and more  [4]_. The Evolutionary Computation community, on the other
    hand, have developed a suite of methods for black box optimization
    and heuristic search  [5]_. Such methods have been used to optimize
-   the structure of neural networks for vision tasks, for instance
-    [6]_.
+   the structure of neural networks for vision tasks, for instance [6]_.
 
 最近，Salimans等人提出了进化计算方法的一种特殊变体，称为\ ``进化策略(ES)``\ ，是其他强化学习方法的快速和可扩展的替代方案，可在10分钟内解决困难的类人的MuJoCo任务 [7]_。
 
    Recently, Salimans et al. have shown that a particular variant of
    evolutionary computation methods, termed Evolution Strategies (ES)
    are a fast and scalable alternative to other reinforcement learning
-   approaches, solving the difficult humanoid MuJoCo task in 10 minutes
-    [8]_.
+   approaches, solving the difficult humanoid MuJoCo task in 10 minutes [8]_.
 
 作者认为ES与其他强化学习方法相比有几个好处：
 
@@ -161,7 +159,7 @@ Strategies的收敛更有信心，我们展示了如何使用ES来有效地解�
 .. figure:: img/01.fig1.png
    :alt:
 
-.. image:: img/figure1.png
+.. image:: img/01.fig1.png
               :width: 300
 
 
@@ -172,6 +170,231 @@ defenders. White lines indicate missed shots.
 .. _header-n45:
 
 
+II. PROBLEM FORMULATION
+-----------------------
+
+可以将我们的问题表示为不可微分的非凸优化问题：
+
+   We can pose our problem as the non-differentiable, non-convex
+   optimization
+
+.. math::
+
+   \theta^*=\arg\max_{\theta\in\Theta}J(\theta)
+   \quad\quad\quad\quad\quad\quad\quad\quad (1)
+
+其中
+:math:`\Theta\subset\mathbb{R}^n`,是一个作为解空间的非空的紧凑集，而\ :math:`J(\theta)`\ 是一个不可微的非凸实值目标函数\ :math:`J:\Theta\to\mathbb{R}`\ 。
+:math:`\theta`
+可以是我们问题的\ ``决策变量``\ 的任意组合，包括影响返回结果\ :math:`J`\ 的神经网络权重、PID增益、硬件设计参数等。对于强化学习问题，\ :math:`\theta`
+通常表示策略的参数，\ :math:`J`
+是将策略顺序应用于环境的\ ``隐式函数``\ 。我们首先回顾如何使用基于梯度的自适应随机搜索方法解决此问题，然后展示ES算法是如何成为这些方法的特例。
+
+   where\ :math:`\Theta\subset\mathbb{R}^n`, a nonempty compact set, is
+   the space of solutions, and :math:`J(\theta)` is a
+   non-differentiable, non-convex real-valued objective function
+   :math:`J:\Theta\to\mathbb{R}`. :math:`\theta` could be any
+   combination of ``decision variables`` of our problem, including
+   neural network weights, PID gains, hardware design parameters, etc.
+   which affect the outcome of the returns :math:`J`. For reinforcement
+   learning problems :math:`\theta` usually represents the parameters of
+   the policy and :math:`J` is an ``implicit function`` of the
+   sequential application of the policy to the environment. We first
+   review how this problem can be solved using Gradient-Based Adaptive
+   Stochastic Search methods and then show how the ES algorithm is a
+   special case of these methods.
+
+.. _header-n53:
+
+*A. Gradient-Based Adaptive Stochastic Search*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+基于模型的随机搜索方法的目标是通过指定从中采样 [31]_的概率模型（“基于模型”的来由）来将非可微优化问题式(1)转换为可微分问题。让这个模型为\ :math:`p(\theta|\omega)=f(\theta;\omega), \omega\in\varOmega`\ ，其中\ :math:`w`\ 是定义概率分布的参数（例如，对于高斯分布，分布完全由均值和方差\ :math:`\omega=[\mu,\sigma]`\ 参数化。
+那么\ :math:`J(\theta)`\ 对分布\ :math:`f(\theta;\omega)`\ 的期望总是小于\ :math:`J`\ 的最优值，即
+
+   The goal of model-based stochastic search methods is to cast the
+   non-differentiable optimization problem (1) as a differentiable one
+   by specifying a probabilistic model (hence ”model-based”) from which
+   to sample  [32]_. Let this model be
+   :math:`p(\theta|\omega)= f (\theta;\omega), \omega\in\varOmega`,
+   where :math:`w` is a parameter which defines the probability
+   distribution (e.g. for Gaussian distributions, the distribution is
+   fully parameterized by the mean and variance
+   :math:`\omega =[\mu,\sigma]`). Then the expectation of
+   :math:`J(\theta)` over the distribution :math:`f (\theta;\omega)`
+   will always be less than the optimal value of :math:`J`, i.e.
+
+.. math::
+
+   \int_{\Theta} J(\theta)f(\theta;\omega)d\theta\leq J(\theta^*)
+   \quad\quad\quad\quad\quad\quad\quad\quad (2)
+
+基于梯度的自适应随机搜索（GASS）的思想是，可以在分布\ :math:`\varOmega`\ 而不是\ :math:`\varTheta`\ 的参数空间中执行搜索，以获得（2）中最大化期望的分布：
+
+   The idea of Gradient-based Adaptive Stochastic Search (GASS) is that
+   one can perform a search in the space of parameters of the
+   distribution :math:`\Omega` rather than :math:`\Theta`, for a
+   distribution which maximizes the expectation in (2):
+
+.. math::
+
+   \omega^*=\arg\max_{\omega\in\Omega}\int_{\Theta}J(\theta)f(\theta;\omega)d\theta
+   \quad\quad\quad\quad\quad\quad\quad\quad (3)
+
+最大化此期望对应于找到最大分布在最佳\ :math:`\theta`\ 周围的分布。然而，与式（1）最大化不同，这个目标函数现在可以相对于\ :math:`\omega`\ 连续且可微分。通过对分布形式的一些假设，相对于\ :math:`\omega`\ 的梯度可以推到期望值之内。
+
+   Maximizing this expectation corresponds to finding a distribution
+   which is maximally distributed around the optimal :math:`\theta`.
+   However, unlike maximizing (1), this objective function can now be
+   made continuous and differentiable with respect to :math:`\omega`.
+   With some assumptions on the form of the distribution, the gradient
+   with respect to :math:`\omega` can be pushed inside the expectation.
+
+由 [33]_提出的GASS算法适用于\ ``概率密度的指数族``\ ：
+
+   The GASS algorithm presented by  [34]_ is applicable to the
+   ``exponential family of probability densities`` :
+
+.. math::
+
+   f(\theta;\omega)=\exp\{\omega^\intercal T(\theta)-\phi(\theta)\}
+   \quad\quad\quad\quad\quad\quad\quad\quad (4)
+
+其中\ :math:`\phi(\theta)=ln\int\exp(\omega^\intercal T(\theta)d\theta`
+和
+:math:`T(\theta)`\ 是足够统计数据的向量。由于我们关注的是显示与使用高斯噪声采样的参数扰动的ES的连接，我们假设\ :math:`f(\theta;\omega)`\ 是高斯的。此外，因为我们关心学习大量参数（即神经网络中的权重），我们假设每个参数都有一个独立的高斯分布。然后，\ :math:`T(\theta)=[\theta,\theta^2]^\intercal\in\mathbb{R}^{2n}`
+和\ :math:`\omega=[\mu/\sigma^2,-1/n\sigma^2]^\intercal\in\mathbb{R}^{2n}`\ ，其中\ :math:`\mu`
+和\ :math:`\sigma` 分别是对应于每个参数分布的均值和标准差的向量。
+
+   where
+   :math:`\phi(\theta)=\ln\int\exp(\omega^\intercal T(\theta))d\theta`,
+   and :math:`T(\theta)` is the vector of sufficient statistics. Since
+   we are concerned with showing the connection with ES which uses
+   parameter perturbations sampled with Gaussian noise, we assume that
+   :math:`f(\theta;\omega)` is Gaussian. Furthermore, since we are
+   concerned with learning a large number of parameters (i.e. weights in
+   a neural network), we assume an independent Gaussian distribution
+   over each parameter. Then,
+   :math:`T(\theta)=[\theta,\theta^2]^\intercal\in\mathbb{R}^{2n}` and
+   :math:`\omega=[\mu/\sigma^2,-1/n\sigma^2]^\intercal\in\mathbb{R}^{2n}`,
+   where :math:`\mu` and :math:`\sigma` are vectors of the mean and
+   standard deviation corresponding to the distribution of each
+   parameter, respectively.
+
+.. figure:: img/01.algorithm1.png
+   :alt:
+
+我们为这组特定的概率模型提出了GASS算法（算法1），尽管收敛分析适用于更一般的指数分布族。对于每次迭代\ :math:`k`\ ，GASS算法涉及绘制\ :math:`N_k`\ 参数样本\ :math:`\theta_k^i\stackrel{iid}{\sim}f(\theta;\omega_k),i=1,2,\cdots,N_k`\ 。
+然后使用这些参数对返回函数\ :math:`J(\theta_k^i)`\ 进行采样。
+通过整形函数\ :math:`S(\cdot):\mathbb{R}\rightarrow\mathbb{R}^+`\ 给出返回值，然后用于计算模型参数\ :math:`\omega_{k+1}`\ 的更新。
+
+   We present the GASS algorithm for this specific set of probability
+   models (Algorithm 1), although the analysis for convergence holds for
+   the more general exponential family of distributions. For each
+   iteration :math:`k`, The GASS algorithm involves drawing :math:`N_k`
+   samples of parameters
+   :math:`\theta_k^i\stackrel{iid}{\sim}f(\theta;\omega_k),i=1,2,\cdots,N_k`.
+   These parameters are then used to sample the return function
+   :math:`J(\theta_k^i)`. The returns are fed through a shaping function
+   :math:`S(\cdot):\mathbb{R}\rightarrow\mathbb{R}^+` and then used to
+   calculate an update on the model parameters :math:`\omega_{k+1}`.
+
+对于有界输入，\ ``整形函数``
+:math:`S(\cdot)`\ 必须是非减少和从上到下的界限，其下限远离0。此外，集合\ :math:`\{\arg\max_{\theta\in\Theta}S(J(\theta))\}`\ 必须是原始问题\ :math:`\{\arg\max_{\theta\in\Theta}J(\theta)\}`\ 的解集的非空子集。
+整形函数可用于调整\ ``探索/充分利用信息``\ 之间的权衡，或在采样时帮助处理异常值。
+GASS的原始分析假定\ :math:`S_k{(\cdot)}`\ 的更一般形式，其中\ :math:`S`\ 可以在每次迭代时改变。为简单起见，我们假设它在每次迭代时都是确定性的和不变的。
+
+   The ``shaping function`` :math:`S(\cdot)` is required to be
+   nondecreasing and bounded from above and below for bounded inputs,
+   with the lower bound away from 0. Additionally, the set
+   :math:`\{\arg\max_{\theta\in\Theta}S(J(\theta))\}` must be a nonempty
+   subset of the set of solutions of the original problem
+   :math:`\{\arg\max_{\theta\in\Theta}J(\theta)\}`. The shaping function
+   can be used to adjust the ``exploration/exploitation`` trade-off or
+   help deal with outliers when sampling. The original analysis of GASS
+   assumes a more general form of :math:`S_k(\cdot)` where :math:`S` can
+   change at each iteration. For simplicity we assume here it is
+   deterministic and unchanging per iteration.
+
+.. code::
+
+   注：
+   一个Agent必须在exploitation(充分利用信息)以最大化回报（反映在其当前的效用估计上）
+   和exploration(探索)以最大化长期利益之间进行折中。
+   ----《人工智能：一种现代方法（第三版）》，清华大学出版社，P.696
+
+GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
+
+   GASS can be considered a second-order gradient method and requires
+   estimating the variance of the sampled parameters:
+
+.. math::
+
+   \hat{V}_k=\frac{1}{N_k-1}\sum_{i=1}^{N_k}T(\theta_k^i)T(\theta_k^i)^\intercal
+   -\frac{1}{N_k^2-N_k}\Bigg(\sum_{i=1}^{N_k}T(\theta_k^i)\Bigg)\Bigg(\sum_{i=1}^{N_k}T(\theta_k^i)\Bigg)^\intercal.
+   \quad\quad\quad\quad\quad\quad\quad\quad (5)
+
+实际上，如果参数空间\ :math:`\Theta`\ 的大小很大，就像神经网络中的情况一样，这个方差矩阵的大小为
+:math:`2\times 2n`\ ，计算成本很高。
+在我们的工作中，我们通过独立计算每个独立高斯参数的方差来近似\ :math:`\hat{V}_k`\ 。
+稍微滥用符号，请将\ :math:`\tilde{\theta}^i_k`\ 视为\ :math:`\theta^i_k`\ 的标量元素。
+然后我们为每个标量元素\ :math:`\tilde{\theta}^i_k` 一个
+:math:`2\times 2` 方差矩阵：
+
+   In practice if the size of the parameter space :math:`\Theta` is
+   large, as is the case in neural networks, this variance matrix will
+   be of size :math:`2n\times 2n` and will be costly to compute. In our
+   work we approximate :math:`\hat{V}_k` with independent calculations
+   of the variance on the parameters of each independent Gaussian. With
+   a slight abuse of notation, consider :math:`\tilde{\theta}_k^i` as a
+   scalar element of :math:`\theta_k^i`. We then have, for each scalar
+   element :math:`\tilde{\theta}_k^i` a :math:`2\times 2` variance
+   matrix:
+
+.. math::
+
+   \hat{V}_k=\frac{1}{N_k-1}\sum_{i=1}^{N_k}\begin{bmatrix} \tilde{\theta}_k^i\\(\tilde{\theta}_k^i)^2\end{bmatrix}\begin{bmatrix} \tilde{\theta}_k^i&(\tilde{\theta}_k^i)^2\end{bmatrix}
+   -\frac{1}{N_k^2-N_k}\Bigg(\sum_{i=1}^{N_k}\begin{bmatrix} \tilde{\theta}_k^i\\(\tilde{\theta}_k^i)^2\end{bmatrix}\Bigg)\Bigg(\sum_{i=1}^{N_k}\begin{bmatrix} \tilde{\theta}_k^i&(\tilde{\theta}_k^i)^2\end{bmatrix}\Bigg).
+   \quad\quad\quad\quad\quad\quad\quad\quad (6)
+
+定理1表明GASS产生一个\ :math:`\omega_k`\ 序列，它收敛到一个极限集，它指定一组最大化的分布（式（3））。
+此集合中的分布将指定如何选择
+:math:`\theta^\ast`\ 以最终最大化（式（1））。
+与大多数非凸优化算法一样，我们不能保证达到全局最大值，但使用概率模型和仔细选择整形函数应该有助于避免早期收敛到次优的局部最大值。证明依赖于以广义Robbins-Monro算法的形式投射更新规则（参见 [35]_，定理1和2）。定理1还根据迭代次数\ :math:`k`\ ，每次迭代的样本数\ :math:`N_k`\ 以及学习率\ :math:`\alpha_k`\ 指定收敛速度。在实践中，定理1意味着需要仔细平衡每次迭代的样本数量的增加以及随着迭代的进展而降低学习率。
+
+   Theorem 1 shows that GASS produces a sequence of :math:`\omega_k`
+   that converges to a limit set which specifies a set of distributions
+   that maximize (3). Distributions in this set will specify how to
+   choose :math:`\theta^\ast` to ultimately maximize (1). As with most
+   non-convex optimization algorithms, we are not guaranteed to arrive
+   at the global maximum, but using probabilistic models and careful
+   choice of the shaping function should help avoid early convergence
+   into suboptimal local maximum. The proof relies on casting the update
+   rule in the form of a generalized Robbins-Monro algorithm (see
+    [36]_, Thms 1 and 2). Theorem 1 also specifies convergence rates in
+   terms of the number of iterations :math:`k`, the number of samples
+   per iteration :math:`N_k`, and the learning rate :math:`\alpha_k`. In
+   practice Theorem 1 implies the need to carefully balance the increase
+   in the number of samples per iteration and the decrease in learning
+   rate as iterations progress.
+
+:math:`\bold{Assumption 1}`
+
+:math:`\text{i) The learning rate }\alpha_k>0, \alpha_k\rightarrow 0\text{ as }k\rightarrow\infty, \text{ and }\sum_{k=0}^\infty \alpha_k=\infty`.
+
+:math:`\text{ii) The sample size }N_k=N_0k^\xi, \text{ where }\xi>0; \text{ also }\alpha_k\text{ and }N_k\text{ jointly satisfy }\alpha/\sqrt{N_k}=\mathcal{O}(k^{-\beta})`.
+
+:math:`\text{iii) } T(\theta)\text{ is bounded on }\Theta`
+
+:math:`\text{iv) If }\omega^*\text{ is a local maximum of (3), the Hessian of  }\int_{\Theta}J(\theta)f(\theta;\omega)d\theta`
+:math:`\text{ is continuous and symmetric negative definite in a neighborhood of }\omega^*`.
+
+:math:`\bold{Theorem 1}`
+
+:math:`\text{Assume that Assumption 1 holds.  Let }\alpha_k=\alpha_0/k^\alpha \text{ for } 0<\alpha<1.  \text{ Let }N_k=N_0k^{\tau-\alpha} \text{ where } \tau> 2\alpha \text{ is a constant. Then the sequence } \{\omega_k\} \text{ generated by Algorithm 1}`
+:math:` \text{ converges to a limit set w.p.1. with rate } \mathcal{O}(1/\sqrt{k^\tau})`.
+
+.. _header-n107:
 
 .. _header-n190:
 
