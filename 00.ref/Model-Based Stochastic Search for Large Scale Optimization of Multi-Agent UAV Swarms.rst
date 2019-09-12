@@ -109,10 +109,10 @@ Computation社区开发了一套黑盒优化和启发式搜索方法 [2]_。
    non-differentiable and non-convex objective functions, analysis will
    always be difficult. Nevertheless, we show that the Evolution
    Strategies algorithm proposed by  [14]_ is a special case of a class
-   of model-based stochastic search methods known as Gradient- Based
+   of model-based stochastic search methods known as Gradient-Based
    Adaptive Stochastic Search (GASS)  [15]_. This class of methods
    generalizes many stochastic search methods such as the well-known
-   Cross Entropy Method (CEM)  [16]_, CMA- ES  [17]_, etc. By casting a
+   Cross Entropy Method (CEM)  [16]_, CMA-ES  [17]_, etc. By casting a
    non-differentiable, non-convex optimization problem as a gradient
    descent problem, one can arrive at nice asymptotic convergence
    properties and known convergence rates  [18]_.
@@ -122,7 +122,7 @@ Strategies的收敛更有信心，我们展示了如何使用ES来有效地解�
 
    With more confidence in the convergence of Evolution Strategies, we
    demonstrate how ES can be used to efficiently solve both cooperative
-   and competitive large-scale multi- agent problems. Many approaches to
+   and competitive large-scale multi-agent problems. Many approaches to
    solving multi-agent problems rely on hand-designed and hand-tuned
    algorithms (see [9] for a review). One such example, distributed
    Model Predictive Control, relies on independent MPC controllers on
@@ -723,21 +723,41 @@ B. 两队对抗(Two Team Competitive Match)
 
 .. _header-n184:
 
+IV. CONCLUSION
+--------------
 
+我们的研究已经表明，在竞争和合作多智能体的背景下，进化策略适用于学习那些用于各种复杂任务的具有数千个参数的策略。通过展示ES与更易于理解的基于模型的随机搜索方法之间的联系，我们能够深入了解未来的算法设计。未来的工作将包括优化混合参数化的实验，例如：优化神经网络权重和PID增益。在这种情况下，对非神经网络参数的二阶处理可能更有益，因为系统的行为可能对非神经网络参数的扰动更敏感。另一个研究方向将会是为团队中的每个代理优化独特的策略。再一个方向就是比较用于训练神经网络的其他进化计算策略，包括使用更多样化群体的方法 [48]_，或更多j具有启发类型的遗传算法 [49]_。
+
+   We have shown that Evolution Strategies are applicable for learning
+   policies with many thousands of parameters for a wide range of
+   complex tasks in both the competitive and cooperative multi-agent
+   setting. By showing the connection between ES and more
+   well-understood model-based stochastic search methods, we are able to
+   gain insight into future algorithm design. Future work will include
+   experiments with optimizing mixed parameterizations, e.g. optimizing
+   both neural network weights and PID gains. In this case, the
+   second-order treatment on non-neural network parameters may be more
+   beneficial, since the behavior of the system may be more sensitive to
+   perturbations of non-neural network parameters. Another direction of
+   investigation could be optimizing unique policies for each agent in
+   the team. Yet another direction would be comparing other evolutionary
+   computation strategies for training neural networks, including
+   methods which use a more diverse population [50]_, or more genetic
+   algorithm-type heuristics [51]_.
 
 .. _header-n190:
 
 REFERENCES
 ----------
 
-//link.springer.com/10.1007/s10458-005-2631-2
+https://link.springer.com/10.1007/s10458-005-2631-2
 
-//calhoun.nps.edu/handle/10945/34665
+https://calhoun.nps.edu/handle/10945/34665
 
 J. Schmidhuber, “Natural evolution strategies.” Journal of Machine
 Learning Research, vol. 15, no. 1, pp. 949–980, 2014.
 
-J. Clune, “Deep Neuroevolution: Genetic Algorithms Are a Competi- tive
+J. Clune, “Deep Neuroevolution: Genetic Algorithms Are a Competitive
 Alternative for Training Deep Neural Networks for Reinforcement
 Learning,” ArXiv e-prints, Dec. 2017.
 
@@ -798,7 +818,7 @@ Learning,” ArXiv e-prints, Dec. 2017.
 
 .. [13]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [14]
@@ -822,7 +842,7 @@ Learning,” ArXiv e-prints, Dec. 2017.
 
 .. [18]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [19]
@@ -832,7 +852,7 @@ Learning,” ArXiv e-prints, Dec. 2017.
 
 .. [20]
    J. B. Rawlings and B. T. Stewart, “Coordinating multiple
-   optimization- based controllers: New opportunities and challenges,”
+   optimization-based controllers: New opportunities and challenges,”
    Journal of Process Control, vol. 18, no. 9, pp. 839–845, 2008.
 
 .. [21]
@@ -892,32 +912,32 @@ Learning,” ArXiv e-prints, Dec. 2017.
 
 .. [31]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [32]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [33]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [34]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [35]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [36]
    E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non- differentiable optimization,” IEEE Transactions on Automatic
+   non-differentiable optimization,” IEEE Transactions on Automatic
    Control, vol. 59, no. 7, pp. 1818–1832, 2014.
 
 .. [37]
@@ -965,7 +985,7 @@ Learning,” ArXiv e-prints, Dec. 2017.
 .. [47]
    K. O. Stanley and R. Miikkulainen, “Competitive coevolution through
    evolutionary complexification,” Journal of Artificial Intelligence
-   Re- search, vol. 21, pp. 63–100, 2004.
+   Research, vol. 21, pp. 63–100, 2004.
 
 .. [48]
    E. Conti, V. Madhavan, F. Petroski Such, J. Lehman, K. O. Stanley,
