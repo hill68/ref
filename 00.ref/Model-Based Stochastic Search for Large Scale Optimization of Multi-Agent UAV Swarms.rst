@@ -52,7 +52,7 @@ Computation社区开发了一套黑盒优化和启发式搜索方法 [2]_。
    and heuristic search  [5]_. Such methods have been used to optimize
    the structure of neural networks for vision tasks, for instance [6]_.
 
-最近，Salimans等人提出了进化计算方法的一种特殊变体，称为**进化策略(ES)**，是其他强化学习方法的快速和可扩展的替代方案，可在10分钟内解决困难的类人的MuJoCo任务 [7]_。
+最近，Salimans等人提出了进化计算方法的一种特殊变体，称为\ **进化策略(ES)**\，是其他强化学习方法的快速和可扩展的替代方案，可在10分钟内解决困难的类人的MuJoCo任务 [7]_。
 
    Recently, Salimans et al. have shown that a particular variant of
    evolutionary computation methods, termed Evolution Strategies (ES)
@@ -139,7 +139,7 @@ Strategies的收敛更有信心，我们展示了如何使用ES来有效地解�
    [14].
 
 在这项工作中，我们展示了我们的方法在两个复杂的多智能体无人机蜂群对抗场景中的有效性：一个是固定翼飞机团队攻击一个防守良好的基地，另一个是两队智能体面对面来攻击击败对方。之前已经在具有较低逼真度和复杂性的模拟环境中进行了研究 [25]_、 [26]_。
-我们利用最近开发的SCRIMMAGE多智能体模拟器的计算效率和灵活性的优势进行实验（**图1**） [27]_。
+我们利用最近开发的SCRIMMAGE多智能体模拟器的计算效率和灵活性的优势进行实验（\ **图1**\） [27]_。
 我们将ES的性能与交叉熵方法进行比较。我们还针对竞争情景展示了策略如何随着时间的推移而学习如何调整协调战略来响应敌人学习如何做同样的事情。我们开源了我们的\ `代码 <https://github.com/ddfan/swarm_evolve>`__\ 。
 
    In this work we demonstrate the effectiveness of our approach on two
@@ -185,9 +185,9 @@ II. PROBLEM FORMULATION
 其中
 :math:`\Theta\subset\mathbb{R}^n`,是一个作为解空间的非空的紧凑集，而\ :math:`J(\theta)`\ 是一个不可微的非凸实值目标函数\ :math:`J:\Theta\to\mathbb{R}`\ 。
 :math:`\theta`
-可以是我们问题的**决策变量**的任意组合，包括影响返回结果\ :math:`J`\ 的神经网络权重、PID增益、硬件设计参数等。对于强化学习问题，\ :math:`\theta`
+可以是我们问题的\ **决策变量**\的任意组合，包括影响返回结果\ :math:`J`\ 的神经网络权重、PID增益、硬件设计参数等。对于强化学习问题，\ :math:`\theta`
 通常表示策略的参数，\ :math:`J`
-是将策略顺序应用于环境的**隐式函数**。我们首先回顾如何使用基于梯度的自适应随机搜索方法解决此问题，然后展示ES算法是如何成为这些方法的特例。
+是将策略顺序应用于环境的\ **隐式函数**\。我们首先回顾如何使用基于梯度的自适应随机搜索方法解决此问题，然后展示ES算法是如何成为这些方法的特例。
 
    where\ :math:`\Theta\subset\mathbb{R}^n`, a nonempty compact set, is
    the space of solutions, and :math:`J(\theta)` is a
@@ -249,7 +249,7 @@ II. PROBLEM FORMULATION
    With some assumptions on the form of the distribution, the gradient
    with respect to :math:`\omega` can be pushed inside the expectation.
 
-由 [33]_提出的GASS算法适用于**概率密度的指数族**：
+由 [33]_提出的GASS算法适用于\ **概率密度的指数族**\：
 
    The GASS algorithm presented by  [34]_ is applicable to the
    ``exponential family of probability densities`` :
@@ -300,9 +300,8 @@ II. PROBLEM FORMULATION
    :math:`S(\cdot):\mathbb{R}\rightarrow\mathbb{R}^+` and then used to
    calculate an update on the model parameters :math:`\omega_{k+1}`.
 
-对于有界输入，**整形函数``
-:math:`S(\cdot)`\ 必须是非减少和从上到下的界限，其下限远离0。此外，集合\ :math:`\{\arg\max_{\theta\in\Theta}S(J(\theta))\}`\ 必须是原始问题\ :math:`\{\arg\max_{\theta\in\Theta}J(\theta)\}`\ 的解集的非空子集。
-整形函数可用于调整**探索/充分利用信息**之间的权衡，或在采样时帮助处理异常值。
+对于有界输入，\ **整形函数**\ \ :math:`S(\cdot)`\ 必须是非减少和从上到下的界限，其下限远离0。此外，集合\ :math:`\{\arg\max_{\theta\in\Theta}S(J(\theta))\}`\ 必须是原始问题\ :math:`\{\arg\max_{\theta\in\Theta}J(\theta)\}`\ 的解集的非空子集。
+整形函数可用于调整\ **探索/充分利用信息**\之间的权衡，或在采样时帮助处理异常值。
 GASS的原始分析假定\ :math:`S_k{(\cdot)}`\ 的更一般形式，其中\ :math:`S`\ 可以在每次迭代时改变。为简单起见，我们假设它在每次迭代时都是确定性的和不变的。
 
    The ``shaping function`` :math:`S(\cdot)` is required to be
@@ -480,7 +479,7 @@ GASS
 
 
 
-现在我们对ES/GASS方法的融合更有信心，我们展示了如何在大规模多代理环境中使用ES来优化复杂的策略。我们使用SCRIMMAGE多代理仿真环境 [45]_，因为它允许我们快速并行地模拟复杂的多代理方案。我们使用6DoF固定翼飞机和四旋翼飞行器进行模拟，动力学模型分别具有10和12个状态。这些动力学模型允许在实际操作状态下进行全范围的运动。风和控制噪声形式的随机扰动被建模为**加性高斯噪声**。可能发生地面和空中的碰撞，从而导致飞机被摧毁。我们还采用了一个武器模块，可以在从飞机机头突出的固定锥体内射击敌人。击中的概率取决于到目标的距离以及目标朝向攻击者的投影总面积。该区域基于飞机的**线框模型**及其相对姿态。有关更多详细信息，请参阅我们的代码和SCRIMMAGE模拟器文档。
+现在我们对ES/GASS方法的融合更有信心，我们展示了如何在大规模多代理环境中使用ES来优化复杂的策略。我们使用SCRIMMAGE多代理仿真环境 [45]_，因为它允许我们快速并行地模拟复杂的多代理方案。我们使用6DoF固定翼飞机和四旋翼飞行器进行模拟，动力学模型分别具有10和12个状态。这些动力学模型允许在实际操作状态下进行全范围的运动。风和控制噪声形式的随机扰动被建模为\ **加性高斯噪声**\。可能发生地面和空中的碰撞，从而导致飞机被摧毁。我们还采用了一个武器模块，可以在从飞机机头突出的固定锥体内射击敌人。击中的概率取决于到目标的距离以及目标朝向攻击者的投影总面积。该区域基于飞机的\ **线框模型**\及其相对姿态。有关更多详细信息，请参阅我们的代码和SCRIMMAGE模拟器文档。
 
    Now that we are more confident about the convergence of the ES/GASS
    method, we show how ES can be used to optimize a complex policy in a
@@ -534,7 +533,7 @@ GASS
    in turn provides low-level controls for the agent (thrust, aileron,
    elevator, rudder).
 
-此外，每个代理都配备了传感器来检测敌方代理。这里没有全状态可观测性，相反我们假设传感器能够感知敌人的相对位置和速度。在我们的实验中，我们假设每个探测器能够感知最近的5个敌人，总共\ :math:`5*7=35`\ 敌人数据维度（\ :math:`7`\ 个状态\ :math:`=`\ [相对xyz位置，距离和相对xyz速度]）。传感器还提供有关乙方和敌方基地相对指向和距离（另外\ :math:`8`\ 个状态）的信息。通过添加代理自己的状态（\ :math:`9`\ 个状态），策略的观察输入\ :math:`\vec{o}(t)`\ 的维度为\ :math:`102`\ 。这些输入状态被馈送到代理的策略中：具有3个完全连接的层神经网络\ :math:`f(\vec{o}(t);\theta)`\ ，规模分别为200,200和50，输出3个值表示**期望的**相对航向\ :math:`[x_{ref},y_{ref},z_{ref}]`\ 。每个代理的神经网络都有超过70,000个参数。每个代理使用与其队友相同的神经网络参数，但由于每个代理在每个时间步都遇到不同的观察，因此每个代理的神经网络策略的输出将是唯一的。也可以为每个代理学习独自的策略，我们将此留待为将来的工作。
+此外，每个代理都配备了传感器来检测敌方代理。这里没有全状态可观测性，相反我们假设传感器能够感知敌人的相对位置和速度。在我们的实验中，我们假设每个探测器能够感知最近的5个敌人，总共\ :math:`5*7=35`\ 敌人数据维度（\ :math:`7`\ 个状态\ :math:`=`\ [相对xyz位置，距离和相对xyz速度]）。传感器还提供有关乙方和敌方基地相对指向和距离（另外\ :math:`8`\ 个状态）的信息。通过添加代理自己的状态（\ :math:`9`\ 个状态），策略的观察输入\ :math:`\vec{o}(t)`\ 的维度为\ :math:`102`\ 。这些输入状态被馈送到代理的策略中：具有3个完全连接的层神经网络\ :math:`f(\vec{o}(t);\theta)`\ ，规模分别为200,200和50，输出3个值表示\ **期望的**\相对航向\ :math:`[x_{ref},y_{ref},z_{ref}]`\ 。每个代理的神经网络都有超过70,000个参数。每个代理使用与其队友相同的神经网络参数，但由于每个代理在每个时间步都遇到不同的观察，因此每个代理的神经网络策略的输出将是唯一的。也可以为每个代理学习独自的策略，我们将此留待为将来的工作。
 
    Additionally, each agent is equipped with sensors to detect enemy
    agents. Full state observability is not available here, instead we
@@ -643,7 +642,7 @@ CPU（244线程）的计算机上进行两天完全并行化的训练。
    threads).
 
 我们发现，在整个训练过程中，固定翼团队学会了一种策略，在这种策略下，他们很快形成了一个V字阵型并接近基地。
-一些飞机自杀式袭击敌人基地，而其他飞机则开始和敌机**火拼**（见补充视频https://goo.gl/dWvQi7）。
+一些飞机自杀式袭击敌人基地，而其他飞机则开始和敌机\ **火拼**\（见补充视频https://goo.gl/dWvQi7）。
 我们还将ES方法的实现与众所周知的交叉熵方法（CEM）进行了比较。
 CEM的表现明显差于ES（图4）。
 我们假设这是因为CEM抛出了很大一部分采样参数，因此获得了式（3）梯度的更差估计。
