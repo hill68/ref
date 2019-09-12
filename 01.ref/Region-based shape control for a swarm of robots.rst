@@ -1,6 +1,6 @@
 .. _header-n3597:
 
-2 基于区域的机器人蜂群阵型控制
+3 基于区域的机器人蜂群阵型控制
 ===============================
 
 
@@ -187,3 +187,91 @@ Slotine＆Li，1991）
    (Fossen, 1994; Slotine & Li, 1991)
 
 .. math:: M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i},\dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}\tag{1}
+
+其中\ :math:`x_{i}\in R^{n}`\ 是广义坐标。\ :math:`M_i(x_i)\in R^{n \times n}`\ 是惯性矩阵，所以是对称且正定的，\ :math:`C_i(x_i，\dot{x_i})\in R^{n \times n}`\ 是科里奥利矩阵，并且向心项中的\ :math:`\dot{M}_{i}\left(x_{i}\right)-2 C_{i}\left(x_{i}, \dot{x}_{i}\right)`\ 是偏斜对称的，\ :math:`D_{i}\left(x_{i}\right) \dot{x}_{i}`\ 表示阻尼力，其中\ :math:`D_{i}\left(x_{i}\right) \in R^{n \times n}`\ 是正定，\ :math:`g_{i}\left(x_{i}\right) \in R^{n}`\ 表示重力矢量，\ :math:`u_{i} \in R^{n}`\ 表示控制输入。
+
+   where :math:`x_{i} \in R^{n}` is a generalized coordinate,
+   :math:`M_i（x_i）\in R^{n \times n}` is an inertia matrix which is
+   symmetric and positive definite,
+   :math:`C_i（x_i，\dot{x_i}）\in R^{n \times n}`\ is a matrix of
+   Coriolis and centripetal terms where
+   :math:`\dot{M}_{i}\left(x_{i}\right)-2 C_{i}\left(x_{i}, \dot{x}_{i}\right)`
+   is skew symmetric, :math:`D_{i}\left(x_{i}\right) \dot{x}_{i}`
+   represents the damping force where
+   :math:`D_{i}\left(x_{i}\right) \in R^{n \times n}` is positive
+   definite, :math:`g_{i}\left(x_{i}\right) \in R^{n}` denotes a
+   gravitational force vector, and :math:`u_{i} \in R^{n}` denotes the
+   control inputs.
+
+在传统的机器人控制中，期望目标被设定为位置（Arimoto，1996;
+Takegaki＆Arimoto，1981）或轨迹（Slotine＆Li，1987）。随着控制问题扩展到更复杂的系统，例如多个机器人的编队控制，该公式需要所有机器人具体的目标位置或相对位置。因此，当前在文献中讨论控制方法不适合于控制一大群机器人。近期，有学者提出了一种区域到达控制器，主要用于单个机器人的控制，其期望的区域是静态的（Cheah，Wang，＆Sun，2007）。
+
+   In conventional robot control, the desired objective is specified as
+   a position (Arimoto, 1996; Takegaki & Arimoto, 1981) or a trajectory
+   (Slotine & Li, 1987). As the control problem is extended to a more
+   complex system such as formation control of multiple robots, this
+   formulation requires the specifications of the desired positions or
+   relative positions of all the robots. Therefore, the current
+   formation control methods discussed in the literature are not
+   suitable for controlling a large group or swarm of robots. A region
+   reaching controller has been recently proposed for a single robot
+   manipulator where the desired region is static (Cheah, Wang, & Sun,
+   2007).
+
+在本节中，我们将介绍一种基于区域的多机器人系统的阵型控制器。首先，应当确定一个特定阵型的移动区域，以便所有机器人都留在里面。这可以被视为所有机器人的全局目标。其次，指定每个机器人与其相邻机器人之间的最小距离。这可以被视为每个机器人的局部目标。因此，该组机器人能够以期望的阵型移动，同时保持彼此之间的最小距离。
+让我们通过以下不等式来定义全局目标函数：
+
+   In this section, we present a region-based shape controller for
+   multi-robot systems. First, a moving region of specific shape is
+   defined for all the robots to stay inside. This can be viewed as a
+   global objective of all robots. Second, a minimum distance is
+   specified between each robot and its neighboring robots. This can be
+   viewed as a local objective of each robot. Thus, the group of robots
+   will be able to move in a desired shape while maintaining a minimum
+   distance among each other. Let us define a global objective function
+   by the following inequality:
+
+.. math:: f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 2}\left(\Delta x_{i o 2}\right), \ldots, f_{\mathrm{GM}}\left(\Delta x_{i o M}\right)\right]^{\mathrm{T}} \leq 0 \tag{2}
+
+其中\ :math:`\Delta x_{i o l}=x_{i}-x_{o l}, x_{o l}(t)`\ 是第\ :math:`l`\ 个所需区域内的参考点，\ :math:`l = 1,2，\dots，M `\ ，\ :math:`M`\ 是目标函数的总数，
+:math:`f_{G l}\left(\Delta x_{i o l}\right)`\ 是连续的标量函数，具有连续偏导数满足当
+:math:`\left\|\Delta x_{i o l}\right\| \rightarrow \infty` 时
+，\ :math:`\left|f_{G l}\left(\Delta x_{i o l}\right)\right| \rightarrow \infty`
+。\ :math:`f_{G l}\left(\Delta x_{i o l}\right)`
+的选取标准是满足\ :math:`f_{G}\left(\Delta x_{i o l}\right)`\ 有界性，从而保证\ :math:`\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}`
+和\ :math:`\frac{\partial^{2} f_{G l}\left(\Delta x_{\text { iol }}\right)}{\partial \Delta x_{\text {iol}}^{2}}`\ 的有界性。
+
+   where\ :math:`\Delta x_{i o l}=x_{i}-x_{o l}, x_{o l}(t)` is a
+   reference point within the lth desired region,
+   :math:`l=1,2, \dots, M`, :math:`M` is the total number of objective
+   functions, :math:`f_{G l}\left(\Delta x_{i o l}\right)` are
+   continuous scalar functions with continuous partial derivatives that
+   satisfy
+   :math:`\left|f_{G l}\left(\Delta x_{i o l}\right)\right| \rightarrow \infty`
+   as :math:`\left\|\Delta x_{i o l}\right\| \rightarrow \infty`.
+   :math:`f_{G l}\left(\Delta x_{i o l}\right)` is chosen in such a way
+   that the boundedness of :math:`f_{G}\left(\Delta x_{i o l}\right)`
+   ensures the boundedness of
+   :math:`\frac{\partial f_{G l}\left(\Delta x_{i o l}\right)}{\partial \Delta x_{i o l}}`
+   ,\ :math:`\frac{\partial^{2} f_{G l}\left(\Delta x_{\text { iol }}\right)}{\partial \Delta x_{\text {iol}}^{2}}`.
+
+选择单个区域的每个参考点作为彼此的常数偏移，以满足\ :math:`\dot{x}_{ol}=\dot{x}_{o}`\ ，其中\ :math:`\dot{x}_{o}`\ 是所需区域的速度。通过选择合适的函数，可以形成圆形，椭圆形，月牙形，环形，三角形，正方形等各种阵型。例如，可以通过选择目标函数来形成环形阵型，如下所示：
+
+   Each reference point of the individual region is chosen to be a
+   constant offset of one another so that
+   :math:`\dot{x}_{o l}=\dot{x}_{o}`, where :math:`\dot{x}_{o}` is the
+   speed of the desired region. Various shapes such as circle, ellipse,
+   crescent, ring, triangle, square etc. can be formed by choosing the
+   appropriate functions. For example, a ring shape can be formed by
+   choosing the objective functions as follows:
+
+:math:`f_{1}\left(\Delta x_{i o1}\right) =r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0 \\ f_{2}\left(\Delta x_{i o2}\right) =\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0 \tag{3} `
+
+其中\ :math:`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`\ ，\ :math:`r_1`\ 和\ :math:`r_2`\ 是两个圆的半径，其中半径为常数，且满足\ :math:`r_{1}<r_{2}`\ ，\ :math:`\left(x_{o11}(t), x_{o12}(t)\right)`\ 代表两个圆的共同中心。目标区域的一些示例如图1所示。
+
+   where :math:`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}` ,
+   :math:`r_1` and :math:`r_2` are the constant radii of two circles
+   such that :math:`r_{1}<r_{2}` ,
+   :math:`\left(x_{o11}(t), x_{o12}(t)\right)` represents the common
+   center of the two circles. Some examples of the desired regions are
+   shown in Fig. 1.
