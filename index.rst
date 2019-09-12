@@ -23,7 +23,7 @@
 
    01.ref/index.rst
    01.ref/README.md
-   01.ref/Region-based shape control for a swarm of robots.En-Ch.rst
+   01.ref/Region-based shape control for a swarm of robots.rst
 
 
 .. toctree::
