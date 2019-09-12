@@ -98,7 +98,9 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
 我们考虑一组``N``个启动的移动机器人，其具有``n``个自由度的第 \(i\) 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）
 >We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be described as (Fossen, 1994; Slotine & Li, 1991)
 
-
+```math
+M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i},\dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{x}_{i}+g_{i}(x_{i})=u_{i}
+```
 
 其中$`x_{i}\in R^{n}`$是广义坐标。$`M_i(x_i)\in R^{n \times n}`$是惯性矩阵，所以是对称且正定的，$`C_i(x_i，\dot{x_i})\in R^{n \times n}`$是科里奥利矩阵，并且向心项中的$`\dot{M}_{i}\left(x_{i}\right)-2 C_{i}\left(x_{i}, \dot{x}_{i}\right)`$是偏斜对称的，$`D_{i}\left(x_{i}\right) \dot{x}_{i}`$表示阻尼力，其中$`D_{i}\left(x_{i}\right) \in R^{n \times n}`$是正定，$`g_{i}\left(x_{i}\right) \in R^{n}`$表示重力矢量，$`u_{i} \in R^{n}`$表示控制输入。
 >where $`x_{i} \in R^{n}`$ is a generalized coordinate, $`M_i（x_i）\in R^{n \times n}`$ is an inertia matrix which is symmetric and positive definite, $`C_i（x_i，\dot{x_i}）\in R^{n \times n}`$is a matrix of Coriolis and centripetal terms where $`\dot{M}_{i}\left(x_{i}\right)-2 C_{i}\left(x_{i}, \dot{x}_{i}\right)`$ is skew symmetric, $`D_{i}\left(x_{i}\right) \dot{x}_{i}`$ represents the damping force where $`D_{i}\left(x_{i}\right) \in R^{n \times n}`$ is positive definite, $`g_{i}\left(x_{i}\right) \in R^{n}`$ denotes a gravitational force vector, and $`u_{i} \in R^{n}`$ denotes the control inputs.
@@ -122,9 +124,12 @@ f_{G}\left(\Delta x_{i}\right)=\left[f_{G 1}\left(\Delta x_{i o 1}\right), f_{G 
 选择单个区域的每个参考点作为彼此的常数偏移，以满足$`\dot{x}_{ol}=\dot{x}_{o}`$，其中$`\dot{x}_{o}`$是所需区域的速度。通过选择合适的函数，可以形成圆形，椭圆形，月牙形，环形，三角形，正方形等各种阵型。例如，可以通过选择目标函数来形成环形阵型，如下所示：
 >Each reference point of the individual region is chosen to be a constant offset of one another so that $`\dot{x}_{o l}=\dot{x}_{o}`$, where $`\dot{x}_{o}`$ is the speed of the desired region. Various shapes such as circle, ellipse, crescent, ring, triangle, square etc. can be formed by choosing the appropriate functions. For example, a ring shape can be formed by choosing the objective functions as follows:
 
-\begin{equation}
-f_{1}\left(\Delta x_{i o1}\right) &=r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0} \\ f_{2}\left(\Delta x_{i o2}\right) &=\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0 \tag{3}
-\end{equation}
+```math
+f_{1}\left(\Delta x_{i o1}\right) =r_{1}^{2}-\left(x_{i 1}-x_{o 11}\right)^{2}-\left(x_{i 2}-x_{o12}\right)^{2} \leq 0 \\
+```
+```math
+f_{2}\left(\Delta x_{i o2}\right) =\left(x_{i 1}-x_{o11}\right)^{2}+\left(x_{i 2}-x_{o12}\right)^{2}-r_{2}^{2} \leq 0
+```
 
 其中$`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`$，$`r_1`$和$`r_2`$是两个圆的半径，其中半径为常数，且满足$`r_{1}<r_{2}`$，$`\left(x_{o11}(t), x_{o12}(t)\right)`$代表两个圆的共同中心。目标区域的一些示例如图1所示。
 >where $`x_{i}=\left[x_{i 1}, x_{i 2}\right]^{\mathrm{T}}`$ , $`r_1`$ and $`r_2`$ are the constant radii of two circles such that $`r_{1}<r_{2}`$ , $`\left(x_{o11}(t), x_{o12}(t)\right)`$ represents the common center of the two circles. Some examples of the desired regions are shown in Fig. 1.
