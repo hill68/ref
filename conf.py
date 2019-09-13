@@ -104,6 +104,8 @@ html_theme = 'sphinx_rtd_theme'
 #
 # html_theme_options = {}
 
+html_theme_options = {"canonical_url": "https://ref-swarm.readthedocs.io", "logo_only": True}
+
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 html_logo = "DSAI Lab.svg"
