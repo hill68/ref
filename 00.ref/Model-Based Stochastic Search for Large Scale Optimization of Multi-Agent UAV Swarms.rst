@@ -863,4 +863,4 @@ Learning,” ArXiv e-prints, Dec. 2017.
 
 PDF
 ----------
-\ `PDF <Model-Based Stochastic Search for Large Scale Optimization of Multi-Agent UAV Swarms.En-Ch.pdf>`
+\ `PDF <https://github.com/hill68/ref/blob/master/00.ref/Model-Based%20Stochastic%20Search%20for%20Large%20Scale%20Optimization%20of%20Multi-Agent%20UAV%20Swarms.En-Ch.pdf>`
