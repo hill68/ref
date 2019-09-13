@@ -20,7 +20,7 @@ index
 
 .. toctree::
    :maxdepth: 2
-   :caption: About Sphinx
+   :caption: Sphinx Tutorial
 
 
    0_Introduction/intro.rst
@@ -39,7 +39,7 @@ index
    5_others/jekII.rst
    5_others/jekyll-theme
 
-Tools List
+Tools Used
 ==================
 1. 写作语言：`reStructuredText <http://www.sphinx-doc.org/en/master/rest.html#rst-primer>`_
 #. 文档发布工具。`Sphinx <http://www.sphinx-doc.org/en/master/index.html>`_
