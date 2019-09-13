@@ -100,8 +100,8 @@ Computation社区开发了一套黑盒优化和启发式搜索方法 [2]_。
 
 对进化计算算法的一种常见批评是缺乏收敛性分析或保证。
 当然，对于具有不可微分和非凸目标函数的问题，分析将始终是困难的。
-然而，我们证明 [4]_提出的进化策略算法是一类基于模型的随机搜索方法的特例，称为基于梯度的自适应随机搜索（GASS） [5]_。
-这类方法推广了许多随机搜索方法，如众所周知的交叉熵方法（CEM） [6]_，CMA-ES [7]_等。通过将不可微分、非凸优化问题作为梯度下降问题，人们可以得到很好的渐近收敛性和已知的收敛速度 [8]_。
+然而，我们证明 [4]_ 提出的进化策略算法是一类基于模型的随机搜索方法的特例，称为基于梯度的自适应随机搜索（GASS） [5]_。
+这类方法推广了许多随机搜索方法，如众所周知的交叉熵方法（CEM） [6]_，CMA-ES [7]_ 等。通过将不可微分、非凸优化问题作为梯度下降问题，人们可以得到很好的渐近收敛性和已知的收敛速度 [8]_。
 
    A common critique of evolutionary computation algorithms is a lack of
    convergence analysis or guarantees. Of course, for problems with
@@ -180,7 +180,7 @@ II. PROBLEM FORMULATION
 .. math::
 
    \theta^*=\arg\max_{\theta\in\Theta}J(\theta)
-   \quad\quad\quad\quad\quad\quad\quad\quad (1)
+   \quad\quad\quad\quad (1)
 
 其中
 :math:`\Theta\subset\mathbb{R}^n`,是一个作为解空间的非空的紧凑集，而\ :math:`J(\theta)`\ 是一个不可微的非凸实值目标函数\ :math:`J:\Theta\to\mathbb{R}`\ 。
@@ -226,7 +226,7 @@ II. PROBLEM FORMULATION
 .. math::
 
    \int_{\Theta} J(\theta)f(\theta;\omega)d\theta\leq J(\theta^*)
-   \quad\quad\quad\quad\quad\quad\quad\quad (2)
+   \quad\quad\quad\quad (2)
 
 基于梯度的自适应随机搜索（GASS）的思想是，可以在分布\ :math:`\varOmega`\ 而不是\ :math:`\varTheta`\ 的参数空间中执行搜索，以获得（2）中最大化期望的分布：
 
@@ -238,7 +238,7 @@ II. PROBLEM FORMULATION
 .. math::
 
    \omega^*=\arg\max_{\omega\in\Omega}\int_{\Theta}J(\theta)f(\theta;\omega)d\theta
-   \quad\quad\quad\quad\quad\quad\quad\quad (3)
+   \quad\quad\quad\quad (3)
 
 最大化此期望对应于找到最大分布在最佳\ :math:`\theta`\ 周围的分布。然而，与式（1）最大化不同，这个目标函数现在可以相对于\ :math:`\omega`\ 连续且可微分。通过对分布形式的一些假设，相对于\ :math:`\omega`\ 的梯度可以推到期望值之内。
 
@@ -257,7 +257,7 @@ II. PROBLEM FORMULATION
 .. math::
 
    f(\theta;\omega)=\exp\{\omega^\intercal T(\theta)-\phi(\theta)\}
-   \quad\quad\quad\quad\quad\quad\quad\quad (4)
+   \quad\quad\quad\quad (4)
 
 其中\ :math:`\phi(\theta)=ln\int\exp(\omega^\intercal T(\theta)d\theta`
 和
@@ -332,7 +332,7 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
 
    \hat{V}_k=\frac{1}{N_k-1}\sum_{i=1}^{N_k}T(\theta_k^i)T(\theta_k^i)^\intercal
    -\frac{1}{N_k^2-N_k}\Bigg(\sum_{i=1}^{N_k}T(\theta_k^i)\Bigg)\Bigg(\sum_{i=1}^{N_k}T(\theta_k^i)\Bigg)^\intercal.
-   \quad\quad\quad\quad\quad\quad\quad\quad (5)
+   \quad\quad\quad\quad (5)
 
 实际上，如果参数空间\ :math:`\Theta`\ 的大小很大，就像神经网络中的情况一样，这个方差矩阵的大小为
 :math:`2\times 2n`\ ，计算成本很高。
@@ -355,7 +355,7 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
 
    \hat{V}_k=\frac{1}{N_k-1}\sum_{i=1}^{N_k}\begin{bmatrix} \tilde{\theta}_k^i\\(\tilde{\theta}_k^i)^2\end{bmatrix}\begin{bmatrix} \tilde{\theta}_k^i&(\tilde{\theta}_k^i)^2\end{bmatrix}
    -\frac{1}{N_k^2-N_k}\Bigg(\sum_{i=1}^{N_k}\begin{bmatrix} \tilde{\theta}_k^i\\(\tilde{\theta}_k^i)^2\end{bmatrix}\Bigg)\Bigg(\sum_{i=1}^{N_k}\begin{bmatrix} \tilde{\theta}_k^i&(\tilde{\theta}_k^i)^2\end{bmatrix}\Bigg).
-   \quad\quad\quad\quad\quad\quad\quad\quad (6)
+   \quad\quad\quad\quad (6)
 
 定理1表明GASS产生一个\ :math:`\omega_k`\ 序列，它收敛到一个极限集，它指定一组最大化的分布（式（3））。
 此集合中的分布将指定如何选择
@@ -399,7 +399,7 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
 
 
 
-我们现在回顾一下 [4]_提出的ES算法，并展示它是如何是GASS算法的一阶近似。
+我们现在回顾一下 [4]_ 提出的ES算法，并展示它是如何是GASS算法的一阶近似。
 ES算法由与GASS相同的两个阶段组成：1）随机扰动具有从高斯分布采样的噪声的参数。
 2）计算回报并计算参数的更新。
 算法2中概述了该算法。一旦计算出返回值，它们就通过函数\ :math:`S(\cdot)`\ 发送，该函数执行适应性整形 [17]_。
@@ -595,7 +595,7 @@ III. Experiments
 
    J=10\times (\text{\#kills}) + 50\times(\text{\#collisions with enemy base})
      - 1e-5\times(\text{distance from enemy base at end of episode})
-   \quad\quad\quad\quad\quad\quad\quad\quad (7)
+   \quad\quad\quad\quad (7)
 
 奖励函数鼓励空对空作战，以及对敌基地的自杀式袭击（例如一群携带有效载荷的廉价一次性无人机）。
 最后一部分是鼓励飞机在学习的初始阶段向敌人基地方向移动。
