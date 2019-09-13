@@ -858,3 +858,9 @@ Learning,” ArXiv e-prints, Dec. 2017.
    predictive control: A review and recent developments,” The Canadian
    Journal of Chemical Engineering, vol. 89, no. 5, pp. 1176–1190, 2011.
    [Online]. Available: http://doi.wiley.com/10.1002/cjce.20555
+
+
+
+   PDF
+   ----------
+   \ `PDF <Model-Based Stochastic Search for Large Scale Optimization of Multi-Agent UAV Swarms,En-Ch.pdf>`
