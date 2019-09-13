@@ -12,7 +12,7 @@ https://arxiv.org/abs/1803.01106
 
 PDF
 ----------
-\ `PDF <https://github.com>`\
+\ `PDF <https://github.com/hill68/ref/blob/master/00.ref/Model-Based%20Stochastic%20Search%20for%20Large%20Scale%20Optimization%20of%20Multi-Agent%20UAV%20Swarms.En-Ch.pdf>`__\
 
 
 .. _header-n6:
@@ -22,7 +22,7 @@ Abstract
 
 强化学习社区在近期的工作中体现了演化策略是一个速度快、可扩展的强化学习方案。本文将说明演化策略实际上是一个特殊的基于模型的随机搜索算法。这类算法有很好的渐进收敛性和可知的收敛率。
 
-本文展示了这类方法可被有效地用于解决多智能体竞争和合作问题----如何模拟两个复杂的智能无人机群间的战斗情景：一个是一队固定翼无人机群攻击一个防御基地；另一个是两队无人机群面对面交锋来攻击对方。\ `演示视频 <http://goo.gl/dWvQi7>`
+本文展示了这类方法可被有效地用于解决多智能体竞争和合作问题----如何模拟两个复杂的智能无人机群间的战斗情景：一个是一队固定翼无人机群攻击一个防御基地；另一个是两队无人机群面对面交锋来攻击对方。\ `演示视频 <http://goo.gl/dWvQi7>`__\
 
    Recent work from the reinforcement learning community has shown that
    Evolution Strategies are a fast and scalable alternative to other
