@@ -60,7 +60,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Docs Hub'
-copyright ='2017-{}, ISCAS'.format(datetime.datetime.now().year)
+copyright ='2017-{}, ISCAS'.format(datetime.now().year)
 author = 'SAS Lab'
 
 # The version info for the project you're documenting, acts as replacement for
