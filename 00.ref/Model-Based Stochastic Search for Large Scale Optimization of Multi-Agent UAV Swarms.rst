@@ -47,17 +47,17 @@ Computation社区开发了一套黑盒优化和启发式搜索方法 [2]_。
    environment through repeated interactions and trial and error. Such
    methods often rely on various approximations of the Bellman equation
    and include value function approximation, policy gradient methods,
-   and more  [4]_. The Evolutionary Computation community, on the other
+   and more  [1]_. The Evolutionary Computation community, on the other
    hand, have developed a suite of methods for black box optimization
-   and heuristic search  [5]_. Such methods have been used to optimize
-   the structure of neural networks for vision tasks, for instance [6]_.
+   and heuristic search  [2]_. Such methods have been used to optimize
+   the structure of neural networks for vision tasks, for instance [3]_.
 
-最近，Salimans等人提出了进化计算方法的一种特殊变体，称为\ **进化策略(ES)**\，是其他强化学习方法的快速和可扩展的替代方案，可在10分钟内解决困难的类人的MuJoCo任务 [7]_。
+最近，Salimans等人提出了进化计算方法的一种特殊变体，称为\ **进化策略(ES)**\，是其他强化学习方法的快速和可扩展的替代方案，可在10分钟内解决困难的类人的MuJoCo任务 [4]_。
 
    Recently, Salimans et al. have shown that a particular variant of
    evolutionary computation methods, termed Evolution Strategies (ES)
    are a fast and scalable alternative to other reinforcement learning
-   approaches, solving the difficult humanoid MuJoCo task in 10 minutes [8]_.
+   approaches, solving the difficult humanoid MuJoCo task in 10 minutes [4]_.
 
 作者认为ES与其他强化学习方法相比有几个好处：
 
@@ -100,45 +100,46 @@ Computation社区开发了一套黑盒优化和启发式搜索方法 [2]_。
 
 对进化计算算法的一种常见批评是缺乏收敛性分析或保证。
 当然，对于具有不可微分和非凸目标函数的问题，分析将始终是困难的。
-然而，我们证明 [9]_提出的进化策略算法是一类基于模型的随机搜索方法的特例，称为基于梯度的自适应随机搜索（GASS） [10]_。
-这类方法推广了许多随机搜索方法，如众所周知的交叉熵方法（CEM） [11]_，CMA-ES [12]_等。通过将不可微分、非凸优化问题作为梯度下降问题，人们可以得到很好的渐近收敛性和已知的收敛速度 [13]_。
+然而，我们证明 [4]_提出的进化策略算法是一类基于模型的随机搜索方法的特例，称为基于梯度的自适应随机搜索（GASS） [5]_。
+这类方法推广了许多随机搜索方法，如众所周知的交叉熵方法（CEM） [6]_，CMA-ES [7]_等。通过将不可微分、非凸优化问题作为梯度下降问题，人们可以得到很好的渐近收敛性和已知的收敛速度 [8]_。
 
    A common critique of evolutionary computation algorithms is a lack of
    convergence analysis or guarantees. Of course, for problems with
    non-differentiable and non-convex objective functions, analysis will
    always be difficult. Nevertheless, we show that the Evolution
-   Strategies algorithm proposed by  [14]_ is a special case of a class
+   Strategies algorithm proposed by  [4]_ is a special case of a class
    of model-based stochastic search methods known as Gradient-Based
-   Adaptive Stochastic Search (GASS)  [15]_. This class of methods
+   Adaptive Stochastic Search (GASS)  [5]_. This class of methods
    generalizes many stochastic search methods such as the well-known
-   Cross Entropy Method (CEM)  [16]_, CMA-ES  [17]_, etc. By casting a
+   Cross Entropy Method (CEM)  [6]_, CMA-ES  [7]_, etc. By casting a
    non-differentiable, non-convex optimization problem as a gradient
    descent problem, one can arrive at nice asymptotic convergence
-   properties and known convergence rates  [18]_.
+   properties and known convergence rates  [8]_.
 
 我们对Evolution
-Strategies的收敛更有信心，我们展示了如何使用ES来有效地解决合作和竞争性的大规模多智能体问题。解决多智能体问题的许多方法都依赖于手工设计和手动调整的算法（参见 [19]_的综述）。在分布式模型预测控制的例子中，依赖于每个智能体上的独立MPC控制器，它们之间具有一定程度的协调 [20]_， [21]_。这些控制器需要手动设计动力学模型、成本函数、反馈增益等，并需要专业领域知识。此外，将这些方法扩展到更复杂的问题仍然会是个问题。而进化算法被尝试作为多智能体问题的解决方案，通常环境更小、更简单、策略复杂度低 [22]_， [23]_。最近，我们针对无人机蜂群的对抗场景提出了\ **结合MPC和使用遗传算法**\ 来改善手动调谐MPC控制器的成本函数的混合方法。 [24]_。
+Strategies的收敛更有信心，我们展示了如何使用ES来有效地解决合作和竞争性的大规模多智能体问题。解决多智能体问题的许多方法都依赖于手工设计和手动调整的算法（参见 [9]_的综述）。在分布式模型预测控制的例子中，依赖于每个智能体上的独立MPC控制器，它们之间具有一定程度的协调 [10]_， [11]_。这些控制器需要手动设计动力学模型、成本函数、反馈增益等，并需要专业领域知识。此外，将这些方法扩展到更复杂的问题仍然会是个问题。而进化算法被尝试作为多智能体问题的解决方案，通常环境更小、更简单、策略复杂度低 [12]_， [13]_。
+最近，我们针对无人机蜂群的对抗场景提出了\ **结合MPC和使用遗传算法**\ 来改善手动调谐MPC控制器的成本函数的混合方法。 [14]_。
 
    With more confidence in the convergence of Evolution Strategies, we
    demonstrate how ES can be used to efficiently solve both cooperative
    and competitive large-scale multi-agent problems. Many approaches to
    solving multi-agent problems rely on hand-designed and hand-tuned
-   algorithms (see [9] for a review). One such example, distributed
+   algorithms (see [9]_ for a review). One such example, distributed
    Model Predictive Control, relies on independent MPC controllers on
-   each agent with some level of coordination between them [10], [11].
+   each agent with some level of coordination between them [10]_, [11]_.
    These controllers require hand-designing dynamics models, cost
    functions, feedback gains, etc. and require expert domain knowledge.
    Additionally, scaling these methods up to more complex problems
    continues to be an issue. Evolutionary algorithms have also been
    tried as a solution to multi-agent problems; usually with smaller,
-   simpler environments, and policies with low complexity [12], [13].
+   simpler environments, and policies with low complexity [12]_, [13]_.
    Recently, a hybrid approach combining MPC and the use of genetic
    algorithms to evolve the cost function for a hand-tuned MPC
    controller has been demonstrated for a UAV swarm combat scenario
-   [14].
+   [14]_.
 
-在这项工作中，我们展示了我们的方法在两个复杂的多智能体无人机蜂群对抗场景中的有效性：一个是固定翼飞机团队攻击一个防守良好的基地，另一个是两队智能体面对面来攻击击败对方。之前已经在具有较低逼真度和复杂性的模拟环境中进行了研究 [25]_、 [26]_。
-我们利用最近开发的SCRIMMAGE多智能体模拟器的计算效率和灵活性的优势进行实验（\ **图1**\） [27]_。
+在这项工作中，我们展示了我们的方法在两个复杂的多智能体无人机蜂群对抗场景中的有效性：一个是固定翼飞机团队攻击一个防守良好的基地，另一个是两队智能体面对面来攻击击败对方。之前已经在具有较低逼真度和复杂性的模拟环境中进行了研究 [15]_、 [14]_。
+我们利用最近开发的SCRIMMAGE多智能体模拟器的计算效率和灵活性的优势进行实验（\ **图1**\） [16]_。
 我们将ES的性能与交叉熵方法进行比较。我们还针对竞争情景展示了策略如何随着时间的推移而学习如何调整协调战略来响应敌人学习如何做同样的事情。我们开源了我们的\ `代码 <https://github.com/ddfan/swarm_evolve>`__\ 。
 
    In this work we demonstrate the effectiveness of our approach on two
@@ -146,9 +147,9 @@ Strategies的收敛更有信心，我们展示了如何使用ES来有效地解�
    wing aircraft must attack a well-defended base, and where two teams
    of agents go head to head to defeat each other. Such scenarios have
    been previously considered in simulated environments with less
-   fidelity and complexity  [28]_,  [29]_. We leverage the computational
+   fidelity and complexity  [15]_,  [14]_. We leverage the computational
    efficiency and flexibility of the recently developed SCRIMMAGE
-   multi-agent simulator for our experiments (``Figure 1``)  [30]_. We
+   multi-agent simulator for our experiments (``Figure 1``)  [16]_. We
    compare the performance of ES against the Cross Entropy Method. We
    also show for the competitive scenario how the policy learns over
    time to coordinate a strategy in response to an enemy learning to do
@@ -207,13 +208,13 @@ II. PROBLEM FORMULATION
 *A. Gradient-Based Adaptive Stochastic Search*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-基于模型的随机搜索方法的目标是通过指定从中采样 [31]_的概率模型（“基于模型”的来由）来将非可微优化问题式(1)转换为可微分问题。让这个模型为\ :math:`p(\theta|\omega)=f(\theta;\omega), \omega\in\varOmega`\ ，其中\ :math:`w`\ 是定义概率分布的参数（例如，对于高斯分布，分布完全由均值和方差\ :math:`\omega=[\mu,\sigma]`\ 参数化。
+基于模型的随机搜索方法的目标是通过指定从中采样 [8]_的概率模型（“基于模型”的来由）来将非可微优化问题式(1)转换为可微分问题。让这个模型为\ :math:`p(\theta|\omega)=f(\theta;\omega), \omega\in\varOmega`\ ，其中\ :math:`w`\ 是定义概率分布的参数（例如，对于高斯分布，分布完全由均值和方差\ :math:`\omega=[\mu,\sigma]`\ 参数化。
 那么\ :math:`J(\theta)`\ 对分布\ :math:`f(\theta;\omega)`\ 的期望总是小于\ :math:`J`\ 的最优值，即
 
    The goal of model-based stochastic search methods is to cast the
    non-differentiable optimization problem (1) as a differentiable one
    by specifying a probabilistic model (hence ”model-based”) from which
-   to sample  [32]_. Let this model be
+   to sample  [8]_. Let this model be
    :math:`p(\theta|\omega)= f (\theta;\omega), \omega\in\varOmega`,
    where :math:`w` is a parameter which defines the probability
    distribution (e.g. for Gaussian distributions, the distribution is
@@ -248,9 +249,9 @@ II. PROBLEM FORMULATION
    With some assumptions on the form of the distribution, the gradient
    with respect to :math:`\omega` can be pushed inside the expectation.
 
-由 [33]_提出的GASS算法适用于\ **概率密度的指数族**\：
+由 [8]_提出的GASS算法适用于\ **概率密度的指数族**\：
 
-   The GASS algorithm presented by  [34]_ is applicable to the
+   The GASS algorithm presented by  [8]_ is applicable to the
    ``exponential family of probability densities`` :
 
 .. math::
@@ -359,7 +360,7 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
 定理1表明GASS产生一个\ :math:`\omega_k`\ 序列，它收敛到一个极限集，它指定一组最大化的分布（式（3））。
 此集合中的分布将指定如何选择
 :math:`\theta^\ast`\ 以最终最大化（式（1））。
-与大多数非凸优化算法一样，我们不能保证达到全局最大值，但使用概率模型和仔细选择整形函数应该有助于避免早期收敛到次优的局部最大值。证明依赖于以广义Robbins-Monro算法的形式投射更新规则（参见 [35]_，定理1和2）。定理1还根据迭代次数\ :math:`k`\ ，每次迭代的样本数\ :math:`N_k`\ 以及学习率\ :math:`\alpha_k`\ 指定收敛速度。在实践中，定理1意味着需要仔细平衡每次迭代的样本数量的增加以及随着迭代的进展而降低学习率。
+与大多数非凸优化算法一样，我们不能保证达到全局最大值，但使用概率模型和仔细选择整形函数应该有助于避免早期收敛到次优的局部最大值。证明依赖于以广义Robbins-Monro算法的形式投射更新规则（参见 [8]_，定理1和2）。定理1还根据迭代次数\ :math:`k`\ ，每次迭代的样本数\ :math:`N_k`\ 以及学习率\ :math:`\alpha_k`\ 指定收敛速度。在实践中，定理1意味着需要仔细平衡每次迭代的样本数量的增加以及随着迭代的进展而降低学习率。
 
    Theorem 1 shows that GASS produces a sequence of :math:`\omega_k`
    that converges to a limit set which specifies a set of distributions
@@ -369,7 +370,7 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
    at the global maximum, but using probabilistic models and careful
    choice of the shaping function should help avoid early convergence
    into suboptimal local maximum. The proof relies on casting the update
-   rule in the form of a generalized Robbins-Monro algorithm (see [36]_, Thms 1 and 2). Theorem 1 also specifies convergence rates in
+   rule in the form of a generalized Robbins-Monro algorithm (see [8]_, Thms 1 and 2). Theorem 1 also specifies convergence rates in
    terms of the number of iterations :math:`k`, the number of samples
    per iteration :math:`N_k`, and the learning rate :math:`\alpha_k`. In
    practice Theorem 1 implies the need to carefully balance the increase
@@ -398,20 +399,20 @@ GASS可以被认为是二阶梯度法，需要估计采样参数的方差：
 
 
 
-我们现在回顾一下 [37]_提出的ES算法，并展示它是如何是GASS算法的一阶近似。
+我们现在回顾一下 [4]_提出的ES算法，并展示它是如何是GASS算法的一阶近似。
 ES算法由与GASS相同的两个阶段组成：1）随机扰动具有从高斯分布采样的噪声的参数。
 2）计算回报并计算参数的更新。
-算法2中概述了该算法。一旦计算出返回值，它们就通过函数\ :math:`S(\cdot)`\ 发送，该函数执行适应性整形 [38]_。
+算法2中概述了该算法。一旦计算出返回值，它们就通过函数\ :math:`S(\cdot)`\ 发送，该函数执行适应性整形 [17]_。
 Salimans等人使用\ :math:`S(\cdot)`\ 的等级变换函数，他们认为减少了每次迭代中异常值的影响，并有助于避免局部最优。
 
-   We now review the ES algorithm proposed by  [39]_ and show how it is
+   We now review the ES algorithm proposed by  [4]_ and show how it is
    a first-order approximation of the GASS algorithm. The ES algorithm
    consists of the same two phases as GASS: 1) Randomly perturb
    parameters with noise sampled from a Gaussian distribution. 2)
    Calculate returns and calculate an update to the parameters. The
    algorithm is outlined in Algorithm 2. Once returns are calculated,
    they are sent through a function :math:`S(\cdot)` which performs
-   fitness shaping  [40]_. Salimans et al. used a rank transformation
+   fitness shaping  [17]_. Salimans et al. used a rank transformation
    function for :math:`S(\cdot)` which they argue reduced the influence
    of outliers at each iteration and helped to avoid local optima.
 
@@ -448,8 +449,8 @@ GASS
 
 这些方法的示例包括ADAM，RMSProp，具有动量的SGD等，其已经显示出对神经网络非常好地执行。
 因此，我们可以将ES视为GASS使用的完整二阶方差更新的一阶近似。
-在我们的实验中，我们使用ADAM  [41]_来调整每个参数的学习率。
-正如在 [42]_中类似地报道的那样，当使用自适应学习率时，我们发现在调整采样分布的方差方面几乎没有改进。
+在我们的实验中，我们使用ADAM  [18]_来调整每个参数的学习率。
+正如在 [4]_中类似地报道的那样，当使用自适应学习率时，我们发现在调整采样分布的方差方面几乎没有改进。
 我们假设具有自适应学习速率的一阶方法足以在优化神经网络时实现良好的性能。
 然而，对于其他类型的策略参数化，GASS的完整二阶处理可能更有用。
 还可以混合和匹配哪些参数需要完全方差更新，并且可以使用一阶近似方法更新。
@@ -459,8 +460,8 @@ GASS
    etc., which have been shown to perform very well for neural networks.
    Therefore we can treat ES a first-order approximation of the full
    second-order variance updates which GASS uses. In our experiments we
-   use ADAM  [43]_ to adapt the learning rate for each parameter. As
-   similarly reported in  [44]_, when using adaptive learning rates we
+   use ADAM  [18]_ to adapt the learning rate for each parameter. As
+   similarly reported in  [4]_, when using adaptive learning rates we
    found little improvement over adapting the variance of the sampling
    distribution. We hypothesize that a first order method with adaptive
    learning rates is sufficient for achieving good performance when
@@ -478,24 +479,24 @@ GASS
 
 
 
-现在我们对ES/GASS方法的融合更有信心，我们展示了如何在大规模多代理环境中使用ES来优化复杂的策略。我们使用SCRIMMAGE多代理仿真环境 [45]_，因为它允许我们快速并行地模拟复杂的多代理方案。我们使用6DoF固定翼飞机和四旋翼飞行器进行模拟，动力学模型分别具有10和12个状态。这些动力学模型允许在实际操作状态下进行全范围的运动。风和控制噪声形式的随机扰动被建模为\ **加性高斯噪声**\。可能发生地面和空中的碰撞，从而导致飞机被摧毁。我们还采用了一个武器模块，可以在从飞机机头突出的固定锥体内射击敌人。击中的概率取决于到目标的距离以及目标朝向攻击者的投影总面积。该区域基于飞机的\ **线框模型**\及其相对姿态。有关更多详细信息，请参阅我们的代码和SCRIMMAGE模拟器文档。
+现在我们对ES/GASS方法的融合更有信心，我们展示了如何在大规模多代理环境中使用ES来优化复杂的策略。我们使用SCRIMMAGE多代理仿真环境 [16]_，因为它允许我们快速并行地模拟复杂的多代理方案。我们使用6DoF固定翼飞机和四旋翼飞行器进行模拟，动力学模型分别具有10和12个状态。这些动力学模型允许在实际操作状态下进行全范围的运动。风和控制噪声形式的随机扰动被建模为\ **加性高斯噪声**\。可能发生地面和空中的碰撞，从而导致飞机被摧毁。我们还采用了一个武器模块，可以在从飞机机头突出的固定锥体内射击敌人。击中的概率取决于到目标的距离以及目标朝向攻击者的投影总面积。该区域基于飞机的\ **线框模型**\及其相对姿态。有关更多详细信息，请参阅我们的代码和SCRIMMAGE模拟器文档。
 
    Now that we are more confident about the convergence of the ES/GASS
    method, we show how ES can be used to optimize a complex policy in a
    large-scale multi-agent environment. We use the SCRIMMAGE multi-agent
-   simulation environment  [46]_ as it allows us to quickly and in
+   simulation environment  [16]_ as it allows us to quickly and in
    parallel simulate complex multi-agent scenarios. We populate our
    simulation with 6DoF fixed-wing aircraft and quadcopters with
    dynamics models having 10 and 12 states, respectively. These dynamcis
    models allow for full ranges of motion within realistic operating
    regimes. Stochastic disturbances in the form of wind and control
-   noise are modeled as ``additive Gaussian noise``. Ground and mid-air
+   noise are modeled as \ **additive Gaussian noise**\. Ground and mid-air
    collisions can occur which result in the aircraft being destroyed. We
    also incorporate a weapons module which allows for targeting and
    firing at an enemy within a fixed cone projecting from the aircraft's
    nose. The probability of a hit depends on the distance to the target
    and the total area presented by the target to the attacker. This area
-   is based on the ``wireframe model`` of the aircraft and its relative
+   is based on the \ **wireframe model**\ of the aircraft and its relative
    pose. For more details, see our code and the SCRIMMAGE simulator
    documentation.
 
@@ -723,7 +724,7 @@ B. 两队对抗(Two Team Competitive Match)
 IV. CONCLUSION
 --------------
 
-我们的研究已经表明，在竞争和合作多智能体的背景下，进化策略适用于学习那些用于各种复杂任务的具有数千个参数的策略。通过展示ES与更易于理解的基于模型的随机搜索方法之间的联系，我们能够深入了解未来的算法设计。未来的工作将包括优化混合参数化的实验，例如：优化神经网络权重和PID增益。在这种情况下，对非神经网络参数的二阶处理可能更有益，因为系统的行为可能对非神经网络参数的扰动更敏感。另一个研究方向将会是为团队中的每个代理优化独特的策略。再一个方向就是比较用于训练神经网络的其他进化计算策略，包括使用更多样化群体的方法 [48]_，或更多j具有启发类型的遗传算法 [49]_。
+我们的研究已经表明，在竞争和合作多智能体的背景下，进化策略适用于学习那些用于各种复杂任务的具有数千个参数的策略。通过展示ES与更易于理解的基于模型的随机搜索方法之间的联系，我们能够深入了解未来的算法设计。未来的工作将包括优化混合参数化的实验，例如：优化神经网络权重和PID增益。在这种情况下，对非神经网络参数的二阶处理可能更有益，因为系统的行为可能对非神经网络参数的扰动更敏感。另一个研究方向将会是为团队中的每个代理优化独特的策略。再一个方向就是比较用于训练神经网络的其他进化计算策略，包括使用更多样化群体的方法 [20]_，或更多j具有启发类型的遗传算法 [21]_。
 
    We have shown that Evolution Strategies are applicable for learning
    policies with many thousands of parameters for a wide range of
@@ -739,8 +740,8 @@ IV. CONCLUSION
    investigation could be optimizing unique policies for each agent in
    the team. Yet another direction would be comparing other evolutionary
    computation strategies for training neural networks, including
-   methods which use a more diverse population [50]_, or more genetic
-   algorithm-type heuristics [51]_.
+   methods which use a more diverse population [20]_, or more genetic
+   algorithm-type heuristics [21]_.
 
 .. _header-n190:
 
@@ -857,152 +858,3 @@ Learning,” ArXiv e-prints, Dec. 2017.
    predictive control: A review and recent developments,” The Canadian
    Journal of Chemical Engineering, vol. 89, no. 5, pp. 1176–1190, 2011.
    [Online]. Available: http://doi.wiley.com/10.1002/cjce.20555
-
-.. [22]
-   G. B. Lamont, J. N. Slear, and K. Melendez, “UAV swarm mission
-   planning and routing using multi-objective evolutionary algorithms,”
-   in IEEE Symposium Computational Intelligence in Multicriteria
-   Decision Making, no. Mcdm, 2007, Conference Proceedings, pp. 10–20.
-
-.. [23]
-   A. R. Yu, B. B. Thompson, and R. J. Marks, “Competitive evolution of
-   tactical multiswarm dynamics,” IEEE Transactions on Systems, Man,z
-   and Cybernetics Part A:Systems and Humans, vol. 43, no. 3, pp. 563–
-   569, 2013.
-
-.. [24]
-   D. D. Fan, E. Theodorou, and J. Reeder, “Evolving cost functions for
-   model predictive control of multi-agent uav combat swarms,” in
-   Proceedings of the Genetic and Evolutionary Computation Conference
-   Companion, ser. GECCO ’17. New York, NY, USA: ACM, 2017, pp. 55–56.
-   [Online]. Available: http://doi.acm.org/10.1145/3067695. 3076019
-
-.. [25]
-   U. Gaerther, “UAV swarm tactics: an agent-based simulation and Markov
-   process analysis,” 2015. [Online]. Available: https:
-
-.. [26]
-   D. D. Fan, E. Theodorou, and J. Reeder, “Evolving cost functions for
-   model predictive control of multi-agent uav combat swarms,” in
-   Proceedings of the Genetic and Evolutionary Computation Conference
-   Companion, ser. GECCO ’17. New York, NY, USA: ACM, 2017, pp. 55–56.
-   [Online]. Available: http://doi.acm.org/10.1145/3067695. 3076019
-
-.. [27]
-   K. J. DeMarco. (2018) SCRIMMAGE multi-agent robotics simulator.
-   [Online]. Available: http://www.scrimmagesim.org/
-
-.. [28]
-   U. Gaerther, “UAV swarm tactics: an agent-based simulation and Markov
-   process analysis,” 2015. [Online]. Available: https:
-
-.. [29]
-   D. D. Fan, E. Theodorou, and J. Reeder, “Evolving cost functions for
-   model predictive control of multi-agent uav combat swarms,” in
-   Proceedings of the Genetic and Evolutionary Computation Conference
-   Companion, ser. GECCO ’17. New York, NY, USA: ACM, 2017, pp. 55–56.
-   [Online]. Available: http://doi.acm.org/10.1145/3067695. 3076019
-
-.. [30]
-   K. J. DeMarco. (2018) SCRIMMAGE multi-agent robotics simulator.
-   [Online]. Available: http://www.scrimmagesim.org/
-
-.. [31]
-   E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non-differentiable optimization,” IEEE Transactions on Automatic
-   Control, vol. 59, no. 7, pp. 1818–1832, 2014.
-
-.. [32]
-   E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non-differentiable optimization,” IEEE Transactions on Automatic
-   Control, vol. 59, no. 7, pp. 1818–1832, 2014.
-
-.. [33]
-   E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non-differentiable optimization,” IEEE Transactions on Automatic
-   Control, vol. 59, no. 7, pp. 1818–1832, 2014.
-
-.. [34]
-   E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non-differentiable optimization,” IEEE Transactions on Automatic
-   Control, vol. 59, no. 7, pp. 1818–1832, 2014.
-
-.. [35]
-   E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non-differentiable optimization,” IEEE Transactions on Automatic
-   Control, vol. 59, no. 7, pp. 1818–1832, 2014.
-
-.. [36]
-   E. Zhou and J. Hu, “Gradient-based adaptive stochastic search for
-   non-differentiable optimization,” IEEE Transactions on Automatic
-   Control, vol. 59, no. 7, pp. 1818–1832, 2014.
-
-.. [37]
-   zT. Salimans, J. Ho, X. Chen, S. Sidor, and I. Sutskever, “Evolution
-   Strategies as a Scalable Alternative to Reinforcement Learning,”
-   ArXiv e-prints, Mar. 2017.
-
-.. [38]
-   D. Wierstra, T. Schaul, T. Glasmachers, Y. Sun, J. Peters, and
-
-.. [39]
-   zT. Salimans, J. Ho, X. Chen, S. Sidor, and I. Sutskever, “Evolution
-   Strategies as a Scalable Alternative to Reinforcement Learning,”
-   ArXiv e-prints, Mar. 2017.
-
-.. [40]
-   D. Wierstra, T. Schaul, T. Glasmachers, Y. Sun, J. Peters, and
-
-.. [41]
-   D. P. Kingma and J. Ba, “Adam: A method for stochastic optimiza-
-   tion,” arXiv preprint arXiv:1412.6980, 2014.
-
-.. [42]
-   zT. Salimans, J. Ho, X. Chen, S. Sidor, and I. Sutskever, “Evolution
-   Strategies as a Scalable Alternative to Reinforcement Learning,”
-   ArXiv e-prints, Mar. 2017.
-
-.. [43]
-   D. P. Kingma and J. Ba, “Adam: A method for stochastic optimiza-
-   tion,” arXiv preprint arXiv:1412.6980, 2014.
-
-.. [44]
-   zT. Salimans, J. Ho, X. Chen, S. Sidor, and I. Sutskever, “Evolution
-   Strategies as a Scalable Alternative to Reinforcement Learning,”
-   ArXiv e-prints, Mar. 2017.
-
-.. [45]
-   K. J. DeMarco. (2018) SCRIMMAGE multi-agent robotics simulator.
-   [Online]. Available: http://www.scrimmagesim.org/
-
-.. [46]
-   K. J. DeMarco. (2018) SCRIMMAGE multi-agent robotics simulator.
-   [Online]. Available: http://www.scrimmagesim.org/
-
-.. [47]
-   K. O. Stanley and R. Miikkulainen, “Competitive coevolution through
-   evolutionary complexification,” Journal of Artificial Intelligence
-   Research, vol. 21, pp. 63–100, 2004.
-
-.. [48]
-   E. Conti, V. Madhavan, F. Petroski Such, J. Lehman, K. O. Stanley,
-   and J. Clune, “Improving Exploration in Evolution Strategies for Deep
-   Reinforcement Learning via a Population of Novelty-Seeking Agents,”
-   ArXiv e-prints, Dec. 2017.
-
-.. [49]
-   F. Petroski Such, V. Madhavan, E. Conti, J. Lehman, K. O. Stanley,
-   and
-
-.. [50]
-   E. Conti, V. Madhavan, F. Petroski Such, J. Lehman, K. O. Stanley,
-   and J. Clune, “Improving Exploration in Evolution Strategies for Deep
-   Reinforcement Learning via a Population of Novelty-Seeking Agents,”
-   ArXiv e-prints, Dec. 2017.
-
-.. [51]
-   F. Petroski Such, V. Madhavan, E. Conti, J. Lehman, K. O. Stanley,
-   and
-
-.. |image0| image:: img/01.fig2.png
-.. |image1| image:: img/01.versus.png
