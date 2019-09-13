@@ -6,9 +6,6 @@ Documents Hub
 
 
 
-index
-=========
-
 .. toctree::
    :maxdepth: 2
    :caption: Swarm
