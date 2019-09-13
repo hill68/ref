@@ -13,7 +13,7 @@
 .. raw:: html
 
     <a href="https://arxiv.org/pdf/1803.01106.pdf" class="fa fa-book" target="_blank"> View Publication</a><br><br>
-    <a href="https://github.com/hill68/ref/raw/master/00.ref/Model-Based%20Stochastic%20Search%20for%20Large%20Scale%20Optimization%20of%20Multi-Agent%20UAV%20Swarms.En-Ch.pdf" class="fa fa-github" download> Download En_Ch Version Pdf</a><br><br>
+    <a href="https://github.com/hill68/ref/raw/master/00.ref/Model-Based%20Stochastic%20Search%20for%20Large%20Scale%20Optimization%20of%20Multi-Agent%20UAV%20Swarms.En-Ch.pdf" class="fa fa-file-pdf-o" download> Download En_Ch Version Pdf</a><br><br>
 
 
 
