@@ -82,7 +82,7 @@ Belta和Kumar（2004）提出了一种控制方法，可以让大量机器人沿
  >In this paper, we propose a region-based controller for a swarm of robots. In our proposed control method, each robot in the group stays within a moving region as a group (global objective) and, at the same time, maintains a minimum distance from each other (local objective). The desired region can be specified as various shapes, hence different shapes and formations can be formed. The robots in the group only need to communicate with their neigh- bors and not the entire community. The robots do not have spe- cific identities or roles within the group. Therefore, the proposed method does not require specific orders or positions of the robots inside the region and hence different shapes can be formed by a given swarm of robots. The dynamics of the robots are also consid- ered in the stability analysis of the formation control system. The system is scalable in the sense that any robot can move into the for- mation or leave the formation without affecting the other robots. Lyapunov theory is used to show the stability of the multi-robot systems. Simulation results are presented to illustrate the perfor- mance of the proposed shape controller.
 
 ## II. Region-based shape controls
-我们考虑一组$`N`$个启动的移动机器人，其具有$`n`$个自由度的第$`i`$个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
+我们考虑一组$N$个启动的移动机器人，其具有$`n`$个自由度的第$`i`$个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
 >We consider a group of N fully actuated mobile robots whose dynamics of the ith robot with n degrees of freedom can be de- scribed as (Fossen, 1994; Slotine & Li, 1991):
 
 ```math
