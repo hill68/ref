@@ -28,4 +28,4 @@ M_{i}(x_{i})\ddot{x}_{i}+C_{i}(x_{i}, \dot{x}_{i})\dot{x}_{i}+D_{i}(x_{i}) \dot{
 
 Click **Generate PDF** on the rightside ( $ N $ ) panel to output pdf file $n$.
 
-我们考虑一组 ( `$N$` ) 个启动的移动机器人，其具有 $n$ 个自由度的第 \[ i \] 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
+我们考虑一组 ( $N$ ) 个启动的移动机器人，其具有 $n$ 个自由度的第 \[ i \] 个机器人的动力学模型可以描述为（Fossen，1994; Slotine＆Li，1991）：
